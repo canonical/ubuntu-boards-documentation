@@ -1,20 +1,47 @@
-Starter pack
-============
+Ubuntu Boards Documentation
+===========================
 
-This starter pack contains the files you need to quickly set up your Sphinx documentation.
+Welcome to the Ubuntu Boards Documentation.
 
-Before you start, see the information about `Read the Docs at Canonical`_ and the instructions for `How to publish documentation on Read the Docs`_.
-
-Then, to start setting up your docs, check the :doc:`ReadMe <readme>` for instructions.
-The `Example product documentation`_ shows how to set up a Diátaxis structure in Sphinx.
-
-For quick help on reST or MyST syntax, see the :file:`doc-cheat-sheet.rst.txt` or :file:`doc-cheat-sheet-myst.md.txt` files in the repository.
-(Open the files in your text editor; the rendered output is not very useful.)
-
-More information is available in the `reStructuredText style guide`_.
+This is the official guide to installing Ubuntu on a variety of (typically
+non-PC) hardware, including the Raspberry Pi and RISC-V boards. Guides are also
+provided on debugging common boot issues, and a reference listing all the
+supported boards and image variants.
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   ReadMe <readme>
+   tutorials
+   how-to
+   explanations
+   reference
+
+
+.. grid:: 1 1 2 2
+    :gutter: 3
+
+    .. grid-item-card:: **Tutorials**
+       :link: tutorials
+       :link-type: doc
+
+       First time set up guides for popular boards
+
+    .. grid-item-card:: **How-to guides**
+       :link: how-to
+       :link-type: doc
+
+       Guides on debugging common first boot problems on a variety of hardware
+
+    .. grid-item-card:: **Explanations**
+       :link: explanations
+       :link-type: doc
+
+       Discussion of the pros and cons of the various image types
+
+    .. grid-item-card:: **Reference**
+       :link: reference
+       :link-type: doc
+
+       Technical information on each supported board, and their various boot
+       modes
