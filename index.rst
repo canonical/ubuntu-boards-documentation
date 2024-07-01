@@ -16,6 +16,7 @@ supported boards and image variants.
    how-to
    explanations
    reference
+   glossary
 
 
 .. grid:: 1 1 2 2

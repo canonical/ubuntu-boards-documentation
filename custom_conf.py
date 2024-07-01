@@ -167,7 +167,8 @@ custom_extensions = [
     'canonical.related-links',
     'canonical.custom-rst-roles',
     'canonical.terminal-output',
-    'notfound.extension'
+    'notfound.extension',
+    'sphinx.ext.extlinks',
     ]
 
 # Add custom required Python modules that must be added to the
@@ -220,3 +221,8 @@ rst_prolog = '''
 .. role:: center
    :class: align-center
 '''
+
+extlinks = {
+    'lp-bug': ('https://bugs.launchpad.net/bugs/%s', 'LP: #%s'),
+    'lp-pkg': ('https://launchpad.net/ubuntu/+source/%s', '%s'),
+}

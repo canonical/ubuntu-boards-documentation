@@ -8,6 +8,7 @@ variety of hardware.
 .. toctree::
     :maxdepth: 1
 
+    how-to/flash-images
     how-to/dsi-display
     how-to/rpi-config-txt
     how-to/rpi-no-display
