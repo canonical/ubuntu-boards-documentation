@@ -115,7 +115,7 @@ Install U-Boot to the SPI flash
 Boot the Live Server image
 --------------------------
 
-#. Flash the live server image to an SD card (see :doc:`how-to/flash-images`)
+#. Flash the live server image to an SD card (see :doc:`/how-to/flash-images`)
 
 #. Insert the SD card into the board
 
