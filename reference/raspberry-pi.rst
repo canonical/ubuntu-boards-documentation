@@ -38,6 +38,8 @@ of Ubuntu that support them.
 +--------------+-----------+-----------+---------+-----------+
 | `Zero 2W`_   | S         | S         | S       | S         |
 +--------------+-----------+-----------+---------+-----------+
+| `CM1`_       |           |           |         |           |
++--------------+-----------+-----------+---------+-----------+
 | `CM3`_       | S         | [2]_      |         |           |
 +--------------+-----------+-----------+---------+-----------+
 | `CM3+`_      | S         | S         | S       | S         |
@@ -66,6 +68,7 @@ C
 .. _Zero: https://www.raspberrypi.com/products/raspberry-pi-zero/
 .. _Zero W: https://www.raspberrypi.com/products/raspberry-pi-zero-w/
 .. _Zero 2W: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
+.. _CM1: https://www.raspberrypi.com/products/compute-module-1/
 .. _CM3: https://www.raspberrypi.com/products/compute-module-3/
 .. _CM3+: https://www.raspberrypi.com/products/compute-module-3-plus/
 .. _CM4: https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000
@@ -76,9 +79,9 @@ C
    the majority of 2B models in the field, this is not a supported board as of
    24.04
 
-.. [2] The Compute Module 3 is only provided with 4GB of eMMC storage; as of
-   22.04 the base Ubuntu server image became too large to support on the CM3.
-   Please use the CM3+ (which ships with 8GB of eMMC) as the replacement
+.. [2] The Compute Module 3 is only provided with 4GB of :term:`eMMC` storage;
+   as of 22.04 the base Ubuntu server image became too large to support on the
+   CM3. Please use the CM3+ (which ships with 8GB of eMMC) as the replacement
 
 .. [3] Desktop requires 2GB of RAM or more
 
