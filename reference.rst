@@ -14,7 +14,8 @@ Ubuntu.
     reference/licheerv-dock
     reference/microchip-polarfire-icicle
     reference/milk-v-mars
-    reference/qemu
+    reference/qemu-arm
+    reference/qemu-riscv
     reference/raspberry-pi
     reference/sifive-hifive-unleashed
     reference/sifive-hifive-unmatched

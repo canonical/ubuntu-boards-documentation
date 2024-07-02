@@ -1,6 +1,6 @@
-=======================
-SiFive HiFive Unmatched
-=======================
+==========
+QEMU (ARM)
+==========
 
 
 Supported Images
