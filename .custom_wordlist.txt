@@ -28,6 +28,7 @@ Nezha
 NVMe
 PCIe
 Polarfire
+qemu
 QEMU
 SBC
 SBCs
