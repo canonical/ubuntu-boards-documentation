@@ -23,3 +23,9 @@
         Frequently used for debugging early boot problems, as the serial port
         is a much simpler device than video output, and thus less likely to
         fail in the event of kernel bugs.
+
+    UEFI
+        `Unified Extensible Firmware Interface
+        <https://en.wikipedia.org/wiki/UEFI>`_ is a specification for the
+        booting of computer hardware. Whilst nearly ubiquitous on modern PCs,
+        support for it is considerably more sparse on :term:`SBCs <SBC>`.

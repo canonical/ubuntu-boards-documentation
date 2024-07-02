@@ -145,6 +145,14 @@ Boot the Live Server image
    `Ubuntu Server installation tutorial
    <https://ubuntu.com/tutorials/install-ubuntu-server>`_
 
+#. Once the installation is complete, reboot the board without removing the SD
+   card
+
+.. note::
+
+    U-Boot does not allow the operating system to write :term:`UEFI` variables.
+    You can do this manually using U-Boot's :command:`eficonfig` command.
+
 
 Boot Source Selection
 =====================
