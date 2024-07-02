@@ -1,0 +1,25 @@
+# This is the list of project specific vocabulary for the spellchecker
+
+adapter
+autoboot
+customize
+dev
+EBBR
+eMMC
+GND
+GPIO
+GPU
+GPUs
+init
+libcamera
+Mantic
+NVMe
+PCIe
+SBC
+SBCs
+SDC
+SPI
+ttyUSB
+UART
+ubuntu
+UEFI

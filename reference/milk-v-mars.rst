@@ -172,12 +172,14 @@ GPIO01  GPIO00  Boot Source
 For example, to boot from SD card the DIP switches should be set as follows:
 
 .. image:: /images/milk-v-mars-boot-source-sd.jpg
-    :align: center
+    :width: 15em
+    :alt: Boot from SD card
 
 Alternatively, to boot from SPI flash, set the DIP switches like so:
 
 .. image:: /images/milk-v-mars-boot-source-spi.jpg
-    :align: center
+    :width: 15em
+    :alt: Boot from SPI flash
 
 
 UART Console
@@ -191,13 +193,17 @@ The Milk-V Mars UART follows the typical Pi-based layout:
 
 * Pin 10: UART RX
 
-* Configuration: 115200, 8N1
+ .. image:: /images/milk-v-mars-gpio.jpg
+    :width: 30em
+    :alt: GPIO
 
-  - 115200 baud
-  - 8 data bits
-  - no parity
-  - 1 stop bit
-  - no flow control
+Connect with *screen /dev/ttyUSB0 115200,8N1*:
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
 
 
 Limitations
