@@ -9,5 +9,4 @@ for single board computers.
     :maxdepth: 1
 
     explanations/installer-or-preinstalled
-    explanations/rpi-server-or-desktop
-    explanations/rpi-server-or-core
+    explanations/rpi-server-desktop-or-core
