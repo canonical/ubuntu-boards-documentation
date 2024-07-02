@@ -182,6 +182,7 @@ custom_required_modules = []
 
 # Add files or directories that should be excluded from processing.
 custom_excludes = [
+    'readme.rst',
     'doc-cheat-sheet*',
     ]
 
