@@ -52,7 +52,7 @@ S
 D
     Desktop supported
 C
-    Certified (LTS releases only)
+    `Certified`_ (LTS releases only)
 
 .. _A+: https://www.raspberrypi.com/products/raspberry-pi-1-model-a-plus/
 .. _B+: https://www.raspberrypi.com/products/raspberry-pi-1-model-b-plus/
@@ -206,4 +206,5 @@ Limitations
 
 
 .. _Raspberry Pi: https://www.raspberrypi.com/
+.. _Certified: https://certification.canonical.com/
 .. _cloud-init: https://cloudinit.readthedocs.io/
