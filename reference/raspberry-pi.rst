@@ -172,27 +172,70 @@ Using the pre-installed desktop image
 UART Console
 ============
 
-The serial console is found on the following pins of the GPIO header on all
-models *except* the Pi 5:
+The UART console is accessible via the GPIO header on all models *except* the
+Pi 5. Assuming the typical colouring of USB to TTL serial adapters the
+following connections have to be made:
 
-* Pin 6: GND
+=========== ==========
+Board       Adapter
+=========== ==========
+GND, pin  6 GND, black
+TX,  pin  8 RX,  white
+RX,  pin 10 TX,  green
+=========== ==========
 
-* Pin 8: UART TX
+Do not connect the red 3.3 V wire.
 
-* Pin 10: UART RX
+.. image:: /images/rpi-gpio-uart-traditional.jpg
+    :alt: A close-up of a traditional USB UART adapter connected to the UART
+          on the GPIO header of a Raspberry Pi 4B
 
-* Configuration: 115200, 8N1
+Connect with the following settings:
 
-  - 115200 baud
-  - 8 data bits
-  - no parity
-  - 1 stop bit
-  - no flow control
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
+
+.. code-block:: text
+
+    screen /dev/ttyUSB0 115200,cs8,-parenb,-cstopb
+
+Replace ``/dev/ttyUSB0`` with the relevant device in your setup.
+
+If you are using a Raspberry Pi `debug probe`_, the colouring of wires is
+slightly different, and you must ensure that the lead is connected to the "U"
+port of the debug probe, but the connections on the GPIO header are similar:
+
+=========== ===========
+Board       Debug Probe
+=========== ===========
+GND, pin  6 GND, black
+TX,  pin  8 RX,  yellow
+RX,  pin 10 TX,  orange
+=========== ===========
+
+.. image:: /images/rpi-gpio-uart-debug-probe.jpg
+    :alt: A close-up of the Raspberry Pi debug probe connected to the UART
+          on the GPIO header of a Raspberry Pi 4B
+
+Connect with:
+
+.. code-block:: text
+
+    screen /dev/ttyACM0 115200,cs8,-parenb,-cstopb
 
 On the Pi 5, the serial console is accessed via the 3-pin UART header between
-the two micro-HDMI ports. If you wish to access the serial console via the GPIO
-header as on previous models, append the following line to :file:`config.txt`
-on the boot partition:
+the two micro-HDMI ports. The simplest means of using this UART is to use the
+Raspberry Pi `debug probe`_ connected as shown:
+
+.. image:: /images/rpi-debug-uart.jpg
+    :alt: A close-up of the Raspberry Pi debug probe connected to the UART
+          port located between the micro-HDMI ports of a Raspberry Pi 5.
+
+If you wish to access the serial console via the GPIO header as on previous
+models, append the following line to :file:`config.txt` on the boot partition:
 
 .. code-block:: text
 
@@ -211,3 +254,4 @@ Limitations
 .. _Raspberry Pi: https://www.raspberrypi.com/
 .. _Certified: https://certification.canonical.com/
 .. _cloud-init: https://cloudinit.readthedocs.io/
+.. _debug probe: https://www.raspberrypi.com/products/debug-probe/
