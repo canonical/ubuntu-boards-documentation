@@ -193,13 +193,17 @@ The Milk-V Mars UART follows the typical Pi-based layout:
 
 * Pin 10: UART RX
 
-* Configuration: 115200, 8N1
+ .. image:: /images/milk-v-mars-gpio.jpg
+    :width: 30em
+    :alt: GPIO
 
-  - 115200 baud
-  - 8 data bits
-  - no parity
-  - 1 stop bit
-  - no flow control
+Connect with *screen /dev/ttyUSB0 115200,8N1*:
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
 
 
 Limitations
