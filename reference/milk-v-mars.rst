@@ -172,12 +172,14 @@ GPIO01  GPIO00  Boot Source
 For example, to boot from SD card the DIP switches should be set as follows:
 
 .. image:: /images/milk-v-mars-boot-source-sd.jpg
-    :align: center
+    :width: 15em
+    :alt: Boot from SD card
 
 Alternatively, to boot from SPI flash, set the DIP switches like so:
 
 .. image:: /images/milk-v-mars-boot-source-spi.jpg
-    :align: center
+    :width: 15em
+    :alt: Boot from SPI flash
 
 
 UART Console
