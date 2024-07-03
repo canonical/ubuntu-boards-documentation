@@ -58,8 +58,9 @@ Using the pre-installed server image
 Using the live server image
 ===========================
 
-The live installer image is used to install Ubuntu to an eMMC, USB, or NVMe
-drive. To boot the live image, U-Boot must be installed on the SPI flash.
+The live installer image is used to install Ubuntu to an :term:`eMMC`, USB, or
+:term:`NVMe` drive. To boot the live image, U-Boot must be installed on the SPI
+flash.
 
 .. warning::
 
@@ -127,8 +128,8 @@ Boot the live server image
 
 #. Power on the board
 
-#. If no prior operating system installation exists, U-Boot will start up GRUB
-   on the SD card. Go to step 8
+#. If no prior operating system installation exists, U-Boot will start up
+   :term:`GRUB` on the SD card. Go to step 8
 
 #. If a prior operating system exists, press :kbd:`Enter` when "Hit any key to
    stop autoboot" is displayed, and enter:
@@ -140,8 +141,6 @@ Boot the live server image
        # load mmc 1:1 $fdt_addr_r dtb/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb
        load mmc 1:1 $kernel_addr_r EFI/boot/bootriscv64.efi
        bootefi $kernel_addr_r $fdt_addr_r
-
-
 
 #. From the GRUB menu, select "Try or Install Ubuntu Server"
 

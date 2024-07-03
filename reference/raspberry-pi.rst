@@ -128,13 +128,13 @@ Using the pre-installed server image
 ====================================
 
 #. Flash the pre-installed image to your selection of boot media (SD card, USB
-   mass-storage device or, on the CM4 or Pi 5, NVMe storage)
+   mass-storage device or, on the CM4 or Pi 5, :term:`NVMe` storage)
 
 #. If desired, customize the `cloud-init`_ configuration on the boot partition,
    found in the :file:`user-data` and :file:`network-config` files
 
 #. Attach the boot media to the board (for USB or NVMe this may require an
-   adapter or HAT)
+   adapter or :term:`HAT`)
 
 #. Attach a screen and keyboard
 
@@ -157,10 +157,10 @@ Using the pre-installed desktop image
 =====================================
 
 #. Flash the pre-installed image to your selection of boot media (SD card, USB
-   mass-storage device or, on the CM4 or Pi 5, NVMe storage)
+   mass-storage device or, on the CM4 or Pi 5, :term:`NVMe` storage)
 
 #. Attach the boot media to the board (for USB or NVMe this may require an
-   adapter or HAT)
+   adapter or :term:`HAT`)
 
 #. Attach a screen, keyboard, and mouse
 
