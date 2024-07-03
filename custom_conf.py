@@ -20,6 +20,7 @@ import datetime
 
 # Product name
 project = 'Ubuntu Boards'
+version = '0.1'
 author = 'Canonical Ltd.'
 
 # The title you want to display for the documentation in the sidebar.
