@@ -17,7 +17,6 @@ Ubuntu.
     reference/qemu-arm
     reference/qemu-riscv
     reference/raspberry-pi
-    reference/sifive-hifive-unleashed
     reference/sifive-hifive-unmatched
     reference/starfive-visionfive
     reference/starfive-visionfive-2
