@@ -185,8 +185,9 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
 UART console
 ============
 
-The UART is available via the GPIO connector. Assuming the typical colouring of
-USB to TTL serial adapters the following connections have to be made:
+The :term:`UART` is available via the :term:`GPIO` connector. Assuming the
+typical colouring of USB to :term:`TTL` serial adapters the following
+connections have to be made:
 
 =========== ==========
 Board       Adapter

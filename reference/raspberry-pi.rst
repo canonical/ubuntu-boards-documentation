@@ -172,9 +172,9 @@ Using the pre-installed desktop image
 UART console
 ============
 
-The UART console is accessible via the GPIO header on all models *except* the
-Pi 5. Assuming the typical colouring of USB to TTL serial adapters the
-following connections have to be made:
+The :term:`UART` console is accessible via the :term:`GPIO` header on all
+models *except* the Pi 5. Assuming the typical colouring of USB to :term:`TTL`
+serial adapters the following connections have to be made:
 
 =========== ==========
 Board       Adapter

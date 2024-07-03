@@ -38,6 +38,20 @@ Glossary
     SBC
         A Single Board Computer.
 
+    TTL
+        `Transistor-transistor logic
+        <https://en.wikipedia.org/wiki/Transistor%E2%80%93transistor_logic>`_;
+        a family of logic circuits. In the context of serial adapters and
+        :term:`UART` consoles, however, this usually refers to the voltage
+        level expected.
+
+        The `RS-232 <https://en.wikipedia.org/wiki/RS-232>`_ standard (commonly
+        used in serial interfaces) permits a wide range of voltages from 3V up
+        to 15V. However, the UARTs on most :term:`SBCs <SBC>` expect no more
+        than the 3.3V typically used on their :term:`GPIO` headers. Thus, "TTL
+        UART" or "serial TTL" implies a UART interface (or adapter) that
+        requires (or accepts) no more than 3.3V through its pins.
+
     UART
         `Universal Asynchronous receiver-transmitter
         <https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter>`_;
