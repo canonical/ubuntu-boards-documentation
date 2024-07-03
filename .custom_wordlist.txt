@@ -41,6 +41,7 @@ StarFive
 TTL
 ttyUSB
 UART
+UARTs
 ubuntu
 UEFI
 VisionFive
