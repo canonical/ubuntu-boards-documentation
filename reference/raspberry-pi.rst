@@ -191,7 +191,7 @@ the two micro-HDMI ports. If you wish to access the serial console via the GPIO
 header as on previous models, append the following line to :file:`config.txt`
 on the boot partition:
 
-.. code-block:: ini
+.. code-block:: text
 
     dtparam=uart0_console
 
