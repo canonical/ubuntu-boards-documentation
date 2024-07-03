@@ -5,7 +5,7 @@ Milk-V Mars
 The `Milk-V Mars`_ is a RISC-V based :term:`SBC`.
 
 
-Supported Images
+Supported images
 ================
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed server:
