@@ -1,3 +1,3 @@
 ==========================
-Flash Images to an SD card
+Flash images to an SD card
 ==========================

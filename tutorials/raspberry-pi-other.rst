@@ -27,7 +27,7 @@ the following:
 * An internet connection
 
 
-Flashing the Boot Media
+Flashing the boot media
 =======================
 
 

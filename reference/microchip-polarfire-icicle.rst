@@ -3,7 +3,7 @@ Microchip Polarfire Icicle
 ==========================
 
 
-Supported Images
+Supported images
 ================
 
 

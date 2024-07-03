@@ -1,3 +1,3 @@
 ===================
-Connect a DSI Panel
+Connect a DSI panel
 ===================

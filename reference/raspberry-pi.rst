@@ -5,7 +5,7 @@ Raspberry Pi
 The `Raspberry Pi`_ is an ARM based :term:`SBC` made in the UK.
 
 
-Supported Models
+Supported models
 ================
 
 The following matrix maps all models of the Raspberry Pi against the releases
@@ -88,7 +88,7 @@ C
 .. [4] Desktop requires 4GB of RAM or more
 
 
-Supported Images
+Supported images
 ================
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed server:
@@ -169,7 +169,7 @@ Using the pre-installed desktop image
 #. Wait for the first-time setup wizard to start and follow the instructions
 
 
-UART Console
+UART console
 ============
 
 The UART console is accessible via the GPIO header on all models *except* the

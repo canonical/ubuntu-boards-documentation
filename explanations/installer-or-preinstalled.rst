@@ -1,4 +1,4 @@
 =========================================
-Server Installer or Pre-installed Images?
+Server installer or pre-installed images?
 =========================================
 

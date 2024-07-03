@@ -3,7 +3,7 @@ StarFive VisionFive
 ===================
 
 
-Supported Images
+Supported images
 ================
 
 

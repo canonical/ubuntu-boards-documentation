@@ -12,7 +12,7 @@ installed:
   implementing the :term:`UEFI` :term:`API` and loads :term:`GRUB`
 
 
-Supported Images
+Supported images
 ================
 
 

@@ -25,10 +25,10 @@ Using the pre-installed server image
 
 #. Insert the SD card into the board
 
-#. Set the boot source to the SD card (see `Boot Source Selection`_)
+#. Set the boot source to the SD card (see `Boot source selection`_)
 
 #. Connect a USB UART adapter to the :term:`UART` on the :term:`GPIO` header
-   (see `UART Console`_ and :doc:`/how-to/uart-console`)
+   (see `UART console`_ and :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -75,10 +75,10 @@ Install U-Boot to the SPI flash
 
 #. Insert the SD card into the board
 
-#. Set the boot source to the SD card (see `Boot Source Selection`_)
+#. Set the boot source to the SD card (see `Boot source selection`_)
 
 #. Connect a USB UART adapter to the :term:`UART` on the :term:`GPIO` header
-   (see `UART Console`_ and :doc:`/how-to/uart-console`)
+   (see `UART console`_ and :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -96,7 +96,7 @@ Install U-Boot to the SPI flash
 
 #. Switch the board off
 
-#. Set the boot source to the SPI flash (see `Boot Source Selection`_)
+#. Set the boot source to the SPI flash (see `Boot source selection`_)
 
 #. Power on the board
 
@@ -112,18 +112,18 @@ Install U-Boot to the SPI flash
 #. Switch the board off
 
 
-Boot the Live Server image
+Boot the live server image
 --------------------------
 
 #. Flash the live server image to an SD card (see :doc:`/how-to/flash-images`)
 
 #. Insert the SD card into the board
 
-#. Ensure the boot source is SPI flash (see `Boot Source Selection`_), *not* SD
+#. Ensure the boot source is SPI flash (see `Boot source selection`_), *not* SD
    card
 
 #. Connect a USB UART adapter to the UART on the GPIO header (see
-   `UART Console`_ and :doc:`/how-to/uart-console`)
+   `UART console`_ and :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -158,7 +158,7 @@ Boot the Live Server image
     You can do this manually using U-Boot's :command:`eficonfig` command.
 
 
-Boot Source Selection
+Boot source selection
 =====================
 
 The StarFive VisionFive 2 board can boot firmware from SPI flash, SD card, eMMC, or UART.
@@ -186,7 +186,7 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
     :alt: Boot from SPI flash
 
 
-UART Console
+UART console
 ============
 
 The UART is available via the GPIO connector. Assuming the typical colouring of
