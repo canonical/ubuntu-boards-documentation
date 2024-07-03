@@ -185,25 +185,36 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
 UART Console
 ============
 
-The Milk-V Mars UART follows the typical Pi-based layout:
+The UART is available via the GPIO connector. Assuming the typical colouring of
+USB to TTL serial adapters the following connections have to be made:
 
-* Pin 6: GND
+=========== ==========
+Board       Adapter
+=========== ==========
+GND, pin  6 GND, black
+TX,  pin  8 RX,  white
+RX,  pin 10 TX,  green
+=========== ==========
 
-* Pin 8: UART TX
-
-* Pin 10: UART RX
+Do not connect the red 3.3 V wire.
 
  .. image:: /images/milk-v-mars-gpio.jpg
     :width: 30em
     :alt: GPIO
 
-Connect with *screen /dev/ttyUSB0 115200,8N1*:
+Connect with
 
 * 115200 baud
 * 8 data bits
 * no parity
 * 1 stop bit
 * no flow control
+
+.. code-block:: text
+
+    screen /dev/ttyUSB0 115200,cs8,-parenb,-cstopb
+
+Replace /dev/ttyUSB0 with the relevant device in your setup.
 
 
 Limitations
