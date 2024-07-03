@@ -3,7 +3,7 @@ QEMU (ARM)
 ==========
 
 
-Supported Images
+Supported images
 ================
 
 

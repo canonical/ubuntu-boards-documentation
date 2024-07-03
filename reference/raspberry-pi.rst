@@ -5,7 +5,7 @@ Raspberry Pi
 The `Raspberry Pi`_ is an ARM based :term:`SBC` made in the UK.
 
 
-Supported Models
+Supported models
 ================
 
 The following matrix maps all models of the Raspberry Pi against the releases
@@ -88,7 +88,7 @@ C
 .. [4] Desktop requires 4GB of RAM or more
 
 
-Supported Images
+Supported images
 ================
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed server:
@@ -127,14 +127,14 @@ Supported Images
 Using the pre-installed server image
 ====================================
 
-#. Flash the pre-installed image to your selection of boot media (SD card, USB
-   mass-storage device or, on the CM4 or Pi 5, NVMe storage)
+#. Flash the pre-installed image to your selection of boot media (microSD card,
+   USB mass-storage device or, on the CM4 or Pi 5, :term:`NVMe` storage)
 
 #. If desired, customize the `cloud-init`_ configuration on the boot partition,
    found in the :file:`user-data` and :file:`network-config` files
 
 #. Attach the boot media to the board (for USB or NVMe this may require an
-   adapter or HAT)
+   adapter or :term:`HAT`)
 
 #. Attach a screen and keyboard
 
@@ -156,11 +156,11 @@ Using the pre-installed server image
 Using the pre-installed desktop image
 =====================================
 
-#. Flash the pre-installed image to your selection of boot media (SD card, USB
-   mass-storage device or, on the CM4 or Pi 5, NVMe storage)
+#. Flash the pre-installed image to your selection of boot media (microSD card,
+   USB mass-storage device or, on the CM4 or Pi 5, :term:`NVMe` storage)
 
 #. Attach the boot media to the board (for USB or NVMe this may require an
-   adapter or HAT)
+   adapter or :term:`HAT`)
 
 #. Attach a screen, keyboard, and mouse
 
@@ -169,12 +169,12 @@ Using the pre-installed desktop image
 #. Wait for the first-time setup wizard to start and follow the instructions
 
 
-UART Console
+UART console
 ============
 
-The UART console is accessible via the GPIO header on all models *except* the
-Pi 5. Assuming the typical colouring of USB to TTL serial adapters the
-following connections have to be made:
+The :term:`UART` console is accessible via the :term:`GPIO` header on all
+models *except* the Pi 5. Assuming the typical colouring of USB to :term:`TTL`
+serial adapters the following connections have to be made:
 
 =========== ==========
 Board       Adapter

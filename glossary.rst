@@ -20,23 +20,64 @@ Glossary
         circuit for use in circuit boards as non-volatile storage.
 
     GPIO
-        General Purpose Input/Output; in the context of :term:`SBCs <SBC>`,
-        this typically refers to the prominent pin-header (often containing
-        2×20 pins) along one edge of the board. Some (but not all) of these
-        pins may be controlled by software, operating as inputs or outputs.
+        `General Purpose Input/Output
+        <https://en.wikipedia.org/wiki/General-purpose_input/output>`_; in the
+        context of :term:`SBCs <SBC>`, this typically refers to the prominent
+        pin-header (often containing 2×20 pins) along one edge of the board.
+        Some (but not all) of these pins may be controlled by software,
+        operating as inputs or outputs.
 
     GRUB
         The GNU `GRand Unified Bootloader
         <https://www.gnu.org/software/grub/>`_, commonly used as the Linux
         bootloader on PC platforms, and a few :term:`SBCs <SBC>` too.
 
+    HAT
+        Hardware Attached on Top; the Raspberry Pi `specification
+        <https://github.com/raspberrypi/hats>`_ guiding the design of boards
+        intended to connect to the 40-pin :term:`GPIO` header, and sit "on top"
+        of the Pi. With the advent of the Pi 5, the specification is now
+        superseded by the `HAT+ specification
+        <https://datasheets.raspberrypi.com/hat/hat-plus-specification.pdf>`_.
+
+    NVMe
+        `Non-Volatile Memory express
+        <https://en.wikipedia.org/wiki/NVM_Express>`_; the interface used by
+        modern flash storage devices, developed to more closely match the
+        capabilities and behaviour of flash storage (in contrast to interfaces
+        like :term:`SATA` which were developed for use with spinning media).
+
     QEMU
         The `Quick Emulator <https://www.qemu.org/>`_ project, a popular
         virtual machine implementation supporting multiple architectures and
         cross-architectural emulation under Linux/BSD.
 
+    SATA
+        `Serial AT Attachment <https://en.wikipedia.org/wiki/SATA>`_; an
+        interface used by hard disk and flash storage drives, though now
+        largely superseded by :term:`NVMe` in the case of flash storage.
+
     SBC
         A Single Board Computer.
+
+    SSD
+        `Solid State Drive <https://en.wikipedia.org/wiki/Solid-state_drive>`_;
+        a type of persistent storage drive that has no moving parts, relying
+        instead on flash memory.
+
+    TTL
+        `Transistor-transistor logic
+        <https://en.wikipedia.org/wiki/Transistor%E2%80%93transistor_logic>`_;
+        a family of logic circuits. In the context of serial adapters and
+        :term:`UART` consoles, however, this usually refers to the voltage
+        level expected.
+
+        The `RS-232 <https://en.wikipedia.org/wiki/RS-232>`_ standard (commonly
+        used in serial interfaces) permits a wide range of voltages from 3V up
+        to 15V. However, the UARTs on most :term:`SBCs <SBC>` expect no more
+        than the 3.3V typically used on their :term:`GPIO` headers. Thus, "TTL
+        UART" or "serial TTL" implies a UART interface (or adapter) that
+        requires (or accepts) no more than 3.3V through its pins.
 
     UART
         `Universal Asynchronous receiver-transmitter

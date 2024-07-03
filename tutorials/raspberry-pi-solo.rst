@@ -29,10 +29,10 @@ without the need for an additional machine. You will need the following:
     configure wifi at this time.
 
 
-Hardware Setup
+Hardware setup
 ==============
 
 
-Software Installation
+Software installation
 =====================
 

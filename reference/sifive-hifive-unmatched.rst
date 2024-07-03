@@ -3,7 +3,7 @@ SiFive HiFive Unmatched
 =======================
 
 
-Supported Images
+Supported images
 ================
 
 

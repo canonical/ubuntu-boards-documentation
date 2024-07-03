@@ -12,8 +12,8 @@ the following:
 
 * Storage media; any one of:
 
-  - microSD card sized 16GB or larger, plus an SD card reader/writer for your
-    other computer
+  - microSD card sized 16GB or larger, plus a microSD card reader/writer for
+    your other computer
 
   - SSD drive with an appropriate USB3 adapter
 
@@ -27,7 +27,7 @@ the following:
 * An internet connection
 
 
-Flashing the Boot Media
+Flashing the boot media
 =======================
 
 

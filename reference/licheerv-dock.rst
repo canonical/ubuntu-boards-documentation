@@ -3,7 +3,7 @@ LicheeRV Dock
 =============
 
 
-Supported Images
+Supported images
 ================
 
 

@@ -3,7 +3,7 @@ Allwinner Nezha D1
 ==================
 
 
-Supported Images
+Supported images
 ================
 
 
