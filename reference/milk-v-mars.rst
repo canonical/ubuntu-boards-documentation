@@ -20,12 +20,12 @@ Supported images
 Using the pre-installed server image
 ====================================
 
-#. Flash the pre-installed server image to an SD card (see
+#. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
 
-#. Insert the SD card into the board
+#. Insert the microSD card into the board
 
-#. Set the boot source to the SD card (see `Boot source selection`_)
+#. Set the boot source to the microSD card (see `Boot source selection`_)
 
 #. Connect a USB UART adapter to the :term:`UART` on the :term:`GPIO` header
    (see `UART console`_ and :doc:`/how-to/uart-console`)
@@ -70,12 +70,12 @@ drive. To boot the live image, U-Boot must be installed on the SPI flash.
 Install U-Boot to the SPI flash
 -------------------------------
 
-#. Flash the pre-installed server image to an SD card (see
+#. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
 
-#. Insert the SD card into the board
+#. Insert the microSD card into the board
 
-#. Set the boot source to the SD card (see `Boot source selection`_)
+#. Set the boot source to the microSD card (see `Boot source selection`_)
 
 #. Connect a USB UART adapter to the :term:`UART` on the :term:`GPIO` header
    (see `UART console`_ and :doc:`/how-to/uart-console`)
@@ -115,12 +115,13 @@ Install U-Boot to the SPI flash
 Boot the live server image
 --------------------------
 
-#. Flash the live server image to an SD card (see :doc:`/how-to/flash-images`)
+#. Flash the live server image to a microSD card (see
+   :doc:`/how-to/flash-images`)
 
-#. Insert the SD card into the board
+#. Insert the microSD card into the board
 
-#. Ensure the boot source is SPI flash (see `Boot source selection`_), *not* SD
-   card
+#. Ensure the boot source is SPI flash (see `Boot source selection`_), *not*
+   microSD card
 
 #. Connect a USB UART adapter to the UART on the GPIO header (see
    `UART console`_ and :doc:`/how-to/uart-console`)
@@ -128,7 +129,7 @@ Boot the live server image
 #. Power on the board
 
 #. If no prior operating system installation exists, U-Boot will start up GRUB
-   on the SD card. Go to step 8
+   on the microSD card. Go to step 8
 
 #. If a prior operating system exists, press :kbd:`Enter` when "Hit any key to
    stop autoboot" is displayed, and enter:
@@ -145,8 +146,8 @@ Boot the live server image
    `Ubuntu Server installation tutorial
    <https://ubuntu.com/tutorials/install-ubuntu-server>`_
 
-#. Once the installation is complete, reboot the board without removing the SD
-   card
+#. Once the installation is complete, reboot the board without removing the
+   microSD card
 
 .. note::
 
@@ -157,23 +158,24 @@ Boot the live server image
 Boot source selection
 =====================
 
-The Milk-V Mars board can boot firmware from SPI flash, SD card, eMMC, or UART.
-The boot source is selected via DIP switches.
+The Milk-V Mars board can boot firmware from SPI flash, microSD card, eMMC, or
+UART. The boot source is selected via DIP switches.
 
-======  ======  ===========
+======  ======  ============
 GPIO01  GPIO00  Boot Source
-======  ======  ===========
+======  ======  ============
 0       0       SPI flash
-0       1       SD card
+0       1       microSD card
 1       0       eMMC
 1       1       UART
-======  ======  ===========
+======  ======  ============
 
-For example, to boot from SD card the DIP switches should be set as follows:
+For example, to boot from microSD card the DIP switches should be set as
+follows:
 
 .. image:: /images/milk-v-mars-boot-source-sd.jpg
     :width: 15em
-    :alt: Boot from SD card
+    :alt: Boot from microSD card
 
 Alternatively, to boot from SPI flash, set the DIP switches like so:
 
