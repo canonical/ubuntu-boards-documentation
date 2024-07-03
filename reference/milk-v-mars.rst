@@ -198,7 +198,7 @@ RX,  pin 10 TX,  green
 
 Do not connect the red 3.3 V wire.
 
- .. image:: /images/milk-v-mars-gpio.jpg
+.. image:: /images/milk-v-mars-gpio.jpg
     :width: 30em
     :alt: GPIO
 
