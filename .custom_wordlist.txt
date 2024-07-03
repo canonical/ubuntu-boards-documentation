@@ -1,6 +1,7 @@
 # This is the list of project specific vocabulary for the spellchecker
 
 adapter
+adapters
 Allwinner
 autoboot
 Bootloader
@@ -37,6 +38,7 @@ SiFive
 SPI
 SSD
 StarFive
+TTL
 ttyUSB
 UART
 ubuntu
