@@ -228,3 +228,7 @@ extlinks = {
     'lp-bug': ('https://bugs.launchpad.net/bugs/%s', 'LP: #%s'),
     'lp-pkg': ('https://launchpad.net/ubuntu/+source/%s', '%s'),
 }
+
+# Ensure PDF output is useful when printed
+latex_show_pagerefs = True
+latex_show_urls = 'footnote'
