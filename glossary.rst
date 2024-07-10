@@ -40,6 +40,13 @@ Glossary
         superseded by the `HAT+ specification
         <https://datasheets.raspberrypi.com/hat/hat-plus-specification.pdf>`_.
 
+    JTAG
+        An industry standard developed by the Joint Test Action Group (JTAG)
+        for verification and testing of circuit boards. In the context of
+        :term:`SBCs <SBC>`, typically refers to the physical `debug interface
+        <https://en.wikipedia.org/wiki/JTAG#Electrical_characteristics>`_
+        found on many boards.
+
     NVMe
         `Non-Volatile Memory express
         <https://en.wikipedia.org/wiki/NVM_Express>`_; the interface used by

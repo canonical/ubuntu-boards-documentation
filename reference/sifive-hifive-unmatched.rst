@@ -16,6 +16,22 @@ Supported images
 
   - :download:`ubuntu-24.04-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-live-server-riscv64.img.gz>`
 
+* Ubuntu 23.10 (Mantic Minotaur) pre-installed server:
+
+  - :download:`ubuntu-23.10-preinstalled-server-riscv64+unmatched.img.xz <http://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-preinstalled-server-riscv64+unmatched.img.xz>`
+
+* Ubuntu 23.10 (Mantic Minotaur) live server (see instructions below):
+
+  - :download:`ubuntu-23.10-live-server-riscv64.img.gz <http://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-live-server-riscv64.img.gz>`
+
+* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
+
+  - :download:`ubuntu-22.04.4-preinstalled-server-riscv64+unmatched.img.xz <http://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.4-preinstalled-server-riscv64+unmatched.img.xz>`
+
+* Ubuntu 22.04 (Jammy Jellyfish) live server (see instructions below):
+
+  - :download:`ubuntu-22.04.4-live-server-riscv64.img.gz <http://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.4-live-server-riscv64.img.gz>`
+
 
 Using the pre-installed server image
 ====================================
@@ -47,7 +63,8 @@ Using the pre-installed server image
 Using the live server image
 ===========================
 
-The live installer image is used to install Ubuntu to an :term:`NVMe` drive.
+The live installer image is used to install Ubuntu to an :term:`NVMe` drive
+attached to the M.2 slot on the board.
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
@@ -89,7 +106,7 @@ The live installer image is used to install Ubuntu to an :term:`NVMe` drive.
 
        pci enum
        nvme scan
-       efidebug boot add -b 0001 'Ubuntu Jammy' nvme 0:1 /EFI/ubuntu/grubriscv64.efi
+       efidebug boot add -b 0001 'Ubuntu' nvme 0:1 /EFI/ubuntu/grubriscv64.efi
        efidebug boot order 0001
        bootefi bootmgr
 
@@ -104,31 +121,31 @@ The live installer image is used to install Ubuntu to an :term:`NVMe` drive.
 Boot source selection
 =====================
 
-The SiFive HiFive Unmatched board can boot firmware from ??? The boot source is
-selected via DIP switches.
+The SiFive HiFive Unmatched board can boot firmware from the built-in flash
+memory, or from the microSD card. The boot source is selected via DIP switches.
 
-=====  =====  =====  =====  ==================
+=====  =====  =====  =====  ==============================
 MSEL3  MSEL2  MSEL1  MSEL0  Boot Source
-=====  =====  =====  =====  ==================
+=====  =====  =====  =====  ==============================
 0      1      0      1      QSPI0 Flash
 0      1      1      0      QSPI0 Flash
 0      1      1      1      QSPI1 Flash
 1      0      0      0      QSPI1 microSD Card
 1      0      0      1      QSPI2 Flash
 1      0      1      0      QSPI0 Flash
-1      0      1      1      QSPI2 microSD Card
+1      0      1      1      QSPI2 microSD Card (*default*)
 1      1      0      0      QSPI1 Flash
 1      1      0      1      QSPI1 Flash
 1      1      1      0      QSPI0 Flash
 1      1      1      1      QSPI0 Flash
-=====  =====  =====  =====  ==================
+=====  =====  =====  =====  ==============================
 
 .. warning::
 
-    On HiFive Unmatched Version 2 boards, the silk screen which describes the
-    orientation of the Boot Mode Select switch is incorrect. Version 2 can be
-    identified from the Board Assembly Number Label on the board,
-    HF105-ASSY-2A0, where number 2 indicates version 2.
+    On version 2 of the HiFive Unmatched boards, the silk screen showing the
+    orientation of the MSEL DIP switches is incorrect. The suffix of the board
+    assembly number label indicates the board version, e.g. the 2 in
+    HF105-ASSY-2A0 indicates board version 2.
 
 
 UART console
@@ -157,4 +174,5 @@ example, to access the UART for the U-Boot prompt:
 Limitations
 ===========
 
+.. _SiFive HiFive Unmatched: https://www.sifive.com/boards/hifive-unmatched
 .. _cloud-init: https://cloudinit.readthedocs.io/
