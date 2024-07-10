@@ -2,18 +2,159 @@
 SiFive HiFive Unmatched
 =======================
 
+The `SiFive HiFive Unmatched`_ is a RISC-V based :term:`SBC`.
+
 
 Supported images
 ================
+
+* Ubuntu 24.04 (Noble Numbat) pre-installed server:
+
+  - :download:`ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz>`
+
+* Ubuntu 24.04 (Noble Numbat) live server (see instructions below):
+
+  - :download:`ubuntu-24.04-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-live-server-riscv64.img.gz>`
 
 
 Using the pre-installed server image
 ====================================
 
+#. Flash the pre-installed server image to a microSD card (see
+   :doc:`/how-to/flash-images`)
+
+#. Insert the microSD card into the board
+
+#. Set the boot source to the microSD card (see `Boot source selection`_)
+
+#. Connect the USB UART cable to the :term:`UART` header (see `UART console`_
+   and :doc:`/how-to/uart-console`)
+
+#. Power on the board
+
+#. Wait for an output line confirming that `cloud-init`_ has finished running;
+   this service is responsible for generating SSH keys, and creating the
+   default user:
+
+   .. code-block:: text
+
+       [   35.682018] cloud-init[909]: Cloud-init v. 24.1.3-0ubuntu3 finished at Tue, 23 Apr 2024 07:44:59 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 35.65 seconds
+
+#. Login with the user *ubuntu* and the default password *ubuntu*; you will be
+   asked to choose a new password
+
 
 Using the live server image
 ===========================
 
+The live installer image is used to install Ubuntu to an :term:`NVMe` drive.
+
+#. Flash the pre-installed server image to a microSD card (see
+   :doc:`/how-to/flash-images`)
+
+#. Insert the microSD card into the board
+
+#. Set the boot source to the microSD card (see `Boot source selection`_)
+
+#. Connect the USB UART cable to the :term:`UART` header (see `UART console`_
+   and :doc:`/how-to/uart-console`)
+
+#. Power on the board
+
+#. When "Hit any key to stop autoboot" is displayed, press :kbd:`Enter`
+
+#. Enter the following commands to boot the installer:
+
+   .. code-block:: text
+
+       pci enum
+       nvme scan
+       load mmc 0:1 $fdt_addr_r dtb/sifive/hifive-unmatched-a00.dtb
+       load mmc 0:1 $kernel_addr_r EFI/boot/bootriscv64.efi
+       bootefi $kernel_addr_r $fdt_addr_r
+
+#. From the GRUB menu, select "Try or Install Ubuntu Server"
+
+#. Loading the installer takes some time. Once it is loaded, follow the
+   `Ubuntu Server installation tutorial
+   <https://ubuntu.com/tutorials/install-ubuntu-server>`_
+
+#. Once the installation is complete, reboot the board without removing the
+   microSD card
+
+#. Press :kbd:`Enter` when "Hit any key to stop autoboot" is displayed, and
+   enter:
+
+   .. code-block:: text
+
+       pci enum
+       nvme scan
+       efidebug boot add -b 0001 'Ubuntu Jammy' nvme 0:1 /EFI/ubuntu/grubriscv64.efi
+       efidebug boot order 0001
+       bootefi bootmgr
+
+#. On the next boot, U-Boot will automatically start GRUB
+
+.. note::
+
+    U-Boot does not allow the operating system to write :term:`UEFI` variables.
+    You can do this manually using U-Boot's :command:`eficonfig` command.
+
+
+Boot source selection
+=====================
+
+The SiFive HiFive Unmatched board can boot firmware from ??? The boot source is
+selected via DIP switches.
+
+=====  =====  =====  =====  ==================
+MSEL3  MSEL2  MSEL1  MSEL0  Boot Source
+=====  =====  =====  =====  ==================
+0      1      0      1      QSPI0 Flash
+0      1      1      0      QSPI0 Flash
+0      1      1      1      QSPI1 Flash
+1      0      0      0      QSPI1 microSD Card
+1      0      0      1      QSPI2 Flash
+1      0      1      0      QSPI0 Flash
+1      0      1      1      QSPI2 microSD Card
+1      1      0      0      QSPI1 Flash
+1      1      0      1      QSPI1 Flash
+1      1      1      0      QSPI0 Flash
+1      1      1      1      QSPI0 Flash
+=====  =====  =====  =====  ==================
+
+.. warning::
+
+    On HiFive Unmatched Version 2 boards, the silk screen which describes the
+    orientation of the Boot Mode Select switch is incorrect. Version 2 can be
+    identified from the Board Assembly Number Label on the board,
+    HF105-ASSY-2A0, where number 2 indicates version 2.
+
+
+UART console
+============
+
+The board makes both :term:`JTAG` and :term:`UART` available over a micro USB
+connector. It appears as two separate devices in Linux (:file:`/dev/ttyUSB0`,
+:file:`/dev/ttyUSB1`). The second ttyUSB device represents the UART.
+
+For U-Boot and Linux, connect with:
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
+
+However, for the boot ROM, the baud rate should be adjusted to 57600. For
+example, to access the UART for the U-Boot prompt:
+
+.. code-block:: text
+
+    screen /dev/ttyUSB1 115200,cs8,-parenb,-cstopb
+
 
 Limitations
 ===========
+
+.. _cloud-init: https://cloudinit.readthedocs.io/
