@@ -3,6 +3,7 @@
 adapter
 adapters
 Allwinner
+ASSY
 autoboot
 Bootloader
 bootloader
@@ -19,11 +20,13 @@ GPUs
 GRand
 HiFive
 init
+JTAG
 libcamera
 LicheeRV
 macOS
 Mantic
 microSD
+MSEL
 MultiMediaCard
 Nezha
 NVMe
@@ -31,6 +34,7 @@ PCIe
 Polarfire
 qemu
 QEMU
+QSPI
 SATA
 SBC
 SBCs
