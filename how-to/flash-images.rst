@@ -87,7 +87,7 @@ Procedure
 
    .. note::
 
-       We are using :manpage:`sudo(1)` because ``dd`` requires root authority
+       We are using :manpage:`sudo(8)` because ``dd`` requires root authority
        to write to the microSD card device. You will be prompted for your
        user's password before the write begins (assuming a typical sudo
        configuration).
