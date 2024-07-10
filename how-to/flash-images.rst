@@ -24,7 +24,7 @@ Procedure
 
 #. Download the image you wish to write. Here we'll be using the Ubuntu 24.04
    Server for Raspberry Pi image, but you should substitute your
-   cdimage.ubuntu.com URL here:
+   ``cdimage.ubuntu.com`` URL here:
 
    .. code-block:: text
 
@@ -61,14 +61,15 @@ Procedure
 
    It is likely that the node printed will be a device representing a
    *partition* of the microSD card, rather than the whole microSD card itself.
-   In the example above, we see "/dev/sda1". This is the first partition of
-   "/dev/sda", which is the device representing the entire microSD card
+   In the example above, we see :file:`/dev/sda1`. This is the first partition
+   of :file:`/dev/sda`, which is the device representing the entire microSD
+   card
 
 #. We're now ready to write the image to the microSD card. If the image you
-   downloaded is compressed (indicated by a ".gz", ".bz2", ".xz", or ".zst"
-   suffix on the filename) we cannot write it directly. We'll use the
-   :manpage:`aunpack(1)` command to extract the image, then write the result
-   to the microSD device with :manpage:`dd(1)`:
+   downloaded is compressed (indicated by a :file:`.gz`, :file:`.bz2`,
+   :file:`.xz`, or :file:`.zst` suffix on the filename) we cannot write it
+   directly. We'll use the :manpage:`aunpack(1)` command to extract the image,
+   then write the result to the microSD device with :manpage:`dd(1)`:
 
    .. code-block:: text
 
@@ -91,8 +92,8 @@ Procedure
        user's password before the write begins (assuming a typical sudo
        configuration).
 
-#. Once ``dd`` has completed, run :manpage:`sync(1)` just to be reasonably
-   certain that everything is flushed:
+#. Once :command:`dd` has completed, run :manpage:`sync(1)` just to be
+   reasonably certain that everything is flushed:
 
    .. code-block:: text
 
@@ -106,7 +107,7 @@ Alternate device names
 ======================
 
 In some cases, depending on the microSD interface in use, you may see output
-like the following from ``inotifywait``:
+like the following from :command:`inotifywait`:
 
 .. code-block:: console
 
@@ -116,8 +117,9 @@ like the following from ``inotifywait``:
     /dev/mmcblk0p1
 
 In this case, we are also seeing a device representation the first partition of
-the microSD card, "/dev/mmcblk0p1". However, here we need to remove the "p1"
-suffix; the device representing the entire microSD card is "/dev/mmcblk0".
+the microSD card, :file:`/dev/mmcblk0p1`. However, here we need to remove the
+"p1" suffix; the device representing the entire microSD card is
+:file:`/dev/mmcblk0`.
 
 This is often the case where the microSD interface is built into your machine
 (e.g. the microSD card slot on a Raspberry Pi), or where the interface is
@@ -128,8 +130,8 @@ Avoiding decompression
 ======================
 
 If you have limited disk space and do not wish to unpack the OS image, you can
-decompress the image on the fly and pipe the result to ``dd``. For this, use
-the :manpage:`acat(1)` command. For example:
+decompress the image on the fly and pipe the result to :command:`dd`. For this,
+use the :manpage:`acat(1)` command. For example:
 
 .. code-block:: text
 
