@@ -151,9 +151,10 @@ MSEL3  MSEL2  MSEL1  MSEL0  Boot Source
 UART console
 ============
 
-The board makes both :term:`JTAG` and :term:`UART` available over a micro USB
-connector. It appears as two separate devices in Linux (:file:`/dev/ttyUSB0`,
-:file:`/dev/ttyUSB1`). The second ttyUSB device represents the UART.
+The board makes both :term:`JTAG` and :term:`UART` available over the micro USB
+connector located adjacent to the microSD card slot. When connected, it appears
+as two separate devices in Linux (:file:`/dev/ttyUSB0`, :file:`/dev/ttyUSB1`).
+The second ttyUSB device represents the UART.
 
 For U-Boot and Linux, connect with:
 
