@@ -132,12 +132,20 @@ MSEL3  MSEL2  MSEL1  MSEL0  Boot Source
 1      1      1      1      QSPI0 Flash
 =====  =====  =====  =====  ==============================
 
+On Ubuntu, the only supported setting is the default QSPI2 microSD card
+setting of 1011 as illustrated below:
+
+.. image:: /images/unmatched-boot-source-sd.jpg
+    :width: 15em
+    :alt: Boot from microSD card with the default setting of 1011
+
 .. warning::
 
     On version 2 of the HiFive Unmatched boards, the silk screen showing the
-    orientation of the MSEL DIP switches is incorrect. The suffix of the board
-    assembly number label indicates the board version, e.g. the 2 in
-    HF105-ASSY-2A0 indicates board version 2.
+    orientation of the MSEL DIP switches is incorrect and should be ignored
+    (follow the settings on the image above). The suffix of the board assembly
+    number label indicates the board version, e.g. the 2 in HF105-ASSY-2A0
+    indicates board version 2.
 
 
 UART console
