@@ -16,14 +16,6 @@ Supported images
 
   - :download:`ubuntu-24.04-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-live-server-riscv64.img.gz>`
 
-* Ubuntu 23.10 (Mantic Minotaur) pre-installed server:
-
-  - :download:`ubuntu-23.10-preinstalled-server-riscv64+unmatched.img.xz <http://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-preinstalled-server-riscv64+unmatched.img.xz>`
-
-* Ubuntu 23.10 (Mantic Minotaur) live server (see instructions below):
-
-  - :download:`ubuntu-23.10-live-server-riscv64.img.gz <http://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-live-server-riscv64.img.gz>`
-
 * Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
 
   - :download:`ubuntu-22.04.4-preinstalled-server-riscv64+unmatched.img.xz <http://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.4-preinstalled-server-riscv64+unmatched.img.xz>`
