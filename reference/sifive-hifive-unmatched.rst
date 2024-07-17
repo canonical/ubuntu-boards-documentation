@@ -68,7 +68,8 @@ attached to the M.2 slot on the board.
 #. Connect the USB UART cable to the :term:`UART` header (see `UART console`_
    and :doc:`/how-to/uart-console`)
 
-#. Power on the board
+#. Power on the board; if there is no operating system already on the NVMe
+   drive, skip to step 8
 
 #. When "Hit any key to stop autoboot" is displayed, press :kbd:`Enter`
 
