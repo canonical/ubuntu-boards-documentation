@@ -165,8 +165,9 @@ For U-Boot and Linux, connect with:
 * 1 stop bit
 * no flow control
 
-However, for the boot ROM, the baud rate should be adjusted to 57600. For
-example, to access the UART for the U-Boot prompt:
+However the boot ROM messages are written at 57600 baud.
+
+For example, to access the UART for the U-Boot prompt:
 
 .. code-block:: text
 
