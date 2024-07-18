@@ -110,6 +110,17 @@ attached to the M.2 slot on the board.
     U-Boot does not allow the operating system to write :term:`UEFI` variables.
     You can do this manually using U-Boot's :command:`eficonfig` command.
 
+Installing the Gnome desktop
+----------------------------
+
+If you have a graphics card installed, you may want to use a graphical desktop.
+The Gnome desktop can be installed with
+
+   .. code-block:: text
+
+       sudo apt-get update
+       sudo apt-get install ubuntu-desktop
+       sudo systemctl start gdm3
 
 Boot source selection
 =====================
