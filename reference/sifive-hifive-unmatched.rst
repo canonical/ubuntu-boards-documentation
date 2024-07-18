@@ -35,8 +35,8 @@ Using the pre-installed server image
 
 #. Set the boot source to the microSD card (see `Boot source selection`_)
 
-#. Connect the USB UART cable to the :term:`UART` header (see `UART console`_
-   and :doc:`/how-to/uart-console`)
+#. Connect to the :term:`UART` USB port using a micro USB cable
+   (see `UART console`_ and :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -65,8 +65,8 @@ attached to the M.2 slot on the board.
 
 #. Set the boot source to the microSD card (see `Boot source selection`_)
 
-#. Connect the USB UART cable to the :term:`UART` header (see `UART console`_
-   and :doc:`/how-to/uart-console`)
+#. Connect to the :term:`UART` USB port using a micro USB cable
+   (see `UART console`_ and :doc:`/how-to/uart-console`)
 
 #. Power on the board; if there is no operating system already on the NVMe
    drive, skip to step 8
