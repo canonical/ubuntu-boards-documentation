@@ -12,6 +12,7 @@ Ubuntu.
 
     reference/allwinner-nezha-d1
     reference/licheerv-dock
+    reference/microchip-pic64gx1000-discovery
     reference/microchip-polarfire-icicle
     reference/milk-v-mars
     reference/qemu-arm
