@@ -4,11 +4,11 @@ Tutorials
 
 This section contains step-by-step tutorials to help you install Ubuntu on a
 variety of popular boards. If your board is not listed below, you may still
-find it listed within the :doc:`reference` section.
+find it listed within the :doc:`/reference/index` section.
 
 .. toctree::
     :maxdepth: 1
 
-    tutorials/raspberry-pi-solo
-    tutorials/raspberry-pi-other
-    tutorials/sifive-hifive-unmatched
+    raspberry-pi-solo
+    raspberry-pi-other
+    sifive-hifive-unmatched

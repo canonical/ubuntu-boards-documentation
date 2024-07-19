@@ -8,8 +8,8 @@ variety of hardware.
 .. toctree::
     :maxdepth: 1
 
-    how-to/flash-images
-    how-to/dsi-display
-    how-to/rpi-config-txt
-    how-to/rpi-no-display
-    how-to/uart-console
+    flash-images
+    dsi-display
+    rpi-config-txt
+    rpi-no-display
+    uart-console

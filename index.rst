@@ -12,10 +12,10 @@ supported boards and image variants.
    :hidden:
    :maxdepth: 2
 
-   tutorials
-   how-to
-   explanations
-   reference
+   tutorials/index
+   how-to/index
+   explanations/index
+   reference/index
    glossary
 
 
@@ -23,25 +23,25 @@ supported boards and image variants.
     :gutter: 3
 
     .. grid-item-card:: **Tutorials**
-       :link: tutorials
+       :link: tutorials/index
        :link-type: doc
 
        First time set up guides for popular boards
 
     .. grid-item-card:: **How-to guides**
-       :link: how-to
+       :link: how-to/index
        :link-type: doc
 
        Guides on debugging common first boot problems on a variety of hardware
 
     .. grid-item-card:: **Explanations**
-       :link: explanations
+       :link: explanations/index
        :link-type: doc
 
        Discussion of the pros and cons of the various image types
 
     .. grid-item-card:: **Reference**
-       :link: reference
+       :link: reference/index
        :link-type: doc
 
        Technical information on each supported board, and their various boot

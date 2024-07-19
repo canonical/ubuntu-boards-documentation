@@ -8,5 +8,5 @@ for single board computers.
 .. toctree::
     :maxdepth: 1
 
-    explanations/installer-or-preinstalled
-    explanations/rpi-server-desktop-or-core
+    installer-or-preinstalled
+    rpi-server-desktop-or-core
