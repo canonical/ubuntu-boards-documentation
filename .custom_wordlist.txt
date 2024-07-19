@@ -18,6 +18,7 @@ GPIO
 GPU
 GPUs
 GRand
+GX
 HiFive
 init
 JTAG
