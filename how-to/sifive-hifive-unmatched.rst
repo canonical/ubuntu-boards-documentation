@@ -1,6 +1,6 @@
-=======================
-SiFive HiFive Unmatched
-=======================
+=============================================
+Install Ubuntu on the SiFive HiFive Unmatched
+=============================================
 
 The `SiFive HiFive Unmatched`_ is a RISC-V based :term:`SBC`.
 

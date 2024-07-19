@@ -1,6 +1,6 @@
-==========
-QEMU (ARM)
-==========
+=========================================
+Install Ubuntu on the StarFive VisionFive
+=========================================
 
 
 Supported images

@@ -1,6 +1,6 @@
-==========================
-Microchip Polarfire Icicle
-==========================
+===================================
+Install Ubuntu on the LicheeRV Dock
+===================================
 
 
 Supported images

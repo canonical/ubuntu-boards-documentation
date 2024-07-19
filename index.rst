@@ -15,7 +15,6 @@ supported boards and image variants.
    tutorials/index
    how-to/index
    explanations/index
-   reference/index
    glossary
 
 
@@ -39,10 +38,3 @@ supported boards and image variants.
        :link-type: doc
 
        Discussion of the pros and cons of the various image types
-
-    .. grid-item-card:: **Reference**
-       :link: reference/index
-       :link-type: doc
-
-       Technical information on each supported board, and their various boot
-       modes

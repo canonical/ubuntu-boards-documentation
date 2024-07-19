@@ -1,6 +1,6 @@
-===================
-StarFive VisionFive
-===================
+=========================================================
+Install Ubuntu on the Microchip PIC64GX1000 Curiosity Kit
+=========================================================
 
 
 Supported images

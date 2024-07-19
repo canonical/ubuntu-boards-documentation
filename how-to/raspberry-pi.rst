@@ -1,6 +1,6 @@
-============
-Raspberry Pi
-============
+==================================
+Install Ubuntu on the Raspberry Pi
+==================================
 
 The `Raspberry Pi`_ is an ARM based :term:`SBC` made in the UK.
 

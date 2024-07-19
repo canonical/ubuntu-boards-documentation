@@ -1,6 +1,6 @@
-=============
-LicheeRV Dock
-=============
+================================================
+Install Ubuntu on the Microchip Polarfire Icicle
+================================================
 
 
 Supported images

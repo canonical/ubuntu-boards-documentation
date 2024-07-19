@@ -1,6 +1,6 @@
-==================
-Allwinner Nezha D1
-==================
+========================================
+Install Ubuntu on the Allwinner Nezha D1
+========================================
 
 
 Supported images

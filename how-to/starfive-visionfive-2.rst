@@ -1,8 +1,8 @@
-===========
-Milk-V Mars
-===========
+===========================================
+Install Ubuntu on the StarFive VisionFive 2
+===========================================
 
-The `Milk-V Mars`_ is a RISC-V based :term:`SBC`.
+The `StarFive VisionFive 2`_ is a RISC-V based :term:`SBC`.
 
 
 Supported images
@@ -10,7 +10,7 @@ Supported images
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed server:
 
-  - :download:`ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz>`
+  - :download:`ubuntu-24.04-preinstalled-server-riscv64+visionfive2.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+visionfive2.img.xz>`
 
 * Ubuntu 24.04 (Noble Numbat) live server (see instructions below):
 
@@ -58,8 +58,9 @@ Using the pre-installed server image
 Using the live server image
 ===========================
 
-The live installer image is used to install Ubuntu to an eMMC, USB, or NVMe
-drive. To boot the live image, U-Boot must be installed on the SPI flash.
+The live installer image is used to install Ubuntu to an :term:`eMMC`, USB, or
+:term:`NVMe` drive. To boot the live image, U-Boot must be installed on the SPI
+flash.
 
 .. warning::
 
@@ -128,15 +129,17 @@ Boot the live server image
 
 #. Power on the board
 
-#. If no prior operating system installation exists, U-Boot will start up GRUB
-   on the microSD card. Go to step 8
+#. If no prior operating system installation exists, U-Boot will start up
+   :term:`GRUB` on the microSD card. Go to step 8
 
 #. If a prior operating system exists, press :kbd:`Enter` when "Hit any key to
    stop autoboot" is displayed, and enter:
 
    .. code-block:: text
 
-       load mmc 1:1 $fdt_addr_r dtb/starfive/jh7110-milkv-mars.dtb
+       load mmc 1:1 $fdt_addr_r dtb/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb
+       # for the 1.2a version of the board:
+       # load mmc 1:1 $fdt_addr_r dtb/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb
        load mmc 1:1 $kernel_addr_r EFI/boot/bootriscv64.efi
        bootefi $kernel_addr_r $fdt_addr_r
 
@@ -158,8 +161,8 @@ Boot the live server image
 Boot source selection
 =====================
 
-The Milk-V Mars board can boot firmware from SPI flash, microSD card, eMMC, or
-UART. The boot source is selected via DIP switches.
+The StarFive VisionFive 2 board can boot firmware from SPI flash, microSD card,
+eMMC, or UART. The boot source is selected via DIP switches.
 
 ======  ======  ============
 GPIO01  GPIO00  Boot Source
@@ -173,13 +176,13 @@ GPIO01  GPIO00  Boot Source
 For example, to boot from microSD card the DIP switches should be set as
 follows:
 
-.. image:: /images/milk-v-mars-boot-source-sd.jpg
+.. image:: /images/starfive-visionfive-2-boot-source-sd.jpg
     :width: 15em
     :alt: Boot from microSD card
 
 Alternatively, to boot from SPI flash, set the DIP switches like so:
 
-.. image:: /images/milk-v-mars-boot-source-spi.jpg
+.. image:: /images/starfive-visionfive-2-boot-source-spi.jpg
     :width: 15em
     :alt: Boot from SPI flash
 
@@ -187,9 +190,8 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
 UART console
 ============
 
-The :term:`UART` is available via the :term:`GPIO` connector. Assuming the
-typical colouring of USB to :term:`TTL` serial adapters the following
-connections have to be made:
+The UART is available via the GPIO connector. Assuming the typical colouring of
+USB to TTL serial adapters the following connections have to be made:
 
 =========== ==========
 Board       Adapter
@@ -201,7 +203,7 @@ RX,  pin 10 TX,  green
 
 Do not connect the red 3.3 V wire.
 
-.. image:: /images/milk-v-mars-gpio.jpg
+.. image:: /images/starfive-visionfive-2-gpio.jpg
     :width: 30em
     :alt: GPIO
 
@@ -228,9 +230,6 @@ Limitations
 * PCIe support is incomplete: an NVMe drive can be used, but WiFi cards and
   external GPUs don't work.
 
-* While the 3 USB 3.0 ports are working, the USB 2.0 port is not supported by
-  the 6.8 kernel.
 
-
-.. _Milk-V Mars: https://milkv.io/mars
+.. _StarFive VisionFive 2: https://www.starfivetech.com/en/site/boards
 .. _cloud-init: https://cloudinit.readthedocs.io/

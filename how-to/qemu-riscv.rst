@@ -1,6 +1,6 @@
-=============
-QEMU (RISC-V)
-=============
+===============================
+Install Ubuntu on QEMU (RISC-V)
+===============================
 
 To boot a RISC-V virtual machine you will need the following packages
 installed:
