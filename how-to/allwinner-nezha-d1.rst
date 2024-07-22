@@ -2,18 +2,82 @@
 Install Ubuntu on the Allwinner Nezha D1
 ========================================
 
+The `Nezha D1`_ is a RISC-V based :term:`SBC`.
+
 
 Supported images
 ================
 
+* Ubuntu 24.04 (Noble Numbat) pre-installed server:
+
+  - :download:`ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz <http://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz>`
+
+* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
+
+  - :download:`ubuntu-22.04.4-preinstalled-server-riscv64+nezha.img.xz <http://cdimage.ubuntu.com/releases/22.04.4/release/ubuntu-22.04.4-preinstalled-server-riscv64+nezha.img.xz>`
+
 
 Using the pre-installed server image
 ====================================
+
+#. Flash the pre-installed server image to an SD card (see
+   :doc:`/how-to/flash-images`)
+
+#. Insert the SD card into the board
+
+#. Optionally connect a USB UART adapter to the :term:`UART` on the
+   :term:`GPIO` header (see `UART Console`_ and :doc:`/how-to/uart-console`)
+
+#. Power on the board
+
+#. Be patient for HDMI output; early boot is only available on the UART console
+   and the board's performance means that HDMI output may not appear for a few
+   minutes
+
+#. Wait for an output line confirming that `cloud-init`_ has finished running;
+   this service is responsible for generating SSH keys, and creating the
+   default user:
+
+   .. code-block:: text
+
+        [  291.932176] cloud-init[1282]: Cloud-init v. 22.3.4-0ubuntu1 finished at Thu, 20 Oct 2022 08:25:11 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 291.79 seconds
+
+#. Login with the user *ubuntu* and the default password *ubuntu*; you will be
+   asked to choose a new password
 
 
 Using the live server image
 ===========================
 
 
+UART Console
+============
+
+The Nezha D1 UART is located on its own three-pin header labelled "DEBUG",
+adjacent to the main :term:`GPIO` header. The GND, RX, and TX pins are all
+separately labelled.
+
+Connect with ``screen /dev/ttyUSB0 115200,8N1``:
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
+
+
 Limitations
 ===========
+
+* Wifi/Bluetooth is not working: the wifi driver only available in the vendor
+  kernel.
+
+* The Ethernet MAC address changes on every boot; this "feature" is described
+  `here <https://linux-sunxi.org/Ethernet>`_ along with the solutions to fix
+  this in the section "Setting the MAC address".
+
+* Shutdown fails.
+
+
+.. _Nezha D1: https://d1.docs.aw-ol.com/en/d1_dev/
+.. _cloud-init: https://cloudinit.readthedocs.io/
