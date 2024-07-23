@@ -16,6 +16,8 @@ representing our microSD card.
 Procedure
 =========
 
+#. Start with your target microSD card disconnected from your machine
+
 #. Install the pre-requisite packages we're going to be using:
 
    .. code-block:: text
@@ -38,8 +40,6 @@ Procedure
        wget http://cdimage.ubuntu.com/releases/24.04/release/SHA256SUMS
        sha256sum --ignore-missing --check SHA256SUMS
 
-#. Start with your target microSD card disconnected from your machine
-
 #. Start :manpage:`inotifywait(1)`, watching for new device nodes under
    :file:`/dev`:
 
@@ -47,10 +47,9 @@ Procedure
 
        inotifywait --event create --format "%w%f" /dev
 
-#. Plug your microSD card into your machine
-
-#. At this point, ``inotifywait`` should exit, displaying the name of a new
-   node under :file:`/dev`. For example:
+#. Plug your microSD card into your machine. At this point, ``inotifywait``
+   should exit, displaying the name of a new node under :file:`/dev`. For
+   example:
 
    .. code-block:: console
 
@@ -63,7 +62,7 @@ Procedure
    *partition* of the microSD card, rather than the whole microSD card itself.
    In the example above, we see :file:`/dev/sda1`. This is the first partition
    of :file:`/dev/sda`, which is the device representing the entire microSD
-   card
+   card.
 
 #. We're now ready to write the image to the microSD card. If the image you
    downloaded is compressed (indicated by a :file:`.gz`, :file:`.bz2`,
@@ -92,15 +91,14 @@ Procedure
        user's password before the write begins (assuming a typical sudo
        configuration).
 
-#. Once :command:`dd` has completed, run :manpage:`sync(1)` just to be
+#. Once :command:`dd` has completed, run :manpage:`sync(1)` to be
    reasonably certain that everything is flushed:
 
    .. code-block:: text
 
        sudo sync
 
-#. Congratulations! You can remove the microSD card and insert it in your
-   target board
+#. You can remove the microSD card and insert it into your target board
 
 
 Alternate device names
@@ -116,9 +114,9 @@ like the following from :command:`inotifywait`:
     Watches established.
     /dev/mmcblk0p1
 
-In this case, we are also seeing a device representation the first partition of
+In this case, we are also seeing a device representing the first partition of
 the microSD card, :file:`/dev/mmcblk0p1`. However, here we need to remove the
-"p1" suffix; the device representing the entire microSD card is
+``p1`` suffix; the device representing the entire microSD card is
 :file:`/dev/mmcblk0`.
 
 This is often the case where the microSD interface is built into your machine
