@@ -46,24 +46,38 @@ Using the pre-installed server image
    asked to choose a new password
 
 
-Using the live server image
-===========================
-
-
 UART Console
 ============
 
-The Nezha D1 UART is located on its own three-pin header labelled "DEBUG",
+The :term:`UART` is located on its own three-pin header labelled "DEBUG",
 adjacent to the main :term:`GPIO` header. The GND, RX, and TX pins are all
-separately labelled.
+separately labelled, and are from the point of view of the board. Assuming the
+typical colouring of USB to :term:`TTL` serial adapters the following
+connections have to be made:
 
-Connect with ``screen /dev/ttyUSB0 115200,8N1``:
+===== ==========
+Board Adapter
+===== ==========
+GND   GND, black
+RX    TX,  green
+TX    RX,  white
+===== ==========
+
+Do not connect the red 3.3 V wire.
+
+Connect with
 
 * 115200 baud
 * 8 data bits
 * no parity
 * 1 stop bit
 * no flow control
+
+.. code-block:: text
+
+    screen /dev/ttyUSB0 115200,cs8,-parenb,-cstopb
+
+Replace /dev/ttyUSB0 with the relevant device in your setup.
 
 
 Limitations
