@@ -227,5 +227,3 @@ extlinks = {
 # Ensure PDF output is useful when printed
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
-
-epub_theme = 'epub'
