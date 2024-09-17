@@ -5,6 +5,7 @@ adapters
 Allwinner
 ASSY
 autoboot
+baudrate
 Bootloader
 bootloader
 customize
@@ -29,6 +30,8 @@ Mantic
 microSD
 MSEL
 MultiMediaCard
+netplan
+Netplan
 Nezha
 NVMe
 PCIe
