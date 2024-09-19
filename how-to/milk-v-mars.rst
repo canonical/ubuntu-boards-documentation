@@ -10,11 +10,11 @@ Supported images
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed server:
 
-  - :download:`ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz>`
+  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz>`
 
 * Ubuntu 24.04 (Noble Numbat) live server (see instructions below):
 
-  - :download:`ubuntu-24.04-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-live-server-riscv64.img.gz>`
+  - :download:`ubuntu-24.04.1-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-live-server-riscv64.img.gz>`
 
 
 Using the pre-installed server image
