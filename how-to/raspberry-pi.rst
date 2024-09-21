@@ -93,20 +93,20 @@ Supported images
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed server:
 
-  - :download:`ubuntu-24.04-preinstalled-server-arm64+raspi.img.xz <http://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-arm64+raspi.img.xz>`
+  - :download:`ubuntu-24.04-preinstalled-server-arm64+raspi.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-arm64+raspi.img.xz>`
 
 * Ubuntu 24.04 (Noble Numbat) pre-installed desktop:
 
-  - :download:`ubuntu-24.04-preinstalled-desktop-arm64+raspi.img.xz <http://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-desktop-arm64+raspi.img.xz>`
+  - :download:`ubuntu-24.04-preinstalled-desktop-arm64+raspi.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz>`
 
 * Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
 
-  - :download:`ubuntu-22.04.4-preinstalled-server-arm64+raspi.img.xz <http://cdimage.ubuntu.com/releases/22.04.4/release/ubuntu-22.04.4-preinstalled-server-arm64+raspi.img.xz>`
-  - :download:`ubuntu-22.04.4-preinstalled-server-armhf+raspi.img.xz <http://cdimage.ubuntu.com/releases/22.04.4/release/ubuntu-22.04.4-preinstalled-server-armhf+raspi.img.xz>`
+  - :download:`ubuntu-22.04.4-preinstalled-server-arm64+raspi.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-server-arm64+raspi.img.xz>`
+  - :download:`ubuntu-22.04.4-preinstalled-server-armhf+raspi.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-server-armhf+raspi.img.xz>`
 
 * Ubuntu 22.04 (Jammy Jellyfish) pre-installed desktop:
 
-  - :download:`ubuntu-22.04.4-preinstalled-desktop-arm64+raspi.img.xz <http://cdimage.ubuntu.com/releases/22.04.4/release/ubuntu-22.04.4-preinstalled-desktop-arm64+raspi.img.xz>`
+  - :download:`ubuntu-22.04.4-preinstalled-desktop-arm64+raspi.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-desktop-arm64+raspi.img.xz>`
 
 * Ubuntu 20.04 (Focal Fossa) pre-installed server:
 
