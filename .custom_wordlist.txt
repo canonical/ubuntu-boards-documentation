@@ -1,9 +1,11 @@
 # This is the list of project specific vocabulary for the spellchecker
 
+acat
 adapter
 adapters
 Allwinner
 ASSY
+aunpack
 autoboot
 Bootloader
 bootloader
@@ -22,6 +24,8 @@ GX
 HiFive
 init
 JTAG
+inotify
+inotifywait
 libcamera
 LicheeRV
 macOS
@@ -44,6 +48,7 @@ SiFive
 SPI
 SSD
 StarFive
+sudo
 TTL
 ttyUSB
 UART
