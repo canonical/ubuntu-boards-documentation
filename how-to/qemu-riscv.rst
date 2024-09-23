@@ -31,9 +31,9 @@ Supported images
 
   - :download:`ubuntu-24.04.1-preinstalled-server-riscv64.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-preinstalled-server-riscv64.img.xz>`
 
-* Ubuntu 24.04 (Jammy Jellyfish) pre-installed server:
+* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
 
-  - :download:`ubuntu-22.04.3-preinstalled-server-riscv64+unmatched.img <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.3-preinstalled-server-riscv64+unmatched.img.xz>`_.
+  - :download:`ubuntu-22.04.5-preinstalled-server-riscv64+unmatched.img <https://cdimage.ubuntu.com/releases/jammy/release/ubuntu-22.04.5-preinstalled-server-riscv64+unmatched.img.xz>`.
 
 * Ubuntu 24.04 (Noble Numbat) live server:
 
@@ -41,9 +41,7 @@ Supported images
 
 * Ubuntu 22.04 (Jammy Jellyfish) live server:
 
-  - :download:`ubuntu-22.04.5-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/22.04.3/release/ubuntu-22.04.5-live-server-riscv64.img.gz>`
-
-Daily provided live server images are available at `https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-live-server-riscv64.img.gz>`_.
+  - :download:`ubuntu-22.04.5-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/22.04.5/release/ubuntu-22.04.5-live-server-riscv64.img.gz>`
 
 Using the pre-installed server image
 ====================================
@@ -53,7 +51,6 @@ Using the pre-installed server image
   .. code-block:: text
     
     xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
-
 
 
 2. Optionally, if you want a larger disk, you can expand the disk (the filesystem will be automatically resized too):
