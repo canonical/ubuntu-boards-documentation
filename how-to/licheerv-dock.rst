@@ -8,9 +8,9 @@ The `LicheeRV board`_ can be used in different configurations. We currently only
 Supported images
 ================
 
-* Ubuntu 24.04 (Kinetic Kudu) pre-installed server:
+* Ubuntu 24.04 (Noble Numbat) pre-installed server:
 
-  - :download:`ubuntu-22.10-preinstalled-server-riscv64+licheerv.img.xz <https://old-releases.ubuntu.com/releases/22.10/ubuntu-22.10-preinstalled-server-riscv64+licheerv.img.xz>`
+  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64+licheerv.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+licheerv.img.xz>`
 
 
 Using the pre-installed server image
@@ -36,10 +36,6 @@ Using the pre-installed server image
 
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
-
-
-Using the live server image
-===========================
 
 
 WiFi Configuration
