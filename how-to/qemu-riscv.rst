@@ -31,6 +31,10 @@ Supported images
 
   - :download:`ubuntu-24.04.1-preinstalled-server-riscv64.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-preinstalled-server-riscv64.img.xz>`
 
+* Ubuntu 24.04 (Jammy Jellyfish) pre-installed server:
+
+  - :download:`ubuntu-22.04.3-preinstalled-server-riscv64+unmatched.img <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.3-preinstalled-server-riscv64+unmatched.img.xz>`_.
+
 * Ubuntu 24.04 (Noble Numbat) live server:
 
   - :download:`ubuntu-24.04.1-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-live-server-riscv64.img.gz>`
@@ -49,8 +53,7 @@ Using the pre-installed server image
   .. code-block:: text
     
     xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
-  
-  (Up to Ubuntu 22.04. use the image for the SiFive HiFive Unmatched board, e.g. `ubuntu-22.04.3-preinstalled-server-riscv64+unmatched.img <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.3-preinstalled-server-riscv64+unmatched.img.xz>`_.)
+
 
 
 2. Optionally, if you want a larger disk, you can expand the disk (the filesystem will be automatically resized too):
@@ -66,7 +69,6 @@ Using the pre-installed server image
 
     qemu-system-riscv64 \
     -machine virt -nographic -m 2048 -smp 4 \
-    -bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.bin \
     -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
     -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
     -device virtio-rng-pci \
@@ -75,7 +77,7 @@ Using the pre-installed server image
   The important options to use are:
 
     #. QEMU's generic virtual platform is selected by ``-machine virt``
-    #. The first stage firmware booted by QEMU is OpenSBI as specified by the ``-bios`` option. This option is not needed with QEMU 7.0 or higher. It cannot be used with KVM.
+    #. The first stage firmware booted by QEMU is OpenSBI. Before QEMU 7.0 this had to be specified by the ``-bios`` option. This option is not needed with QEMU 7.0 or higher. It cannot be used with KVM.
     #. The second stage firmware U-Boot is loaded into memory via ``-kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf``
 
   One can use pass through networking, adjust memory (-m) & cpu counts (-smp) as needed.
@@ -93,9 +95,7 @@ cloud-init integration
 
 The image has a fallback cloud-init datasource that configures sudo user ubuntu with password ubuntu and DHCP networking. You will be asked to change the password on first login.
 
-The image has CIDATA partition which can be used as a valid datasource to adjust cloud-config metadata. If you wish to customize user password, networking information, add ssh keys, etc. Please mount CIDATA partition rename meta-data and user-data files and adjust them to taste. You can use network-info to configure networking if something more sophisticated than just DHCP is desired.
-
-For example ssh keys, disabling interactive login, and so on. See `https://cloudinit.readthedocs.io/en/latest <https://cloudinit.readthedocs.io/en/latest>`_ .
+The image has a `CIDATA <https://cloudinit.readthedocs.io/en/latest>`_ partition which can be used as a valid datasource to adjust cloud-config metadata. If you wish to customize the user password, networking information, add SSH keys, etc. Please mount CIDATA partition rename meta-data and user-data files and adjust them to taste. You can use network-info to configure networking if something more sophisticated than just DHCP is desired.
 
 Using the live server image
 ===========================
@@ -120,7 +120,6 @@ Installing live server image
   .. code-block:: text
 
     /usr/bin/qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
-        -bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.bin \
         -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
         -netdev user,id=net0 \
         -device virtio-net-device,netdev=net0 \
@@ -142,7 +141,6 @@ To run your installed Ubuntu image use
 .. code-block:: text
 
   /usr/bin/qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
-      -bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.bin \
       -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
       -netdev user,id=net0 \
       -device virtio-net-device,netdev=net0 \
@@ -152,5 +150,5 @@ To run your installed Ubuntu image use
 Limitations
 ===========
 
-* In Ubuntu 22.04 the number of virtual CPUs is limited to 8 in QEMU and in the Linux kernel.
+* The number of virtual CPUs was limited to 8 before QEMU 7.0. The limit was raised in QEMU 7.0 to 512. 
 
