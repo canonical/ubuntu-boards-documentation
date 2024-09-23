@@ -10,6 +10,7 @@ Supported images
 
   - :download:`ubuntu-22.04.2-preinstalled-server-riscv64+visionfive.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.2-preinstalled-server-riscv64+visionfive.img.xz>`
 
+This board is no longer supported beyond 22.04 (Jammy Jellyfish).
 
 Using the pre-installed server image
 ====================================
@@ -33,11 +34,6 @@ Using the pre-installed server image
 
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
-
-
-Using the live server image
-===========================
-
 
 Wireless LAN
 ============
