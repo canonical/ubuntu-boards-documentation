@@ -90,9 +90,14 @@ Using the pre-installed server image
 cloud-init integration
 ----------------------
 
-The image has a fallback cloud-init datasource that configures sudo user ubuntu with password ubuntu and DHCP networking. You will be asked to change the password on first login.
+The image provides a CIDATA partition as fallback data-source for `cloud-init`_.
+It configures sudo user ubuntu with password ubuntu and uses DHCP to set up
+networking. You will be asked to change the password on first login.
 
-The image has a `CIDATA <https://cloudinit.readthedocs.io/en/latest>`_ partition which can be used as a valid datasource to adjust cloud-config metadata. If you wish to customize the user password, networking information, add SSH keys, etc. Please mount CIDATA partition, rename meta-data and user-data files, and adjust them to taste. You can use network-info to configure networking if something more sophisticated than just DHCP is desired.
+If you wish to customize the user password, networking information, or add SSH
+keys, etc., please, mount the CIDATA partition, and adjust the meta-data and
+user-data files as needed. In a cloud setup you can rename or delete the files
+to ensure that only data provided via the network is used.
 
 Using the live server image
 ===========================
