@@ -43,14 +43,14 @@ WiFi Configuration
 
 Install WiFi driver (this step is only needed prior to kernel 6.7. It is not needed for Ubuntu 24.04)
 
-    #. To enable WiFi the DKMS package licheerv-rtl8723ds-dkms is needed needed on lower kernel releases. If your LicheeRV is connected to the network via a USB Ethernet adapter, that is easy:
+    #. To enable WiFi the DKMS package ``licheerv-rtl8723ds-dkms`` is needed needed on lower kernel releases. If your LicheeRV is connected to the network via a USB Ethernet adapter, that is easy:
     
         .. code-block:: text
 
             $ sudo apt-get update
             $ sudo apt-get install licheerv-rtl8723ds-dkms
 
-    #. If your LiccheRV is not connected to the network you have to download the licheerv-rtl8723ds-dkms_*.deb file from the https://launchpad.net/ubuntu/+source/licheerv-rtl8723ds-dkms page and write it to the SD card.
+    #. If your LicheeRV is not connected to the network you have to download the ``licheerv-rtl8723ds-dkms_*.deb`` file from the `launchpad page <https://launchpad.net/ubuntu/+source/licheerv-rtl8723ds-dkms>`_ and write it to the SD card.
 
     #. Once you have booted the device the package can be installed with
 
@@ -77,7 +77,7 @@ Configure Netplan
                     "YOUR_SSID":
                     password: "YOUR_PASSWORD"
 
-        The file should be owned by root and chmod 600.
+        The file should be owned by root and the permissions set to 600 (chmod 600).
     
     #. Either reboot or execute the following commands to load the kernel module and apply the configuration:
 
