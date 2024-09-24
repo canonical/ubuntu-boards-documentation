@@ -52,7 +52,6 @@ PCIe
 picocom
 Polarfire
 poweroff
-ppa
 PPA
 qemu
 QEMU

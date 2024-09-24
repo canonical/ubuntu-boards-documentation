@@ -65,7 +65,7 @@ Either reboot or execute the following commands to apply the configuration:
 Bluetooth
 =========
 
-The firmware required to use Bluetooth is only available in a ppa:
+The firmware required to use Bluetooth is only available in a PPA:
 
 #. Add the RISC-V PPA:
 
