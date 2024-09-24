@@ -48,16 +48,17 @@ Using the pre-installed server image
 
 1. Unpack the image:
 
-  .. code-block:: text
-    
-    xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
+   .. code-block:: text
+
+   xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
 
 
-2. Optionally, if you want a larger disk, you can expand the disk (the filesystem will be automatically resized too):
+2. Optionally, if you want a larger disk, you can expand the disk (the
+   file-system will be automatically resized too):
 
-  .. code-block:: text
+   .. code-block:: text
 
-    qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
+     qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
 
 
 3. Next use u-boot-qemu to boot the virtual machine. A working example with all the options is:
@@ -77,7 +78,7 @@ Using the pre-installed server image
     #. The first stage firmware booted by QEMU is OpenSBI. Before QEMU 7.0 this had to be specified by the ``-bios`` option. This option is not needed with QEMU 7.0 or higher. It cannot be used with KVM.
     #. The second stage firmware U-Boot is loaded into memory via ``-kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf``
 
-  One can use pass through networking, adjust memory (-m) and cpu counts (-smp) as needed.
+  One can use pass through networking, adjust memory (-m) and CPU counts (-smp) as needed.
 
 4. Watch the serial console output and wait for cloud-init to complete. It will show a line with the text 'Cloud-init finished':
 
@@ -85,7 +86,8 @@ Using the pre-installed server image
     
     [   68.346028] cloud-init[703]: Cloud-init v. 22.2-0ubuntu1~20.04.3 finished at Thu, 22 Sep 2022 11:35:28 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 68.26 seconds
 
-5. Login using ubuntu:ubuntu. See the cloud-init section below to further customize the first boot behavior with cloud-init.
+5. Login using ubuntu:ubuntu. See the cloud-init section below to further
+customize the first boot behaviour with cloud-init.
 
 cloud-init integration
 ----------------------
