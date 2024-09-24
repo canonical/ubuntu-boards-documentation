@@ -77,9 +77,9 @@ Using the pre-installed server image
     #. The first stage firmware booted by QEMU is OpenSBI. Before QEMU 7.0 this had to be specified by the ``-bios`` option. This option is not needed with QEMU 7.0 or higher. It cannot be used with KVM.
     #. The second stage firmware U-Boot is loaded into memory via ``-kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf``
 
-  One can use pass through networking, adjust memory (-m) & cpu counts (-smp) as needed.
+  One can use pass through networking, adjust memory (-m) and cpu counts (-smp) as needed.
 
-4. Watch the serial console output and wait for cloud-init to complete. It will show a line with the text 'Cloud-init finished' like:
+4. Watch the serial console output and wait for cloud-init to complete. It will show a line with the text 'Cloud-init finished':
 
   .. code-block:: text
     
@@ -92,7 +92,7 @@ cloud-init integration
 
 The image has a fallback cloud-init datasource that configures sudo user ubuntu with password ubuntu and DHCP networking. You will be asked to change the password on first login.
 
-The image has a `CIDATA <https://cloudinit.readthedocs.io/en/latest>`_ partition which can be used as a valid datasource to adjust cloud-config metadata. If you wish to customize the user password, networking information, add SSH keys, etc. Please mount CIDATA partition rename meta-data and user-data files and adjust them to taste. You can use network-info to configure networking if something more sophisticated than just DHCP is desired.
+The image has a `CIDATA <https://cloudinit.readthedocs.io/en/latest>`_ partition which can be used as a valid datasource to adjust cloud-config metadata. If you wish to customize the user password, networking information, add SSH keys, etc. Please mount CIDATA partition, rename meta-data and user-data files, and adjust them to taste. You can use network-info to configure networking if something more sophisticated than just DHCP is desired.
 
 Using the live server image
 ===========================
@@ -128,7 +128,7 @@ Installing live server image
 
 When rebooting we have to remove the installer image. Otherwise the installer will restart.
 
-U-Boot gives you a 2 second time window to press the Enter key to reach the U-Boot console. In U-Boot’s console you can use the poweroff command to stop QEMU. Another option to exit QEMU is pressing keys CTRL-a followed by key x.
+U-Boot gives you a 2 second time window to press the Enter key to reach the U-Boot console. In U-Boot’s console you can use the poweroff command to stop QEMU. Another option to exit QEMU is pressing keys ``CTRL-a`` followed by key ``x``.
 
 Running Ubuntu
 --------------
