@@ -50,7 +50,7 @@ Using the pre-installed server image
 
    .. code-block:: text
 
-   xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
+       xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
 
 
 2. Optionally, if you want a larger disk, you can expand the disk (the
@@ -58,7 +58,7 @@ Using the pre-installed server image
 
    .. code-block:: text
 
-     qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
+       qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
 
 
 3. Next use u-boot-qemu to boot the virtual machine. A working example with all the options is:

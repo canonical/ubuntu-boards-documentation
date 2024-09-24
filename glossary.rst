@@ -48,7 +48,8 @@ Glossary
         found on many boards.
 
     Netplan
-        `Netplan <https://netplan.io/>`_ is a utility for easily configuring networking on a linux system. 
+        `Netplan <https://netplan.io/>`_ is a utility for easily configuring
+	networking on a Linux system.
         You simply create a YAML description of the required network interfaces 
         and what each should be configured to do. 
 
@@ -58,6 +59,13 @@ Glossary
         modern flash storage devices, developed to more closely match the
         capabilities and behaviour of flash storage (in contrast to interfaces
         like :term:`SATA` which were developed for use with spinning media).
+
+    OpenSBI
+        OpenSBI is an implementation of RISC-V's Supervisor Binary Interface
+        (SBI).
+
+    PPA
+        Personal package archive
 
     QEMU
         The `Quick Emulator <https://www.qemu.org/>`_ project, a popular
@@ -71,6 +79,10 @@ Glossary
 
     SBC
         A Single Board Computer.
+
+    SBI
+        The Supervisor Binary Interface defines an API on RISC-V for the
+        communication with M-mode firmware.
 
     SSD
         `Solid State Drive <https://en.wikipedia.org/wiki/Solid-state_drive>`_;
