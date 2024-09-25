@@ -13,9 +13,12 @@ Bootloader
 CIDATA
 CPU
 CPUs
+chmod
 customize
 dev
 DHCP
+DKMS
+dkms
 dialout
 DSI
 EBBR
@@ -41,6 +44,7 @@ JTAG
 libcamera
 KVM
 LicheeRV
+licheerv
 macOS
 Mantic
 microSD
