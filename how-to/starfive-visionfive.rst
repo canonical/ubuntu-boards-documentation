@@ -3,17 +3,16 @@ Install Ubuntu on the StarFive VisionFive
 =========================================
 
 
-Supported images
-================
-
-* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
-
-  - :download:`ubuntu-22.04.2-preinstalled-server-riscv64+visionfive.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.2-preinstalled-server-riscv64+visionfive.img.xz>`
+Using the pre-installed server image
+====================================
 
 This board is no longer supported beyond 22.04 (Jammy Jellyfish).
 
-Using the pre-installed server image
-====================================
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: jammy
+       :suffix: +visionfive
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)

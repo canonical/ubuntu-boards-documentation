@@ -5,28 +5,14 @@ Install Ubuntu on the SiFive HiFive Unmatched
 The `SiFive HiFive Unmatched`_ is a RISC-V based :term:`SBC`.
 
 
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz>`
-
-* Ubuntu 24.04 (Noble Numbat) live server (see instructions below):
-
-  - :download:`ubuntu-24.04.1-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-live-server-riscv64.img.gz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
-
-  - :download:`ubuntu-22.04.4-preinstalled-server-riscv64+unmatched.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-server-riscv64+unmatched.img.xz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) live server (see instructions below):
-
-  - :download:`ubuntu-22.04.4-live-server-riscv64.img.gz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-live-server-riscv64.img.gz>`
-
-
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: jammy-
+       :suffix: +unmatched
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
@@ -57,6 +43,13 @@ Using the live server image
 
 The live installer image is used to install Ubuntu to an :term:`NVMe` drive
 attached to the M.2 slot on the board.
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: jammy-
+       :image-types: live-server
+       :archs: riscv64
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)

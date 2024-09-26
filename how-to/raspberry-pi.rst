@@ -88,35 +88,15 @@ C
 .. [4] Desktop requires 4GB of RAM or more
 
 
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04-preinstalled-server-arm64+raspi.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-arm64+raspi.img.xz>`
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed desktop:
-
-  - :download:`ubuntu-24.04-preinstalled-desktop-arm64+raspi.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
-
-  - :download:`ubuntu-22.04.4-preinstalled-server-arm64+raspi.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-server-arm64+raspi.img.xz>`
-  - :download:`ubuntu-22.04.4-preinstalled-server-armhf+raspi.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-server-armhf+raspi.img.xz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) pre-installed desktop:
-
-  - :download:`ubuntu-22.04.4-preinstalled-desktop-arm64+raspi.img.xz <https://old-releases.ubuntu.com/releases/22.04/ubuntu-22.04.4-preinstalled-desktop-arm64+raspi.img.xz>`
-
-* Ubuntu 20.04 (Focal Fossa) pre-installed server:
-
-  - :download:`ubuntu-20.04.5-preinstalled-server-armhf+raspi.img.xz <http://cdimage.ubuntu.com/releases/20.04.5/release/ubuntu-20.04.5-preinstalled-server-armhf+raspi.img.xz>`
-  - :download:`ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz <http://cdimage.ubuntu.com/releases/20.04.5/release/ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz>`
-
-
-
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: focal-
+       :suffix: +raspi
+       :image-types: preinstalled-server
 
 #. Flash the pre-installed image to your selection of boot media (microSD card,
    USB mass-storage device or, on the CM4 or Pi 5, :term:`NVMe` storage)
@@ -146,6 +126,13 @@ Using the pre-installed server image
 
 Using the pre-installed desktop image
 =====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: focal-
+       :suffix: +raspi
+       :image-types: preinstalled-desktop
 
 #. Flash the pre-installed image to your selection of boot media (microSD card,
    USB mass-storage device or, on the CM4 or Pi 5, :term:`NVMe` storage)

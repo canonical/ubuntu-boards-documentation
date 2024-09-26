@@ -5,20 +5,14 @@ Install Ubuntu on the Allwinner Nezha D1
 The `Nezha D1`_ is a RISC-V based :term:`SBC`.
 
 
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img.xz <http://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img.xz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
-
-  - :download:`ubuntu-22.04.5-preinstalled-server-riscv64+nezha.img.xz <http://cdimage.ubuntu.com/releases/22.04.5/release/ubuntu-22.04.5-preinstalled-server-riscv64+nezha.img.xz>`
-
-
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: jammy-
+       :suffix: +nezha
 
 #. Flash the pre-installed server image to an SD card (see
    :doc:`/how-to/flash-images`)
