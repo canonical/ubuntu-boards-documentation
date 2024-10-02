@@ -106,6 +106,10 @@ Installing live server image
        :image-types: live-server
        :archs: riscv64
 
+#. Unpack the disk image:
+
+  .. code-block:: text
+
     gzip -d ubuntu-22.04.5-live-server-riscv64.img.gz
 
 2. Create the disk image on which you will install Ubuntu. 16 GiB should be enough.
