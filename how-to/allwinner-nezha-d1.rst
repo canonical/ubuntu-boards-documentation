@@ -92,6 +92,16 @@ Limitations
 
 * Shutdown fails.
 
+* The following kernel modules are used for reading from the SD card:
+
+  * mmc-block
+
+  * sunxi-mmc
+
+  They must either be built into the kernel or must be included in the initial
+  RAM disk via /etc/initramfs-tools/modules or via a file in
+  /usr/share/initramfs-tools/modules.d/.
+
 
 .. _Nezha D1: https://d1.docs.aw-ol.com/en/d1_dev/
 .. _cloud-init: https://cloudinit.readthedocs.io/

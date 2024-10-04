@@ -38,6 +38,7 @@ HiFive
 HSS
 https
 init
+initramfs
 inotify
 inotifywait
 JTAG
@@ -48,6 +49,7 @@ licheerv
 macOS
 Mantic
 microSD
+mmc
 MSEL
 MultiMediaCard
 netplan
@@ -80,11 +82,13 @@ SPI
 SSD
 StarFive
 sudo
+sunxi
 TTL
 ttyUSB
 UART
 UARTs
 ubuntu
 UEFI
+usr
 VisionFive
 wifi
