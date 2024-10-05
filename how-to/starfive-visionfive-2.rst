@@ -5,20 +5,14 @@ Install Ubuntu on the StarFive VisionFive 2
 The `StarFive VisionFive 2`_ is a RISC-V based :term:`SBC`.
 
 
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64+visionfive2.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+visionfive2.img.xz>`
-
-* Ubuntu 24.04 (Noble Numbat) live server (see instructions below):
-
-  - :download:`ubuntu-24.04.1-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-live-server-riscv64.img.gz>`
-
-
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: noble-
+       :suffix: +visionfive2
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
@@ -70,6 +64,13 @@ flash.
 
 Install U-Boot to the SPI flash
 -------------------------------
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: noble-
+       :image-types: live-server
+       :archs: riscv64
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)

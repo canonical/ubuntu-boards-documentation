@@ -2,19 +2,18 @@
 Install Ubuntu on the LicheeRV Dock
 ===================================
 
-The `LicheeRV board`_ can be used in different configurations. We currently only supply an image for the LicheeRV with Dock.
-
-
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64+licheerv.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+licheerv.img.xz>`
+The `LicheeRV board`_ can be used in different configurations. We currently
+only supply an image for the LicheeRV with Dock.
 
 
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: noble-
+       :suffix: +licheerv
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)

@@ -24,27 +24,19 @@ The packages can be installed with the following commands:
   sudo apt-get install opensbi qemu-system-misc u-boot-qemu
 
 
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64.img.xz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-preinstalled-server-riscv64.img.xz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) pre-installed server:
-
-  - :download:`ubuntu-22.04.5-preinstalled-server-riscv64+unmatched.img <https://cdimage.ubuntu.com/releases/jammy/release/ubuntu-22.04.5-preinstalled-server-riscv64+unmatched.img.xz>`.
-
-* Ubuntu 24.04 (Noble Numbat) live server:
-
-  - :download:`ubuntu-24.04.1-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.1-live-server-riscv64.img.gz>`
-
-* Ubuntu 22.04 (Jammy Jellyfish) live server:
-
-  - :download:`ubuntu-22.04.5-live-server-riscv64.img.gz <https://cdimage.ubuntu.com/releases/22.04.5/release/ubuntu-22.04.5-live-server-riscv64.img.gz>`
-
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: jammy-
+       :image-types: preinstalled-server
+       :archs: riscv64
+       :matches: (22\.04.*\+unmatched\.img|riscv64\.img)
+
+   .. on jammy, use the +unmatched image for QEMU; later releases should use
+      the unsuffixed images, hence the horrid regex above
 
 1. Unpack the image:
 
@@ -107,7 +99,14 @@ Using the live server image
 Installing live server image
 ----------------------------
 
-1. Extract the image (replacing 'ubuntu-22.04.5' with your release):
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: jammy-
+       :image-types: live-server
+       :archs: riscv64
+
+#. Unpack the disk image:
 
   .. code-block:: text
 

@@ -165,6 +165,10 @@ linkcheck_anchors_ignore_for_url = []
 # If you need more extensions, add them here.
 # myst_enable_extensions = set()
 
+# Append the path to our custom extension
+import sys
+sys.path.append('./_ext')
+
 # You must include the canonical_sphinx extension here.
 # This extension automatically enables the following Sphinx extensions:
 # custom-rst-roles, myst_parser, notfound.extension, related-links,
@@ -176,6 +180,7 @@ linkcheck_anchors_ignore_for_url = []
 extensions = [
     'canonical_sphinx',
     'sphinx.ext.extlinks',
+    'downloads',
     ]
 
 # Add files or directories that should be excluded from processing.

@@ -5,16 +5,14 @@ Install Ubuntu on the Microchip PIC64GX1000 Curiosity Kit
 The first stage boot loader of the PIC64GX Curiosity Kit is called `Hart Software Services <https://github.com/pic64gx/pic64gx-hart-software-services>`_ (HSS). Ubuntu requires version v2024.06 or later of this software. The HSS sources are available on `GitHub <https://github.com/pic64gx/pic64gx-hart-software-services>`_ and can be built and programmed using the linked `instructions <https://github.com/pic64gx/pic64gx-hart-software-services/blob/pic64gx/README.md>`_.
 
 
-Supported images
-================
-
-* Ubuntu 24.04 (Noble Numbat) pre-installed server:
-
-  - :download:`ubuntu-24.04.1-preinstalled-server-riscv64+pic64gx.img.xz <https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+pic64gx.img.xz>`
-
-
 Using the pre-installed server image
 ====================================
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: noble-
+       :suffix: +pic64gx
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
