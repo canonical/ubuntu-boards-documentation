@@ -62,7 +62,7 @@ attached to the M.2 slot on the board.
    :doc:`/how-to/uart-console`)
 
 #. Power on the board; if there is no operating system already on the NVMe
-   drive, skip to step 8
+   drive, skip to step 9
 
 #. When "Hit any key to stop autoboot" is displayed, press :kbd:`Enter`
 

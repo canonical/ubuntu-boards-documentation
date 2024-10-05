@@ -131,7 +131,7 @@ Boot the live server image
 #. Power on the board
 
 #. If no prior operating system installation exists, U-Boot will start up
-   :term:`GRUB` on the microSD card. Go to step 8
+   :term:`GRUB` on the microSD card. Go to step 9
 
 #. If a prior operating system exists, press :kbd:`Enter` when "Hit any key to
    stop autoboot" is displayed, and enter:
