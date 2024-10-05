@@ -132,7 +132,7 @@ Installing live server image
 
    .. code-block:: text
 
-       /usr/bin/qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
+       qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
            -netdev user,id=net0 \
            -device virtio-net-device,netdev=net0 \
@@ -156,16 +156,17 @@ QEMU. Another option to exit QEMU is pressing keys ``CTRL-a`` followed by key
 Running Ubuntu
 --------------
 
-To run your installed Ubuntu image use
+To run your installed Ubuntu image use:
 
 .. code-block:: text
 
-  /usr/bin/qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
-      -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
-      -netdev user,id=net0 \
-      -device virtio-net-device,netdev=net0 \
-      -drive file=disk,format=raw,if=virtio \
-      -device virtio-rng-pci
+    qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
+        -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
+        -netdev user,id=net0 \
+        -device virtio-net-device,netdev=net0 \
+        -drive file=disk,format=raw,if=virtio \
+        -device virtio-rng-pci
+
 
 Limitations
 ===========
