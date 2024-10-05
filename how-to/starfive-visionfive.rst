@@ -79,7 +79,4 @@ The firmware required to use Bluetooth is only available in a PPA:
        sudo apt install linux-firmware-starfive brcm-patchram-plus-starfive
 
 
-Limitations
-===========
-
 .. _cloud-init: https://cloudinit.readthedocs.io/

@@ -178,8 +178,5 @@ For example, to access the UART for the U-Boot prompt:
     screen /dev/ttyUSB1 115200,cs8,-parenb,-cstopb
 
 
-Limitations
-===========
-
 .. _SiFive HiFive Unmatched: https://www.sifive.com/boards/hifive-unmatched
 .. _cloud-init: https://cloudinit.readthedocs.io/

@@ -42,7 +42,4 @@ Using the pre-installed server image
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
-Limitations
-===========
-
 .. _cloud-init: https://cloudinit.readthedocs.io/
