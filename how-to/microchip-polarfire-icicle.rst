@@ -48,7 +48,7 @@ Using the pre-installed server image
 
 #. Flash the pre-installed server image to a microSD card or the Icicle Kit on
    board eMMC (see :doc:`/how-to/flash-images`). The board uses package
-   :lp-pkg:`u-boot-microchip` as second stage boot loader. It is installed in
+   ``u-boot-microchip`` as second stage boot loader. It is installed in
    the partition with label "loader" on the above pre-installed server disk
    image. Ubuntu's U-Boot has been set up to use all U54 cores for Linux. If
    you want to use one or more cores for a real time operating system in
