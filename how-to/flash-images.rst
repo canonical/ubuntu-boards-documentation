@@ -51,9 +51,11 @@ Procedure
    should exit, displaying the name of a new node under :file:`/dev`. For
    example:
 
-   .. code-block:: console
+   .. terminal::
+       :user: ubuntu
+       :host: ubuntu
 
-       $ inotifywait --event create --format "%w%f" /dev
+       :input: inotifywait --event create --format "%w%f" /dev
        Setting up watches.
        Watches established.
        /dev/sda1
@@ -107,9 +109,11 @@ Alternate device names
 In some cases, depending on the microSD interface in use, you may see output
 like the following from :command:`inotifywait`:
 
-.. code-block:: console
+.. terminal::
+    :user: ubuntu
+    :host: ubuntu
 
-    $ inotifywait --event create --format "%w%f" /dev
+    :input: inotifywait --event create --format "%w%f" /dev
     Setting up watches.
     Watches established.
     /dev/mmcblk0p1
