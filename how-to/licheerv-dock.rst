@@ -75,9 +75,8 @@ Configure Netplan
 #. Configure :term:`Netplan` to connect to your local network. Below is an
    example configuration:
 
-   .. code-block:: text
+   .. code-block:: yaml
 
-        The file should be owned by root and the permissions set to 600 (chmod 600).
        network:
            version: 2
            renderer: networkd
@@ -89,6 +88,15 @@ Configure Netplan
                        "YOUR_SSID":
                            password: "YOUR_PASSWORD"
 
+   Store this configuration under a file matching the pattern
+   :file:`/etc/netplan/{filename}.yaml`, for example
+   :file:`/etc/netplan/wifi-config.yaml`. This file must be owned by, and only
+   accessible to, the root user:
+
+   .. code-block:: text
+
+       sudo chown root:root /etc/netplan/wifi-config.yaml
+       sudo chmod 600 /etc/netplan/wifi-config.yaml
 
 #. Either reboot or execute the following commands to load the kernel module
    and apply the configuration:
