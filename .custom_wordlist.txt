@@ -14,12 +14,16 @@ CIDATA
 CPU
 CPUs
 chmod
+Ctrl
+CTS
 customize
 dev
 DHCP
 DKMS
 dkms
 dialout
+dmesg
+ds
 DSI
 EBBR
 eMMC
@@ -49,6 +53,7 @@ licheerv
 macOS
 Mantic
 microSD
+minicom
 mmc
 MSEL
 MultiMediaCard
@@ -69,6 +74,8 @@ qemu
 QEMU
 QEMU's
 QSPI
+rtl
+RTS
 SATA
 SBC
 SBCs
@@ -84,9 +91,13 @@ StarFive
 sudo
 sunxi
 TTL
+tty
 ttyUSB
+tx
+uaccess
 UART
 UARTs
+UART's
 ubuntu
 UEFI
 usr
