@@ -141,7 +141,7 @@ Installing live server image
            -device virtio-rng-pci
 
 #. Follow the installation steps in
-   `https://ubuntu.com/tutorials/install-ubuntu-server
+   `Ubuntu Server installation tutorial
    <https://ubuntu.com/tutorials/install-ubuntu-server>`_
 
 When rebooting we have to remove the installer image. Otherwise the installer
