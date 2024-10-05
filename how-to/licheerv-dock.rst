@@ -95,9 +95,9 @@ Configure Netplan
 
    .. code-block:: text
 
-       $ sudo modprobe 8723ds
-       $ sudo netplan apply
-       $ sudo systemctl restart systemd-networkd.service
+       sudo modprobe 8723ds
+       sudo netplan apply
+       sudo systemctl restart systemd-networkd.service
 
    You should now be connected to your wireless network.
 
