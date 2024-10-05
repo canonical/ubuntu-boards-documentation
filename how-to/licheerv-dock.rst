@@ -32,7 +32,6 @@ Using the pre-installed server image
 
         [  291.932176] cloud-init[1282]: Cloud-init v. 22.3.4-0ubuntu1 finished at Thu, 20 Oct 2022 08:25:11 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 291.79 seconds
 
-
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 

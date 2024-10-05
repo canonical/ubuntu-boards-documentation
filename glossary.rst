@@ -88,9 +88,11 @@ Glossary
         `Solid State Drive <https://en.wikipedia.org/wiki/Solid-state_drive>`_;
         a type of persistent storage drive that has no moving parts, relying
         instead on flash memory.
-        
+
     SoC
-        A System-on-a-Chip is an integrated circuit design that combines elements of an electronic device onto a single chip instead of using separate components.
+        A System-on-a-Chip is an integrated circuit design that combines
+        elements of an electronic device onto a single chip instead of using
+        separate components.
 
     TTL
         `Transistor-transistor logic

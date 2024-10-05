@@ -2,7 +2,13 @@
 Install Ubuntu on the Microchip PIC64GX1000 Curiosity Kit
 =========================================================
 
-The first stage boot loader of the PIC64GX Curiosity Kit is called `Hart Software Services <https://github.com/pic64gx/pic64gx-hart-software-services>`_ (HSS). Ubuntu requires version v2024.06 or later of this software. The HSS sources are available on `GitHub <https://github.com/pic64gx/pic64gx-hart-software-services>`_ and can be built and programmed using the linked `instructions <https://github.com/pic64gx/pic64gx-hart-software-services/blob/pic64gx/README.md>`_.
+The first stage boot loader of the PIC64GX Curiosity Kit is called `Hart
+Software Services`_ (HSS). Ubuntu requires version 2024.06 or later of this
+software. The `HSS sources`_ are available from GitHub; build and programming
+instructions can be found in the README of the linked repository.
+
+.. _Hart Software Services: https://github.com/pic64gx/pic64gx-hart-software-services
+.. _HSS sources: https://github.com/pic64gx/pic64gx-hart-software-services
 
 
 Using the pre-installed server image

@@ -2,15 +2,39 @@
 Install Ubuntu on the Microchip Polarfire Icicle
 ================================================
 
+
 FPGA Design
 ===========
 
-Ubuntu's kernel 5.19 requires the `Icicle Kit Reference Design <https://github.com/polarfire-soc/icicle-kit-reference-design/releases>`_ v2022.10 or later. The archive ``MPFS_ICICLE_BASE_DESIGN_yyyy_mm.zip`` contains a job file and digest file which can be used. This job file also includes the latest version of the Hart Software Services at the time of the release (see below). `FlashPro Express <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro-and-flashpro-express>`_ is needed to program the job file to the FPGA. `FlashPro Express <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro-and-flashpro-express>`_ standalone is bundled with the `Programming and Debug Tools <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug>`_.
+Ubuntu's kernel 5.19 requires the `Icicle Kit Reference Design`_ v2022.10 or
+later. The archive :file:`MPFS_ICICLE_BASE_DESIGN_{yyyy}_{mm}.zip` contains a
+job file and digest file which can be used. This job file also includes the
+latest version of the `Hart Software Services`_ at the time of the release.
+`FlashPro Express`_ is needed to program the job file to the FPGA. `FlashPro
+Express`_ standalone is bundled with the `Programming and Debug Tools`_.
+
+.. _Hart Software Services: https://github.com/polarfire-soc/hart-software-services/releases
+.. _HSS sources: https://github.com/polarfire-soc/hart-software-services
+.. _FlashPro Express: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro-and-flashpro-express
+.. _Programming and Debug Tools: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug
+
 
 Hart Software Services
 ======================
 
-The first stage boot loader of the `PolarFire <https://www.microchip.com/en-us/products/fpgas-and-plds/fpgas/polarfire-fpgas>`_ SoC FPGA Icicle Kit is called `Hart Software Services (HSS) <https://github.com/polarfire-soc/hart-software-services/releases>`_. Ubuntu's kernel 5.19 requires version v2022.10 or later of this software. Microchip provides a `FlashPro <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro>`_ Express programming job that can be used to update the HSS on a kit to the latest version without having to build the software, this job is provided with the FPGA design. Otherwise the HSS sources are available on `GitHub <https://github.com/polarfire-soc/hart-software-services>`_ and can be built and programmed independently of the design using the command line or the `SoftConsole IDE <https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/soc-fpga/softconsole>`_.
+The first stage boot loader of the `PolarFire`_ :term:`SoC` FPGA Icicle Kit is
+called `Hart Software Services`_ (HSS). Ubuntu's kernel 5.19 requires version
+2022.10 or later of this software. Microchip provides a `FlashPro`_ Express
+programming job that can be used to update the HSS on a kit to the latest
+version without having to build the software, this job is provided with the
+FPGA design. Otherwise the `HSS sources`_ are available from GitHub and can be
+built and programmed independently of the design using the command line or the
+`SoftConsole IDE`_.
+
+.. _FlashPro: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro
+.. _Icicle Kit Reference Design: https://github.com/polarfire-soc/icicle-kit-reference-design/releases
+.. _PolarFire: https://www.microchip.com/en-us/products/fpgas-and-plds/fpgas/polarfire-fpgas
+.. _SoftConsole IDE: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/soc-fpga/softconsole
 
 
 Using the pre-installed server image
@@ -22,12 +46,21 @@ Using the pre-installed server image
        :releases: jammy-
        :suffix: +icicle
 
-#. Flash the pre-installed server image to a microSD card or the Icicle Kit on board eMMC (see
-   :doc:`/how-to/flash-images`). The board uses package u-boot-microchip as second stage boot loader. It is installed in the partition with label loader on the above pre-installed server disk image. Ubuntu's U-Boot has been set up to use all U54 cores for Linux. If you want to use one or more cores for a real time operating system in parallel to Ubuntu, you will have to uninstall this package and install your own U-Boot onto the partition loader.
+#. Flash the pre-installed server image to a microSD card or the Icicle Kit on
+   board eMMC (see :doc:`/how-to/flash-images`). The board uses package
+   :lp-pkg:`u-boot-microchip` as second stage boot loader. It is installed in
+   the partition with label "loader" on the above pre-installed server disk
+   image. Ubuntu's U-Boot has been set up to use all U54 cores for Linux. If
+   you want to use one or more cores for a real time operating system in
+   parallel to Ubuntu, you will have to uninstall this package and install your
+   own U-Boot onto the partition loader.
 
 #. Insert the microSD card into the board.
 
-#. Connect to the :term:`UART` console. If the Icicle board is the only connected USB UART, /dev/ttyUSB0 will show the HSS output and /dev/ttyUSB1 will be the U-Boot and Linux console (see `UART console`_ and :doc:`/how-to/uart-console`).
+#. Connect to the :term:`UART` console. If the Icicle board is the only
+   connected USB UART, /dev/ttyUSB0 will show the HSS output and /dev/ttyUSB1
+   will be the U-Boot and Linux console (see `UART console`_ and
+   :doc:`/how-to/uart-console`).
 
 #. Power on the board
 
@@ -39,18 +72,26 @@ Using the pre-installed server image
 
         [  291.932176] cloud-init[1282]: Cloud-init v. 22.3.4-0ubuntu1 finished at Thu, 20 Oct 2022 08:25:11 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 291.79 seconds
 
+#. Login with the user *ubuntu* and the default password *ubuntu*; you will be
+   asked to choose a new password.
 
-#. Login with the user *ubuntu* and the default password *ubuntu*; you will be asked to choose a new password.
 
 UART console
 ============
 
-The board features a USB to quad :term:`UART` bridge controller (J11). The first UART has the HSS output, while the second :term:`UART` is used for the U-Boot and the Linux console. The baudrate is 115200.
+The board features a USB to quad :term:`UART` bridge controller (J11). The
+first UART has the HSS output, while the second :term:`UART` is used for the
+U-Boot and the Linux console. The baudrate is 115200.
+
 
 USB
 ===
 
-The USB OTG port (J16) can both be used a USB client or a USB host port. Jumpers on the board switch between client and host mode (J15) and control the provision of 5 Volt to the USB port (J17). The Ubuntu kernel supports the host mode.
+The USB OTG port (J16) can both be used a USB client or a USB host port.
+Jumpers on the board switch between client and host mode (J15) and control the
+provision of 5 Volt to the USB port (J17). The Ubuntu kernel supports the host
+mode.
+
 
 Limitations
 ===========
