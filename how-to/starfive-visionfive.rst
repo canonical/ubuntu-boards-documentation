@@ -68,15 +68,15 @@ The firmware required to use Bluetooth is only available in a PPA:
 
 #. Add the RISC-V PPA:
 
-    .. code-block:: text
+   .. code-block:: text
 
-        sudo add-apt-repository ppa:ubuntu-risc-v-team/release
+       sudo add-apt-repository ppa:ubuntu-risc-v-team/release
 
 #. Install the required packages:
 
-    .. code-block:: text
+   .. code-block:: text
 
-        sudo apt install linux-firmware-starfive brcm-patchram-plus-starfive
+       sudo apt install linux-firmware-starfive brcm-patchram-plus-starfive
 
 
 Limitations

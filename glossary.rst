@@ -49,9 +49,9 @@ Glossary
 
     Netplan
         `Netplan <https://netplan.io/>`_ is a utility for easily configuring
-	networking on a Linux system.
-        You simply create a YAML description of the required network interfaces 
-        and what each should be configured to do. 
+        networking on a Linux system. You simply create a YAML description of
+        the required network interfaces and what each should be configured to
+        do.
 
     NVMe
         `Non-Volatile Memory express

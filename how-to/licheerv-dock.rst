@@ -40,53 +40,66 @@ Using the pre-installed server image
 WiFi Configuration
 ==================
 
-Install WiFi driver (this step is only needed prior to kernel 6.7. It is not needed for Ubuntu 24.04)
+Install Drivers
+---------------
 
-    #. To enable WiFi the DKMS package ``licheerv-rtl8723ds-dkms`` is needed needed on lower kernel releases. If your LicheeRV is connected to the network via a USB Ethernet adapter, that is easy:
-    
-        .. code-block:: text
+This step is only required for kernel versions earlier than 6.7. It is *not*
+required for Ubuntu 24.04.
 
-            $ sudo apt-get update
-            $ sudo apt-get install licheerv-rtl8723ds-dkms
+#. To enable WiFi, the DKMS package :lp-pkg:`licheerv-rtl8723ds-dkms` is needed
+   on lower kernel releases. If your LicheeRV is connected to the network via a
+   USB Ethernet adapter, that is easy:
 
-    #. If your LicheeRV is not connected to the network you have to download the ``licheerv-rtl8723ds-dkms_*.deb`` file from the `launchpad page <https://launchpad.net/ubuntu/+source/licheerv-rtl8723ds-dkms>`_ and write it to the SD card.
+   .. code-block:: text
 
-    #. Once you have booted the device the package can be installed with
+       sudo apt-get update
+       sudo apt-get install licheerv-rtl8723ds-dkms
 
-        .. code-block:: text
-            
-            $ sudo dpkg -i licheerv-rtl8723ds-dkms_*.deb
+#. If your LicheeRV is not connected to the network, you must download the
+   relevant ``licheerv-rtl8723ds-dkms_*.deb`` file from the
+   :lp-pkg:`licheerv-rtl8723ds-dkms` Launchpad page and write it to the SD
+   card.
 
-        The installation process requires building a kernel module and takes at least an hour.
+#. Once you have booted the device the package can be installed with
+
+   .. code-block:: text
+
+       sudo dpkg -i licheerv-rtl8723ds-dkms_*.deb
+
+   The installation process requires building a kernel module and takes at
+   least an hour.
 
 Configure Netplan
+-----------------
 
-    #. Configure :term:`Netplan` to connect to your local network. Find below a simple example of a :term:`Netplan` configuration file that must be stored in ``/etc/netplan`` directory with the extension ``*.yaml``:
-    
-        .. code-block:: text
+#. Configure :term:`Netplan` to connect to your local network. Below is an
+   example configuration:
 
-            network:
-            version: 2
-            renderer: networkd
-            wifis:
-                wlan0:
-                dhcp4: yes
-                dhcp6: yes
-                access-points:
-                    "YOUR_SSID":
-                    password: "YOUR_PASSWORD"
+   .. code-block:: text
 
         The file should be owned by root and the permissions set to 600 (chmod 600).
-    
-    #. Either reboot or execute the following commands to load the kernel module and apply the configuration:
+       network:
+           version: 2
+           renderer: networkd
+           wifis:
+               wlan0:
+                   dhcp4: yes
+                   dhcp6: yes
+                   access-points:
+                       "YOUR_SSID":
+                           password: "YOUR_PASSWORD"
 
-        .. code-block:: text
 
-            $ sudo modprobe 8723ds
-            $ sudo netplan apply
-            $ sudo systemctl restart systemd-networkd.service
+#. Either reboot or execute the following commands to load the kernel module
+   and apply the configuration:
 
-        You should now be connected to your wireless network.
+   .. code-block:: text
+
+       $ sudo modprobe 8723ds
+       $ sudo netplan apply
+       $ sudo systemctl restart systemd-networkd.service
+
+   You should now be connected to your wireless network.
 
 
 Limitations
