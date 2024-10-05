@@ -225,9 +225,6 @@ Limitations
 
 * The libcamera stack is not currently operational on 24.04 (:lp-bug:`2038669`)
 
-* The 24.04 desktop for Raspberry Pi image fails to install when booting from
-  USB or NVMe (:lp-bug:`2064208`)
-
 
 .. _Raspberry Pi: https://www.raspberrypi.com/
 .. _Certified: https://certification.canonical.com/
