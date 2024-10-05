@@ -52,8 +52,8 @@ required for Ubuntu 24.04.
 
    .. code-block:: text
 
-       sudo apt-get update
-       sudo apt-get install licheerv-rtl8723ds-dkms
+       sudo apt update
+       sudo apt install licheerv-rtl8723ds-dkms
 
 #. If your LicheeRV is not connected to the network, you must download the
    relevant ``licheerv-rtl8723ds-dkms_*.deb`` file from the

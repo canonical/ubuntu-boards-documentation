@@ -20,8 +20,8 @@ The packages can be installed with the following commands:
 
 .. code-block:: text
 
-  sudo apt-get update
-  sudo apt-get install opensbi qemu-system-misc u-boot-qemu
+    sudo apt update
+    sudo apt install opensbi qemu-system-misc u-boot-qemu
 
 
 Using the pre-installed server image

@@ -109,11 +109,11 @@ Installing the Gnome desktop
 If you have a graphics card installed, you may want to use a graphical desktop.
 The Gnome desktop can be installed with
 
-   .. code-block:: text
+.. code-block:: text
 
-       sudo apt-get update
-       sudo apt-get install ubuntu-desktop
-       sudo systemctl start gdm3
+    sudo apt update
+    sudo apt install ubuntu-desktop
+    sudo systemctl start gdm3
 
 Boot source selection
 =====================
