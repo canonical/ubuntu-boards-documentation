@@ -425,7 +425,7 @@ def get_images(url: str) -> list[Image]:
         >>> len(index)
         2
         >>> index[1] # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
-        Image(url='http://127.0.0.1:4444/ubuntu-21.10-bar-arm64+raspi.img.xz',
+        Image(url='http://.../ubuntu-21.10-bar-arm64+raspi.img.xz',
         name='ubuntu-21.10-bar-arm64+raspi.img.xz',
         date=datetime.date(2021, 10, 25),
         sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...',
@@ -650,15 +650,15 @@ class TableParser(HTMLParser):
 
 
 @contextlib.contextmanager
-def _test_server(files, *, host='127.0.0.1', port=4444):
+def _test_server(files, *, host='127.0.0.1', port=0):
     """
     This function provides a test HTTP server for the doctest suite.
 
     It expects to be called with *content*, a :class:`dict` mapping filenames
     to byte-strings representing file contents. All contents will be written to
     a temporary directory, and a trivial HTTP server will be started to serve
-    its content on the specified *host* and *port* (defaults to port 4444 on
-    localhost).
+    its content on the specified *host* and *port* (defaults to an ephemeral
+    port on localhost).
 
     The function acts as a context manager, cleaning up the http daemon and
     temporary directory upon exit. The URL of the root of the server is yielded
@@ -680,8 +680,8 @@ def _test_server(files, *, host='127.0.0.1', port=4444):
             filepath.write_bytes(data)
 
         handler = functools.partial(SilentHandler, directory=temp)
-        with http.server.ThreadingHTTPServer(
-                ('127.0.0.1', 4444), handler) as httpd:
+        with http.server.ThreadingHTTPServer((host, port), handler) as httpd:
+            host, port, *other = httpd.server_address
             httpd_thread = Thread(target=httpd.serve_forever)
             httpd_thread.start()
             try:
@@ -889,7 +889,7 @@ __test__ = {
         >>> with _test_server(_make_index(images, ts)) as url:
         ...     index = get_images(url)
         >>> index[1] # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
-        Image(url='http://127.0.0.1:4444/ubuntu-21.10-bar-arm64+raspi.img.xz',
+        Image(url='http://.../ubuntu-21.10-bar-arm64+raspi.img.xz',
         name='ubuntu-21.10-bar-arm64+raspi.img.xz',
         date=datetime.date(2021, 10, 25),
         sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...',
@@ -911,7 +911,7 @@ __test__ = {
         >>> with _test_server(_make_index(images, ts)) as url:
         ...     index = get_images(url)
         >>> index[1] # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
-        Image(url='http://127.0.0.1:4444/ubuntu-21.10-bar-arm64+raspi.img.xz',
+        Image(url='http://.../ubuntu-21.10-bar-arm64+raspi.img.xz',
         name='ubuntu-21.10-bar-arm64+raspi.img.xz',
         date=datetime.date(2021, 10, 25),
         sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...',
