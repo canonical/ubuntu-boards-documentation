@@ -126,7 +126,7 @@ Installing live server image
 
    .. code-block:: text
 
-       dd if=/dev/zero bs=1M of=disk count=1 seek=16383
+       fallocate -l 16G disk
 
 #. Start the installer with:
 
