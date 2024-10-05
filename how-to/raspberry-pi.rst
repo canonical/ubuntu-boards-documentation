@@ -150,14 +150,6 @@ Using the pre-installed desktop image
 UART console
 ============
 
-Connect with the following settings (see :doc:`/how-to/uart-console`):
-
-* 115200 baud
-* 8 data bits
-* no parity
-* 1 stop bit
-* no flow control
-
 The :term:`UART` console is accessible via the :term:`GPIO` header on all
 models *except* the Pi 5. Assuming the typical colouring of USB to :term:`TTL`
 serial adapters the following connections have to be made:
@@ -206,6 +198,14 @@ models, append the following line to :file:`config.txt` on the boot partition:
 .. code-block:: text
 
     dtparam=uart0_console
+
+Connect with the following settings (see :doc:`/how-to/uart-console`):
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
 
 
 Limitations

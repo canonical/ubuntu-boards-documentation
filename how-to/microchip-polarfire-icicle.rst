@@ -57,10 +57,8 @@ Using the pre-installed server image
 
 #. Insert the microSD card into the board.
 
-#. Connect to the :term:`UART` console. If the Icicle board is the only
-   connected USB UART, /dev/ttyUSB0 will show the HSS output and /dev/ttyUSB1
-   will be the U-Boot and Linux console (see `UART console`_ and
-   :doc:`/how-to/uart-console`).
+#. Connect to the :term:`UART` console (see `UART console`_ and
+   :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -79,9 +77,20 @@ Using the pre-installed server image
 UART console
 ============
 
-The board features a USB to quad :term:`UART` bridge controller (J11). The
-first UART has the HSS output, while the second :term:`UART` is used for the
-U-Boot and the Linux console. The baudrate is 115200.
+The board features a USB to quad :term:`UART` bridge controller (J11), hence
+this is one of the boards that does *not* require a USB-UART adapter. Connect
+with a regular micro-USB cable.
+
+When connected, it appears as several devices in Linux. The first UART
+(typically :file:`/dev/ttyUSB0`) has the HSS output, while the second
+(typically :file:`/dev/ttyUSB1`) is used for the U-Boot and Linux console.
+Connect with the following settings (see :doc:`/how-to/uart-console`):
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
 
 
 USB

@@ -19,7 +19,9 @@ This board is no longer supported beyond 22.04 (Jammy Jellyfish).
 
 #. Insert the microSD card into the board
 
-#. Connect to the serial :term:`UART` console. Early boot output is only available on the serial console, which runs at 115200 baud (see :doc:`/how-to/uart-console`).
+#. Connect a USB UART adapter to the :term:`UART` on the :term:`GPIO` header
+   (see `UART console`_ and :doc:`/how-to/uart-console`); early boot output is
+   only available on the serial console
 
 #. Power on the board
 
@@ -79,4 +81,25 @@ The firmware required to use Bluetooth is only available in a PPA:
        sudo apt install linux-firmware-starfive brcm-patchram-plus-starfive
 
 
-.. _cloud-init: https://cloudinit.readthedocs.io/
+UART console
+============
+
+The :term:`UART` console is accessible via the :term:`GPIO` header. Assuming
+the typical colouring of USB to :term:`TTL` serial adapters the following
+connections have to be made:
+
+=========== ==========
+Board       Adapter
+=========== ==========
+GND, pin  6 GND, black
+TX,  pin  8 RX,  white
+RX,  pin 10 TX,  green
+=========== ==========
+
+Connect with the following settings (see :doc:`/how-to/uart-console`):
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control

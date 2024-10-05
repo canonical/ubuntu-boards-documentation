@@ -206,19 +206,13 @@ Do not connect the red 3.3 V wire.
     :width: 30em
     :alt: GPIO
 
-Connect with
+Connect with the following settings (see :doc:`/how-to/uart-console`):
 
 * 115200 baud
 * 8 data bits
 * no parity
 * 1 stop bit
 * no flow control
-
-.. code-block:: text
-
-    screen /dev/ttyUSB0 115200,cs8,-parenb,-cstopb
-
-Replace /dev/ttyUSB0 with the relevant device in your setup.
 
 
 Limitations
