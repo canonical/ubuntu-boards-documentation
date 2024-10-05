@@ -21,8 +21,8 @@ Using the pre-installed server image
 
 #. Set the boot source to the microSD card (see `Boot source selection`_)
 
-#. Connect to the :term:`UART` USB port using a micro USB cable
-   (see `UART console`_ and :doc:`/how-to/uart-console`)
+#. Connect to the :term:`UART` console (see `UART console`_ and
+   :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -58,8 +58,8 @@ attached to the M.2 slot on the board.
 
 #. Set the boot source to the microSD card (see `Boot source selection`_)
 
-#. Connect to the :term:`UART` USB port using a micro USB cable
-   (see `UART console`_ and :doc:`/how-to/uart-console`)
+#. Connect to the :term:`UART` console (see `UART console`_ and
+   :doc:`/how-to/uart-console`)
 
 #. Power on the board; if there is no operating system already on the NVMe
    drive, skip to step 8
@@ -157,11 +157,13 @@ UART console
 ============
 
 The board makes both :term:`JTAG` and :term:`UART` available over the micro USB
-connector located adjacent to the microSD card slot. When connected, it appears
-as two separate devices in Linux (:file:`/dev/ttyUSB0`, :file:`/dev/ttyUSB1`).
-The second ttyUSB device represents the UART.
+connector located adjacent to the microSD card slot, hence this board does
+*not* require a USB-UART adapter. Connect with a regular micro-USB cable.
 
-For U-Boot and Linux, connect with:
+When connected, it appears as two separate devices in Linux. The first UART
+(typically :file:`/dev/ttyUSB0`) is JTAG, and the second (typically
+:file:`/dev/ttyUSB1`) is the UART console. Connect with the following settings
+(see :doc:`/how-to/uart-console`):
 
 * 115200 baud
 * 8 data bits
@@ -169,14 +171,7 @@ For U-Boot and Linux, connect with:
 * 1 stop bit
 * no flow control
 
-However the boot ROM messages are written at 57600 baud.
-
-For example, to access the UART for the U-Boot prompt:
-
-.. code-block:: text
-
-    screen /dev/ttyUSB1 115200,cs8,-parenb,-cstopb
-
+However, please note the boot ROM messages are written at 57600 baud.
 
 .. _SiFive HiFive Unmatched: https://www.sifive.com/boards/hifive-unmatched
 .. _cloud-init: https://cloudinit.readthedocs.io/

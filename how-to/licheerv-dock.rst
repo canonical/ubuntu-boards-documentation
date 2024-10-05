@@ -20,7 +20,7 @@ Using the pre-installed server image
 
 #. Insert the microSD card into the board
 
-#. Connect to the serial :term:`UART` console (see :doc:`/how-to/uart-console`).
+#. Connect to the serial :term:`UART` console (see :doc:`/how-to/uart-console`)
 
 #. Power on the board
 

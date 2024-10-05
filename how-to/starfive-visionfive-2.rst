@@ -191,8 +191,9 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
 UART console
 ============
 
-The UART is available via the GPIO connector. Assuming the typical colouring of
-USB to TTL serial adapters the following connections have to be made:
+The :term:`UART` console is accessible via the :term:`GPIO` header. Assuming
+the typical colouring of USB to :term:`TTL` serial adapters the following
+connections have to be made:
 
 =========== ==========
 Board       Adapter
@@ -202,25 +203,17 @@ TX,  pin  8 RX,  white
 RX,  pin 10 TX,  green
 =========== ==========
 
-Do not connect the red 3.3 V wire.
-
 .. image:: /images/starfive-visionfive-2-gpio.jpg
     :width: 30em
     :alt: GPIO
 
-Connect with
+Connect with the following settings (see :doc:`/how-to/uart-console`):
 
 * 115200 baud
 * 8 data bits
 * no parity
 * 1 stop bit
 * no flow control
-
-.. code-block:: text
-
-    screen /dev/ttyUSB0 115200,cs8,-parenb,-cstopb
-
-Replace /dev/ttyUSB0 with the relevant device in your setup.
 
 
 Limitations

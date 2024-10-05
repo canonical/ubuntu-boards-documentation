@@ -25,8 +25,7 @@ Using the pre-installed server image
 
 #. Insert the microSD card into the board
 
-#. Connect to the :term:`UART` using a UART-TTL USB adapter.
-   (see :doc:`/how-to/uart-console`)
+#. Connect to the serial :term:`UART` console (see :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -37,7 +36,6 @@ Using the pre-installed server image
    .. code-block:: text
 
        [   35.682018] cloud-init[909]: Cloud-init v. 24.1.3-0ubuntu3 finished at Tue, 23 Apr 2024 07:44:59 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 35.65 seconds
-
 
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
