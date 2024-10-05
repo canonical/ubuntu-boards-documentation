@@ -38,14 +38,14 @@ Using the pre-installed server image
    .. on jammy, use the +unmatched image for QEMU; later releases should use
       the unsuffixed images, hence the horrid regex above
 
-1. Unpack the image:
+#. Unpack the image:
 
    .. code-block:: text
 
        xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
 
 
-2. Optionally, if you want a larger disk, you can expand the disk (the
+#. Optionally, if you want a larger disk, you can expand the disk (the
    file-system will be automatically resized too):
 
    .. code-block:: text
@@ -53,7 +53,7 @@ Using the pre-installed server image
        qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
 
 
-3. Next use u-boot-qemu to boot the virtual machine. A working example with all the options is:
+#. Next use u-boot-qemu to boot the virtual machine. A working example with all the options is:
 
    .. code-block:: text
 
@@ -78,14 +78,14 @@ Using the pre-installed server image
    One can use pass through networking, adjust memory (``-m``) and CPU counts
    (``-smp``) as needed.
 
-4. Watch the serial console output and wait for cloud-init to complete. It will
+#. Watch the serial console output and wait for cloud-init to complete. It will
    show a line with the text 'Cloud-init finished':
 
    .. code-block:: text
 
        [   68.346028] cloud-init[703]: Cloud-init v. 22.2-0ubuntu1~20.04.3 finished at Thu, 22 Sep 2022 11:35:28 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 68.26 seconds
 
-5. Login with the user *ubuntu* and the default password *ubuntu*; you will be
+#. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
 
@@ -121,13 +121,13 @@ Installing live server image
 
        gzip -d ubuntu-22.04.5-live-server-riscv64.img.gz
 
-2. Create the disk image on which you will install Ubuntu. 16 GiB should be enough.
+#. Create the disk image on which you will install Ubuntu. 16 GiB should be enough.
 
    .. code-block:: text
 
        dd if=/dev/zero bs=1M of=disk count=1 seek=16383
 
-3. Start the installer with:
+#. Start the installer with:
 
    .. code-block:: text
 
@@ -139,7 +139,7 @@ Installing live server image
            -drive file=disk,format=raw,if=virtio \
            -device virtio-rng-pci
 
-4. Follow the installation steps in
+#. Follow the installation steps in
    `https://ubuntu.com/tutorials/install-ubuntu-server
    <https://ubuntu.com/tutorials/install-ubuntu-server>`_.
 
@@ -169,5 +169,5 @@ To run your installed Ubuntu image use
 Limitations
 ===========
 
-* The number of virtual CPUs was limited to 8 before QEMU 7.0. The limit was raised in QEMU 7.0 to 512. 
-
+* The number of virtual CPUs was limited to 8 before QEMU 7.0. The limit was
+  raised in QEMU 7.0 to 512.
