@@ -150,6 +150,14 @@ Using the pre-installed desktop image
 UART console
 ============
 
+Connect with the following settings (see :doc:`/how-to/uart-console`):
+
+* 115200 baud
+* 8 data bits
+* no parity
+* 1 stop bit
+* no flow control
+
 The :term:`UART` console is accessible via the :term:`GPIO` header on all
 models *except* the Pi 5. Assuming the typical colouring of USB to :term:`TTL`
 serial adapters the following connections have to be made:
@@ -168,20 +176,6 @@ Do not connect the red 3.3 V wire.
     :alt: A close-up of a traditional USB UART adapter connected to the UART
           on the GPIO header of a Raspberry Pi 4B
 
-Connect with the following settings:
-
-* 115200 baud
-* 8 data bits
-* no parity
-* 1 stop bit
-* no flow control
-
-.. code-block:: text
-
-    screen /dev/ttyUSB0 115200,cs8,-parenb,-cstopb
-
-Replace ``/dev/ttyUSB0`` with the relevant device in your setup.
-
 If you are using a Raspberry Pi `debug probe`_, the colouring of wires is
 slightly different, and you must ensure that the lead is connected to the "U"
 port of the debug probe, but the connections on the GPIO header are similar:
@@ -197,12 +191,6 @@ RX,  pin 10 TX,  orange
 .. image:: /images/rpi-gpio-uart-debug-probe.jpg
     :alt: A close-up of the Raspberry Pi debug probe connected to the UART
           on the GPIO header of a Raspberry Pi 4B
-
-Connect with:
-
-.. code-block:: text
-
-    screen /dev/ttyACM0 115200,cs8,-parenb,-cstopb
 
 On the Pi 5, the serial console is accessed via the 3-pin UART header between
 the two micro-HDMI ports. The simplest means of using this UART is to use the
