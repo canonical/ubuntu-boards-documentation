@@ -218,13 +218,13 @@ Connect with the following settings (see :doc:`/how-to/uart-console`):
 Limitations
 ===========
 
-* The on-board GPU is not supported.
+* The on-board GPU is not supported
 
 * PCIe support is incomplete: an NVMe drive can be used, but WiFi cards and
-  external GPUs don't work.
+  external GPUs don't work
 
 * While the 3 USB 3.0 ports are working, the USB 2.0 port is not supported by
-  the 6.8 kernel.
+  the 6.8 kernel
 
 
 .. _Milk-V Mars: https://milkv.io/mars

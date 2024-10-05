@@ -53,9 +53,9 @@ Using the pre-installed server image
    image. Ubuntu's U-Boot has been set up to use all U54 cores for Linux. If
    you want to use one or more cores for a real time operating system in
    parallel to Ubuntu, you will have to uninstall this package and install your
-   own U-Boot onto the partition loader.
+   own U-Boot onto the partition loader
 
-#. Insert the microSD card into the board.
+#. Insert the microSD card into the board
 
 #. Connect to the :term:`UART` console (see `UART console`_ and
    :doc:`/how-to/uart-console`)
@@ -71,7 +71,7 @@ Using the pre-installed server image
         [  291.932176] cloud-init[1282]: Cloud-init v. 22.3.4-0ubuntu1 finished at Thu, 20 Oct 2022 08:25:11 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 291.79 seconds
 
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
-   asked to choose a new password.
+   asked to choose a new password
 
 
 UART console

@@ -121,7 +121,8 @@ Installing live server image
 
        gzip -d ubuntu-22.04.5-live-server-riscv64.img.gz
 
-#. Create the disk image on which you will install Ubuntu. 16 GiB should be enough.
+#. Create the disk image on which you will install Ubuntu; 16 GiB should be
+   enough
 
    .. code-block:: text
 
@@ -141,7 +142,7 @@ Installing live server image
 
 #. Follow the installation steps in
    `https://ubuntu.com/tutorials/install-ubuntu-server
-   <https://ubuntu.com/tutorials/install-ubuntu-server>`_.
+   <https://ubuntu.com/tutorials/install-ubuntu-server>`_
 
 When rebooting we have to remove the installer image. Otherwise the installer
 will restart.

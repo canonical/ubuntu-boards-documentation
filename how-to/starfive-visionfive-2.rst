@@ -219,10 +219,10 @@ Connect with the following settings (see :doc:`/how-to/uart-console`):
 Limitations
 ===========
 
-* The on-board GPU is not supported.
+* The on-board GPU is not supported
 
 * PCIe support is incomplete: an NVMe drive can be used, but WiFi cards and
-  external GPUs don't work.
+  external GPUs don't work
 
 
 .. _StarFive VisionFive 2: https://www.starfivetech.com/en/site/boards
