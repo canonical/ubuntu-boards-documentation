@@ -114,5 +114,15 @@ Limitations
 
 * Microphone does not work
 
+* The following kernel modules are used for reading from the SD card:
+
+  * mmc-block
+
+  * sunxi-mmc
+
+  They must either be built into the kernel or must be included in the initial
+  RAM disk via /etc/initramfs-tools/modules or via a file in
+  /usr/share/initramfs-tools/modules.d/.
+
 
 .. _LicheeRV board: https://wiki.sipeed.com/hardware/en/lichee/RV/Dock.html
