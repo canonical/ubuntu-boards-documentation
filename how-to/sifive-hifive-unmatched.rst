@@ -115,6 +115,7 @@ The Gnome desktop can be installed with
     sudo apt install ubuntu-desktop
     sudo systemctl start gdm3
 
+
 Boot source selection
 =====================
 

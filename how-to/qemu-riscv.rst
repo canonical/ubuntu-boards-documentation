@@ -88,7 +88,6 @@ Using the pre-installed server image
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
-
 cloud-init integration
 ----------------------
 
@@ -100,6 +99,7 @@ If you wish to customize the user password, networking information, or add SSH
 keys, etc., please, mount the CIDATA partition, and adjust the meta-data and
 user-data files as needed. In a cloud setup you can rename or delete the files
 to ensure that only data provided via the network is used.
+
 
 Using the live server image
 ===========================
@@ -113,7 +113,6 @@ Installing live server image
        :releases: jammy-
        :image-types: live-server
        :archs: riscv64
-
 
 #. Unpack the disk image:
 

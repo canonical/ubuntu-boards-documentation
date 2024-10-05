@@ -36,10 +36,15 @@ This board is no longer supported beyond 22.04 (Jammy Jellyfish).
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
+.. _cloud-init: https://cloudinit.readthedocs.io/
+
+
 Wireless LAN
 ============
 
-To use the wireless LAN you have to configure :term:`netplan`. Find below a simple example of a :term:`Netplan` configuration file that must be stored in ``/etc/netplan`` directory with the extension ``*.yaml``:
+To use the wireless LAN you have to configure :term:`netplan`. Find below a
+simple example of a :term:`Netplan` configuration file that must be stored in
+``/etc/netplan`` directory with the extension ``*.yaml``:
 
 .. code-block:: text
 
@@ -55,7 +60,6 @@ To use the wireless LAN you have to configure :term:`netplan`. Find below a simp
             password: "YOUR_PASSWORD"
 
 Either reboot or execute the following commands to apply the configuration:
-
 
 .. code-block:: text
 
