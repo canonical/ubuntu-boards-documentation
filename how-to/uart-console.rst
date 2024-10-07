@@ -62,10 +62,11 @@ the end may be different too. If in doubt, check the output of
 :manpage:`dmesg(1)`. When attached you should see something like the following
 appear:
 
-.. code-block:: console
-    :emphasize-lines: 13
+.. terminal::
+    :user: ubuntu
+    :host: ubuntu
 
-    $ sudo dmesg
+    :input: sudo dmesg
     ...
     [605927.453848] usb 2-2: new full-speed USB device number 2 using xhci-hcd
     [605927.599633] usb 2-2: New USB device found, idVendor=067b, idProduct=2303, bcdDevice= 3.00
