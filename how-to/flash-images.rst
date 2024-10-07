@@ -9,8 +9,8 @@ ensuring it can be followed even on console-only systems.
 The most dangerous aspect of writing images in this manner is ensuring you are
 overwriting the correct device. With root authority, ``dd`` will happily
 overwrite any device you point it at, including the device holding your root
-file-system! To avoid this, we will use inotify-tools to detect the device node
-representing our microSD card.
+file-system! To avoid this, we will use :lp-pkg:`inotify-tools` to detect the
+device node representing our microSD card.
 
 
 Procedure
