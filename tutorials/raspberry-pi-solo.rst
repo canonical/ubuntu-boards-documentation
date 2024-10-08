@@ -104,4 +104,3 @@ Software installation
      be *ubuntu*
 
 .. _rpi-imager: https://www.raspberrypi.com/software/
-.. _cloud-init: https://cloud-init.readthedocs.io/

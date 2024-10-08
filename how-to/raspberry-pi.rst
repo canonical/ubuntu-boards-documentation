@@ -216,5 +216,4 @@ Limitations
 
 .. _Raspberry Pi: https://www.raspberrypi.com/
 .. _Certified: https://certification.canonical.com/
-.. _cloud-init: https://cloudinit.readthedocs.io/
 .. _debug probe: https://www.raspberrypi.com/products/debug-probe/
