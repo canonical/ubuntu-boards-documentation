@@ -228,4 +228,3 @@ Limitations
 
 
 .. _Milk-V Mars: https://milkv.io/mars
-.. _cloud-init: https://cloudinit.readthedocs.io/

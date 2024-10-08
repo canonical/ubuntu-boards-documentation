@@ -226,4 +226,3 @@ Limitations
 
 
 .. _StarFive VisionFive 2: https://www.starfivetech.com/en/site/boards
-.. _cloud-init: https://cloudinit.readthedocs.io/

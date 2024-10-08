@@ -36,8 +36,6 @@ This board is no longer supported beyond 22.04 (Jammy Jellyfish).
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
-.. _cloud-init: https://cloudinit.readthedocs.io/
-
 
 Wireless LAN
 ============

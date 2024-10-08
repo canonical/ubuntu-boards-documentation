@@ -175,4 +175,3 @@ When connected, it appears as two separate devices in Linux. The first UART
 However, please note the boot ROM messages are written at 57600 baud.
 
 .. _SiFive HiFive Unmatched: https://www.sifive.com/boards/hifive-unmatched
-.. _cloud-init: https://cloudinit.readthedocs.io/
