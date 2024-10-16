@@ -9,15 +9,45 @@ Glossary
         An `Application Programming Interface
         <https://en.wikipedia.org/wiki/API>`_
 
+    DHCP
+        The `Dynamic Host Configuration Protocol
+        <https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol>`_
+        is typically used when bringing up a network interface to obtain an
+        IPv4 (and sometimes IPv6) address. It is also commonly used in the
+        context of :term:`SBCs <SBC>` to provide information about any
+        available network boot facilities (see :term:`TFTP`). See also:
+        :rfc:`1497`, :rfc:`2132`.
+
     EBBR
         The `Embedded Base Boot Requirements
         <https://arm-software.github.io/ebbr/index.html>`_ specification.
+
+    EDID
+        The `Extended Display Identification Data
+        <https://en.wikipedia.org/wiki/Extended_Display_Identification_Data>`_
+        standard supported by the vast majority of computer monitors and TVs,
+        especially those supporting HDMI inputs.
+
+    EEPROM
+        `Electrically Erasable Programmable Read-Only Memory
+        <https://en.wikipedia.org/wiki/EEPROM>`_. A type of non-volatile memory
+        which is commonly used in computers (both small and large) for storage
+        of boot time configuration.
 
     eMMC
         `Embedded MultiMediaCard
         <https://en.wikipedia.org/wiki/MultiMediaCard#eMMC>`_, a storage
         standard that puts the components of a MultiMediaCard in an integrated
         circuit for use in circuit boards as non-volatile storage.
+
+    FAT
+        The `File Allocation Table
+        <https://en.wikipedia.org/wiki/File_Allocation_Table>`_ file-system. A
+        very basic file-system (lacking journaling, indexing, UNIX attributes,
+        file ownership, and with very crude resolution of timestamps) with a
+        long and convoluted history, that has become the modern de facto
+        standard boot-time file-system owing to its simplicity of
+        implementation.
 
     GPIO
         `General Purpose Input/Output
@@ -39,6 +69,14 @@ Glossary
         of the Pi. With the advent of the Pi 5, the specification is now
         superseded by the `HAT+ specification
         <https://datasheets.raspberrypi.com/hat/hat-plus-specification.pdf>`_.
+
+    I²C
+        The `Inter-Integrated Circuit
+        <https://en.wikipedia.org/wiki/I%C2%B2C>`_ interface. A low-speed
+        peripheral bus capable of connecting multiple peripherals sharing the
+        same two wires for communication. Typically runs at a bandwidth of
+        100Kbits/s. Commonly found exposed on the :term:`GPIO` headers of many
+        :term:`SBCs <SBC>`.
 
     JTAG
         An industry standard developed by the Joint Test Action Group (JTAG)
@@ -62,7 +100,7 @@ Glossary
 
     OpenSBI
         OpenSBI is an implementation of RISC-V's Supervisor Binary Interface
-        (SBI).
+        (:term:`SBI`).
 
     PPA
         Personal package archive
@@ -84,6 +122,15 @@ Glossary
         The Supervisor Binary Interface defines an API on RISC-V for the
         communication with M-mode firmware.
 
+    SPI
+        The `Serial-Peripheral Interface
+        <https://en.wikipedia.org/wiki/Serial_Peripheral_Interface>`_ is an
+        (optionally) full-duplex peripheral bus capable of connecting multiple
+        peripherals sharing three wires for communication, with separate "chip
+        select" lines to indicate which device is currently in active
+        communication. Commonly found exposed on the :term:`GPIO` headers of
+        many :term:`SBCs <SBC>`.
+
     SSD
         `Solid State Drive <https://en.wikipedia.org/wiki/Solid-state_drive>`_;
         a type of persistent storage drive that has no moving parts, relying
@@ -93,6 +140,13 @@ Glossary
         A System-on-a-Chip is an integrated circuit design that combines
         elements of an electronic device onto a single chip instead of using
         separate components.
+
+    TFTP
+        The `Trivial File Transfer Protocol
+        <https://en.wikipedia.org/wiki/Trivial_File_Transfer_Protocol>`_ is, as
+        the name implies, a simplistic file transfer protocol which is commonly
+        used as the initial protocol in network boot operations of :term:`SBCs
+        <SBC>`. See also: :rfc:`1350`, :rfc:`2347`, :rfc:`1783`.
 
     TTL
         `Transistor-transistor logic
