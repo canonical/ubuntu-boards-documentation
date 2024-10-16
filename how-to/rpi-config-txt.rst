@@ -177,7 +177,7 @@ has also evolved over time, so that later models of the Pi have a different
 default EEPROM configuration to earlier models.
 
 Furthermore, as it only exists in EEPROM, it is not a file accessible via a
-regular file-system. Use the :manpage:`rpi-eeprom-config(1)` utility from the
+regular file-system. Use the ``rpi-eeprom-config`` utility from the
 :lp-pkg:`rpi-eeprom` package to view the configuration:
 
 .. code-block:: text
