@@ -34,7 +34,7 @@ The main boot configuration, which applies to all models of Pi, lives in a file
 called :file:`config.txt` placed on the boot partition of your boot media (the
 first :term:`FAT`-formatted partition). Typically on Ubuntu, this is mounted
 under the path :file:`/boot/firmware`. Files on the partition can only be
-manipulated by the root user, hence to edit the boot configuration at runtime
+manipulated by the root user, hence to edit the boot configuration at run-time
 you would use something like:
 
 .. code-block:: text
@@ -69,7 +69,7 @@ cmdline
     The file containing the command line to pass to the Linux kernel (the
     single line in :file:`cmdline.txt` on the boot partition). Be aware that
     the command line will also include parameters determined by the bootloader
-    itself. If you query :file:`/proc/cmdline` at runtime you should typically
+    itself. If you query :file:`/proc/cmdline` at run-time you should typically
     find the content of :file:`cmdline.txt` is present as a suffix
 
 initramfs
