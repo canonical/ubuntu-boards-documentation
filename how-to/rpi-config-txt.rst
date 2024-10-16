@@ -212,10 +212,10 @@ By far the most important property for most people, will be `BOOT_ORDER`_. This
 dictates which boot sources the Pi will attempt to read, and in what order. The
 value is a ``0x`` prefixed hexadecimal number. Read **right to left**, each
 digit specifies a boot source to attempt. The possible boot sources, at the
-time of writing are:
+time of writing, are:
 
 +-------+-------------+----------------------------------------------------+
-| Value | Mode        | Description                                        |
+| Digit | Source      | Description                                        |
 +=======+=============+====================================================+
 | 0     | Card Detect | Deprecated                                         |
 +-------+-------------+----------------------------------------------------+
