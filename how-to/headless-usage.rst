@@ -57,7 +57,7 @@ configuration for networking cards present on the board.
 .. But can be WiFi or Ethernet (no specific restrictions on most boards)
 
 
-Customizing the default user
+Customising the default user
 ----------------------------
 
 .. Setting the username and password (and password expiry)
@@ -71,7 +71,7 @@ Installing additional software
 .. 
 
 
-Optimizations
+Optimisations
 -------------
 
 .. apt-cache configuration
