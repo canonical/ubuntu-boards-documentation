@@ -188,7 +188,7 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
 Cloud-init seed
 ===============
 
-Sample files for a cloud-init seed are present on the ext4 partition labelled
+Sample files for a cloud-init seed are present on the FAT partition labelled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 

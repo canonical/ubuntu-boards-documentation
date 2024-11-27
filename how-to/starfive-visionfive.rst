@@ -86,7 +86,7 @@ The firmware required to use Bluetooth is only available in a PPA:
 Cloud-init seed
 ===============
 
-Sample files for a cloud-init seed are present on the ext4 partition labelled
+Sample files for a cloud-init seed are present on the FAT partition labelled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
