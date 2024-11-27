@@ -147,6 +147,17 @@ Using the pre-installed desktop image
 #. Wait for the first-time setup wizard to start and follow the instructions
 
 
+Cloud-init seed
+===============
+
+The cloud-init seed for the pre-installed Raspberry Pi images is always located
+on the boot partition (the first partition in the image, formatted as FAT).
+Please note that, prior to the 24.04 LTS (noble) release, only the
+pre-installed server images provided cloud-init.
+
+See :doc:`/how-to/headless-usage` for more information.
+
+
 UART console
 ============
 
