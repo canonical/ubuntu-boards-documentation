@@ -31,5 +31,5 @@ and methods of debugging common boot problems.
     flash-images
     dsi-display
     rpi-config-txt
-    rpi-no-display
+    headless-usage
     uart-console
