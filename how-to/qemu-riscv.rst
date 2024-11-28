@@ -167,6 +167,13 @@ To run your installed Ubuntu image use:
         -device virtio-rng-pci
 
 
+Cloud-init seed
+===============
+
+Sample files for a cloud-init seed are present on the FAT partition labelled
+"CIDATA". See :doc:`/how-to/headless-usage` for more information.
+
+
 Limitations
 ===========
 
