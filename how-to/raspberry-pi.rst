@@ -46,7 +46,7 @@ of Ubuntu that support them.
 +--------------+-----------+-----------+-----------+---------+
 | `CM4`_       |           | SD [3]_   | SDC [4]_  | SD [4]_ |
 +--------------+-----------+-----------+-----------+---------+
-| `CM5`_       |           |           | SDC [4]_  | SD [4]_ |
+| `CM5`_       |           |           | [5]_      | SD [4]_ |
 +--------------+-----------+-----------+-----------+---------+
 
 Key:
@@ -89,6 +89,8 @@ C
 .. [3] Desktop requires 2GB of RAM or more
 
 .. [4] Desktop requires 4GB of RAM or more
+
+.. [5] CM5 support is planned for the 24.04.2 point release
 
 
 Using the pre-installed server image
