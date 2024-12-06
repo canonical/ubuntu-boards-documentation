@@ -163,9 +163,9 @@ users
     same sub-keys as those under ``user`` may also be included in the list. The
     "default" entry may also be excluded to prevent its creation.
 
-The default user configuration could be expressed as follows. Note, this
-configuration is implicit in the cloud-init installation; it doesn't need to be
-specified in your :file:`user-data`, this is simply to give context for
+The default user configuration on Ubuntu could be expressed as follows. Note,
+this configuration is implicit in the cloud-init installation; it doesn't need
+to be specified in your :file:`user-data`, this is simply to give context for
 the changes below:
 
 .. code-block:: yaml
@@ -216,8 +216,8 @@ The hash can be generated with the :manpage:`mkpasswd(1)` utility from the
     Be aware that this is barely more secure than a plain text password. In
     both cases, the password or the hash will typically be world readable after
     the machine has booted. You are *strongly recommended* not to rely on this
-    for first boot login. See `SSH authentication`_ below for a more secure
-    alternative.
+    for remote first boot login. See `SSH authentication`_ below for a more
+    secure alternative.
 
 To define a user in addition to the default one, add it to the ``users`` key.
 Include "default" to ensure the user defined under ``user`` is also created:
