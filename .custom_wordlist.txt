@@ -12,6 +12,7 @@ avahi
 baudrate
 bootloader
 Bootloader
+btrfs
 cacher
 CIDATA
 CPU
@@ -123,6 +124,7 @@ SPI
 SSD
 SSDs
 StarFive
+subiquity
 sudo
 sunxi
 TFTP
