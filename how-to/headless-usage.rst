@@ -52,13 +52,13 @@ Network configuration
 The :file:`network-config` file contains the :term:`netplan` compatible
 configuration for networking cards present on the board. The default network
 configuration typically *attempts* connection on available interfaces, but does
-not mandate it. This is fine for the default cloud-init configuration, which
+not require it. This is fine for the default cloud-init configuration, which
 does not require network access to complete.
 
 However, if your configuration requires network access for anything (installing
 packages, retrieving SSH keys from an online account, mounting remote
 file-systems, and so on), you will need to change the default configuration to
-mandate a connection. This ensures that cloud-init will wait until the
+require a connection. This ensures that cloud-init will wait until the
 specified connection is fully online before proceeding with the rest of its
 configuration.
 
