@@ -3,3 +3,4 @@
 .. _How to publish documentation on Read the Docs: https://library.canonical.com/documentation/publish-on-read-the-docs
 .. _Example product documentation: https://canonical-example-product-documentation.readthedocs-hosted.com/
 .. _cloud-init: https://cloudinit.readthedocs.io/
+.. _subiquity: https://canonical-subiquity.readthedocs-hosted.com/

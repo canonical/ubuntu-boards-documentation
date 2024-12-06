@@ -83,11 +83,18 @@ The firmware required to use Bluetooth is only available in a PPA:
        sudo apt install linux-firmware-starfive brcm-patchram-plus-starfive
 
 
+Cloud-init seed
+===============
+
+Sample files for a cloud-init seed are present on the FAT partition labeled
+"CIDATA". See :doc:`/how-to/headless-usage` for more information.
+
+
 UART console
 ============
 
 The :term:`UART` console is accessible via the :term:`GPIO` header. Assuming
-the typical colouring of USB to :term:`TTL` serial adapters the following
+the typical coloring of USB to :term:`TTL` serial adapters the following
 connections have to be made:
 
 =========== ==========

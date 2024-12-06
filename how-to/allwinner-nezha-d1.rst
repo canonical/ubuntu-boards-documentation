@@ -40,13 +40,20 @@ Using the pre-installed server image
    asked to choose a new password
 
 
+Cloud-init seed
+===============
+
+Sample files for a cloud-init seed are present on the FAT partition labeled
+"CIDATA". See :doc:`/how-to/headless-usage` for more information.
+
+
 UART Console
 ============
 
-The :term:`UART` is located on its own three-pin header labelled "DEBUG",
+The :term:`UART` is located on its own three-pin header labeled "DEBUG",
 adjacent to the main :term:`GPIO` header. The GND, RX, and TX pins are all
-separately labelled, and are from the point of view of the board. Assuming the
-typical colouring of USB to :term:`TTL` serial adapters the following
+separately labeled, and are from the point of view of the board. Assuming the
+typical coloring of USB to :term:`TTL` serial adapters the following
 connections have to be made:
 
 ===== ==========

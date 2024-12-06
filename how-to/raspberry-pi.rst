@@ -46,6 +46,8 @@ of Ubuntu that support them.
 +--------------+-----------+-----------+-----------+
 | `CM4`_       |           | SD [3]_   | SDC [4]_  |
 +--------------+-----------+-----------+-----------+
+| `CM5`_       |           |           | SDC [4]_  |
++--------------+-----------+-----------+-----------+
 
 Key:
 
@@ -71,7 +73,8 @@ C
 .. _CM1: https://www.raspberrypi.com/products/compute-module-1/
 .. _CM3: https://www.raspberrypi.com/products/compute-module-3/
 .. _CM3+: https://www.raspberrypi.com/products/compute-module-3-plus/
-.. _CM4: https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000
+.. _CM4: https://www.raspberrypi.com/products/compute-module-4/
+.. _CM5: https://www.raspberrypi.com/products/compute-module-5/
 
 .. [1] The original 2B does not support the arm64 architecture, which is the
    only architecture supported on 24.04; the 1.2 board revision of the 2B
@@ -147,11 +150,22 @@ Using the pre-installed desktop image
 #. Wait for the first-time setup wizard to start and follow the instructions
 
 
+Cloud-init seed
+===============
+
+The cloud-init seed for the pre-installed Raspberry Pi images is always located
+on the boot partition (the first partition in the image, formatted as FAT).
+Please note that, prior to the 24.04 LTS (noble) release, only the
+pre-installed server images provided cloud-init.
+
+See :doc:`/how-to/headless-usage` for more information.
+
+
 UART console
 ============
 
 The :term:`UART` console is accessible via the :term:`GPIO` header on all
-models *except* the Pi 5. Assuming the typical colouring of USB to :term:`TTL`
+models *except* the Pi 5. Assuming the typical coloring of USB to :term:`TTL`
 serial adapters the following connections have to be made:
 
 =========== ==========
@@ -168,7 +182,7 @@ Do not connect the red 3.3 V wire.
     :alt: A close-up of a traditional USB UART adapter connected to the UART
           on the GPIO header of a Raspberry Pi 4B
 
-If you are using a Raspberry Pi `debug probe`_, the colouring of wires is
+If you are using a Raspberry Pi `debug probe`_, the coloring of wires is
 slightly different, and you must ensure that the lead is connected to the "U"
 port of the debug probe, but the connections on the GPIO header are similar:
 

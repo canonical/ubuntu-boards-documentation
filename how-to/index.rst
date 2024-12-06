@@ -15,7 +15,6 @@ hardware under Ubuntu.
     microchip-pic64gx1000-discovery
     microchip-polarfire-icicle
     milk-v-mars
-    qemu-arm
     qemu-riscv
     raspberry-pi
     sifive-hifive-unmatched
@@ -29,7 +28,6 @@ and methods of debugging common boot problems.
     :maxdepth: 1
 
     flash-images
-    dsi-display
     rpi-config-txt
-    rpi-no-display
+    headless-usage
     uart-console

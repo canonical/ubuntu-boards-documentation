@@ -9,4 +9,3 @@ for single board computers.
     :maxdepth: 1
 
     installer-or-preinstalled
-    rpi-server-desktop-or-core

@@ -180,6 +180,7 @@ sys.path.append('./_ext')
 extensions = [
     'canonical_sphinx',
     'sphinx.ext.extlinks',
+    'sphinx.ext.intersphinx',
     'downloads',
     ]
 
@@ -232,3 +233,8 @@ extlinks = {
 # Ensure PDF output is useful when printed
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
+
+intersphinx_mapping = {
+    'subiquity': ('https://canonical-subiquity.readthedocs-hosted.com/en/latest', None),
+    'cloudinit': ('https://cloudinit.readthedocs.io/en/latest/', None),
+}

@@ -74,6 +74,13 @@ Using the pre-installed server image
    asked to choose a new password
 
 
+Cloud-init seed
+===============
+
+Sample files for a cloud-init seed are present on the FAT partition labeled
+"CIDATA". See :doc:`/how-to/headless-usage` for more information.
+
+
 UART console
 ============
 
