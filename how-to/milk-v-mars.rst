@@ -188,7 +188,7 @@ Alternatively, to boot from SPI flash, set the DIP switches like so:
 Cloud-init seed
 ===============
 
-Sample files for a cloud-init seed are present on the FAT partition labelled
+Sample files for a cloud-init seed are present on the FAT partition labeled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
@@ -196,7 +196,7 @@ UART console
 ============
 
 The :term:`UART` is available via the :term:`GPIO` connector. Assuming the
-typical colouring of USB to :term:`TTL` serial adapters the following
+typical coloring of USB to :term:`TTL` serial adapters the following
 connections have to be made:
 
 =========== ==========

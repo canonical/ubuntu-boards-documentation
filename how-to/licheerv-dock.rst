@@ -112,7 +112,7 @@ Configure Netplan
 Cloud-init seed
 ===============
 
-Sample files for a cloud-init seed are present on the FAT partition labelled
+Sample files for a cloud-init seed are present on the FAT partition labeled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 

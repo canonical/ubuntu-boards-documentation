@@ -12,7 +12,7 @@ Hardware
 On some boards (e.g. the HiFive Unmatched), the UART console is exposed via a
 USB socket, typically a micro-USB socket, and in these cases it is common that
 multiple UARTs are exposed by the one socket. However, most boards expose their
-UART console via simple header pins using `RS-232`_ signalling.
+UART console via simple header pins using `RS-232`_ signaling.
 
 UARTs consist of a minimum of three pins:
 
@@ -38,7 +38,7 @@ tails:
 .. image:: /images/uart-ttl-adapter.jpg
     :alt: A close-up of a typical USB UART adapter, showing the USB end on the
           left, and the "tails" with the female DuPont connectors on the right.
-          The tails have the common colours, red, black, white, and green.
+          The tails have the common colors, red, black, white, and green.
 
 The receive and transmit lines cross between the computer and the board. In
 other words, the computer's RX pin connects to the board's TX pin,
@@ -157,7 +157,7 @@ group, but you will need to logout and login again for this to take effect:
 Flow Control
 ------------
 
-Some UARTs have additional pins for `flow control`_ (sometimes labelled
+Some UARTs have additional pins for `flow control`_ (sometimes labeled
 :abbr:`RTS (Request To Send)` and :abbr:`CTS (Clear To Send)`). However, the
 vast majority of USB UART adapters only have the basic three pins. In such
 cases, the flow-control pins can simply be ignored.
@@ -213,7 +213,7 @@ For example:
 
 Paste the output of this command into your serial client, and set the TERM
 environment variable to ``screen-256color`` to indicate that the terminal can
-use modern colour codes too:
+use modern color codes too:
 
 .. code-block:: text
 

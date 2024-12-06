@@ -95,7 +95,7 @@ Glossary
         `Non-Volatile Memory express
         <https://en.wikipedia.org/wiki/NVM_Express>`_; the interface used by
         modern flash storage devices, developed to more closely match the
-        capabilities and behaviour of flash storage (in contrast to interfaces
+        capabilities and behavior of flash storage (in contrast to interfaces
         like :term:`SATA` which were developed for use with spinning media).
 
     OpenSBI

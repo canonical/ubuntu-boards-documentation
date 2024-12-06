@@ -162,7 +162,7 @@ UART console
 ============
 
 The :term:`UART` console is accessible via the :term:`GPIO` header on all
-models *except* the Pi 5. Assuming the typical colouring of USB to :term:`TTL`
+models *except* the Pi 5. Assuming the typical coloring of USB to :term:`TTL`
 serial adapters the following connections have to be made:
 
 =========== ==========
@@ -179,7 +179,7 @@ Do not connect the red 3.3 V wire.
     :alt: A close-up of a traditional USB UART adapter connected to the UART
           on the GPIO header of a Raspberry Pi 4B
 
-If you are using a Raspberry Pi `debug probe`_, the colouring of wires is
+If you are using a Raspberry Pi `debug probe`_, the coloring of wires is
 slightly different, and you must ensure that the lead is connected to the "U"
 port of the debug probe, but the connections on the GPIO header are similar:
 

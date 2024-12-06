@@ -99,7 +99,7 @@ Software installation
      through locale selection and user creation
 
    * On Ubuntu server images, `cloud-init`_ will handle initial user creation
-     and setup. The default username and password can be customised by
+     and setup. The default username and password can be customized by
      rpi-imager, but if this is skipped the default username and password will
      be *ubuntu*
 

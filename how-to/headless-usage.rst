@@ -26,7 +26,7 @@ The cloud-init "seed" provides the configuration that cloud-init will act upon
 during the first boot. The location of the seed is image dependent. On the
 Ubuntu for Raspberry Pi images, it is present on the boot partition (the first
 :term:`FAT` partition on the images). On other images, it may be present on a
-:term:`FAT` partition labelled "CIDATA". The location will be documented in the
+:term:`FAT` partition labeled "CIDATA". The location will be documented in the
 board's corresponding chapter in these docs.
 
 Wherever it resides, the cloud-init seed always consists of the following
@@ -110,7 +110,7 @@ ethernet is typically preferred where available as the simpler and more
 reliable medium.
 
 
-Customising the users
+Customizing the users
 =====================
 
 On the vast majority of pre-installed Ubuntu images, the default username is
@@ -165,8 +165,8 @@ users
 
 The default user configuration could be expressed as follows. Note, this
 configuration is implicit in the cloud-init installation; it doesn't need to be
-specified in your :file:`user-data` (this is just to give context for
-customisations below):
+specified in your :file:`user-data`, this is simply to give context for
+the changes below:
 
 .. code-block:: yaml
 
@@ -362,7 +362,7 @@ Once cloud-init has finished, you should be able to reach your machine (with
 have "avahi-daemon" installed on your client machine.
 
 
-Optimisations
+Optimizations
 =============
 
 If you are booting many boards with the same release or distribution, it may be
