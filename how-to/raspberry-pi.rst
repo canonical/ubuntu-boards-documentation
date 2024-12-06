@@ -46,6 +46,8 @@ of Ubuntu that support them.
 +--------------+-----------+-----------+-----------+
 | `CM4`_       |           | SD [3]_   | SDC [4]_  |
 +--------------+-----------+-----------+-----------+
+| `CM5`_       |           |           | SDC [4]_  |
++--------------+-----------+-----------+-----------+
 
 Key:
 
@@ -71,7 +73,8 @@ C
 .. _CM1: https://www.raspberrypi.com/products/compute-module-1/
 .. _CM3: https://www.raspberrypi.com/products/compute-module-3/
 .. _CM3+: https://www.raspberrypi.com/products/compute-module-3-plus/
-.. _CM4: https://www.raspberrypi.com/products/compute-module-4/?variant=raspberry-pi-cm4001000
+.. _CM4: https://www.raspberrypi.com/products/compute-module-4/
+.. _CM5: https://www.raspberrypi.com/products/compute-module-5/
 
 .. [1] The original 2B does not support the arm64 architecture, which is the
    only architecture supported on 24.04; the 1.2 board revision of the 2B
