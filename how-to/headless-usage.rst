@@ -155,7 +155,7 @@ user
         information)
 
     sudo
-        List of strings containing :manpage:`sudo(1)` rules for this user
+        List of strings containing :manpage:`sudo(8)` rules for this user
 
 users
     The list of users to be created. Initially, this is just the "default" user
