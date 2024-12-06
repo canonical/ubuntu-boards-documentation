@@ -11,43 +11,43 @@ Supported models
 The following matrix maps all models of the Raspberry Pi against the releases
 of Ubuntu that support them.
 
-+--------------+-----------+-----------+-----------+---------+
-| Raspberry Pi | 20.04 LTS | 22.04 LTS | 24.04 LTS | 24.10   |
-+==============+===========+===========+===========+=========+
-| `B+`_        |           |           |           |         |
-+--------------+-----------+-----------+-----------+---------+
-| `A+`_        |           |           |           |         |
-+--------------+-----------+-----------+-----------+---------+
-| `2B`_        | S         | S         | [1]_      | [1]_    |
-+--------------+-----------+-----------+-----------+---------+
-| `3B`_        | S         | S         | S         | S       |
-+--------------+-----------+-----------+-----------+---------+
-| `3B+`_       | S         | S         | S         | S       |
-+--------------+-----------+-----------+-----------+---------+
-| `3A+`_       | S         | S         | S         | S       |
-+--------------+-----------+-----------+-----------+---------+
-| `4B`_        | S         | SD [3]_   | SDC [4]_  | SD [4]_ |
-+--------------+-----------+-----------+-----------+---------+
-| `400`_       |           | SD        | SD        | SD      |
-+--------------+-----------+-----------+-----------+---------+
-| `5`_         |           |           | SDC [4]_  | SD [4]_ |
-+--------------+-----------+-----------+-----------+---------+
-| `Zero`_      |           |           |           |         |
-+--------------+-----------+-----------+-----------+---------+
-| `Zero W`_    |           |           |           |         |
-+--------------+-----------+-----------+-----------+---------+
-| `Zero 2W`_   | S         | S         | S         | S       |
-+--------------+-----------+-----------+-----------+---------+
-| `CM1`_       |           |           |           |         |
-+--------------+-----------+-----------+-----------+---------+
-| `CM3`_       | S         | [2]_      |           |         |
-+--------------+-----------+-----------+-----------+---------+
-| `CM3+`_      | S         | S         | S         | S       |
-+--------------+-----------+-----------+-----------+---------+
-| `CM4`_       |           | SD [3]_   | SDC [4]_  | SD [4]_ |
-+--------------+-----------+-----------+-----------+---------+
-| `CM5`_       |           |           | [5]_      | SD [4]_ |
-+--------------+-----------+-----------+-----------+---------+
++--------------+-----------+-------------+--------------+-------------+
+| Raspberry Pi | 20.04 LTS | 22.04 LTS   | 24.04 LTS    | 24.10       |
++==============+===========+=============+==============+=============+
+| `B+`_        |           |             |              |             |
++--------------+-----------+-------------+--------------+-------------+
+| `A+`_        |           |             |              |             |
++--------------+-----------+-------------+--------------+-------------+
+| `2B`_        | S         | S           | [#2B64]_     | [#2B64]_    |
++--------------+-----------+-------------+--------------+-------------+
+| `3B`_        | S         | S           | S            | S           |
++--------------+-----------+-------------+--------------+-------------+
+| `3B+`_       | S         | S           | S            | S           |
++--------------+-----------+-------------+--------------+-------------+
+| `3A+`_       | S         | S           | S            | S           |
++--------------+-----------+-------------+--------------+-------------+
+| `4B`_        | S         | SD [#RAM2]_ | SDC [#RAM4]_ | SD [#RAM4]_ |
++--------------+-----------+-------------+--------------+-------------+
+| `400`_       |           | SD          | SD           | SD          |
++--------------+-----------+-------------+--------------+-------------+
+| `5 <Pi5>`_   |           |             | SDC [#RAM4]_ | SD [#RAM4]_ |
++--------------+-----------+-------------+--------------+-------------+
+| `Zero`_      |           |             |              |             |
++--------------+-----------+-------------+--------------+-------------+
+| `Zero W`_    |           |             |              |             |
++--------------+-----------+-------------+--------------+-------------+
+| `Zero 2W`_   | S         | S           | S            | S           |
++--------------+-----------+-------------+--------------+-------------+
+| `CM1`_       |           |             |              |             |
++--------------+-----------+-------------+--------------+-------------+
+| `CM3`_       | S         | [#CM3MMC]_  |              |             |
++--------------+-----------+-------------+--------------+-------------+
+| `CM3+`_      | S         | S           | S            | S           |
++--------------+-----------+-------------+--------------+-------------+
+| `CM4`_       |           | SD [#RAM2]_ | SDC [#RAM4]_ | SD [#RAM4]_ |
++--------------+-----------+-------------+--------------+-------------+
+| `CM5`_       |           |             | [#Noble.2]_  | SD [#RAM4]_ |
++--------------+-----------+-------------+--------------+-------------+
 
 Key:
 
@@ -66,7 +66,7 @@ C
 .. _3A+: https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/
 .. _4B: https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
 .. _400: https://www.raspberrypi.com/products/raspberry-pi-400-unit/
-.. _5: https://www.raspberrypi.com/products/raspberry-pi-5/
+.. _Pi5: https://www.raspberrypi.com/products/raspberry-pi-5/
 .. _Zero: https://www.raspberrypi.com/products/raspberry-pi-zero/
 .. _Zero W: https://www.raspberrypi.com/products/raspberry-pi-zero-w/
 .. _Zero 2W: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
@@ -76,21 +76,21 @@ C
 .. _CM4: https://www.raspberrypi.com/products/compute-module-4/
 .. _CM5: https://www.raspberrypi.com/products/compute-module-5/
 
-.. [1] The original 2B does not support the arm64 architecture, which is the
+.. [#2B64] The original 2B does not support the arm64 architecture, which is the
    only architecture supported on 24.04; the 1.2 board revision of the 2B
    *does* support arm64 and has been tested to work, but as this does not cover
    the majority of 2B models in the field, this is not a supported board as of
    24.04
 
-.. [2] The Compute Module 3 is only provided with 4GB of :term:`eMMC` storage;
+.. [#CM3MMC] The Compute Module 3 is only provided with 4GB of :term:`eMMC` storage;
    as of 22.04 the base Ubuntu server image became too large to support on the
    CM3. Please use the CM3+ (which ships with 8GB of eMMC) as the replacement
 
-.. [3] Desktop requires 2GB of RAM or more
+.. [#RAM2] Desktop requires 2GB of RAM or more
 
-.. [4] Desktop requires 4GB of RAM or more
+.. [#RAM4] Desktop requires 4GB of RAM or more
 
-.. [5] CM5 support is planned for the 24.04.2 point release
+.. [#Noble.2] CM5 support is planned for the 24.04.2 point release
 
 
 Using the pre-installed server image
