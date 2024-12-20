@@ -1,6 +1,6 @@
-================================================
-Install Ubuntu on the Microchip Polarfire Icicle
-================================================
+========================================================
+Install Ubuntu on the Microchip Polarfire SoC Icicle Kit
+========================================================
 
 
 FPGA Design
