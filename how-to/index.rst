@@ -11,13 +11,13 @@ hardware under Ubuntu.
     :maxdepth: 1
 
     allwinner-nezha-d1
-    licheerv-dock
     microchip-pic64gx1000-discovery
     microchip-polarfire-icicle
     milk-v-mars
     qemu-riscv
     raspberry-pi
     sifive-hifive-unmatched
+    sipeed-licheerv-dock
     starfive-visionfive
     starfive-visionfive-2
 

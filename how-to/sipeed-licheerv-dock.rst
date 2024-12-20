@@ -1,6 +1,6 @@
-===================================
-Install Ubuntu on the LicheeRV Dock
-===================================
+==========================================
+Install Ubuntu on the Sipeed LicheeRV Dock
+==========================================
 
 The `LicheeRV board`_ can be used in different configurations. We currently
 only supply an image for the LicheeRV with Dock.
