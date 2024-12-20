@@ -30,7 +30,7 @@ of Ubuntu that support them.
 +--------------+-----------+-------------+--------------+-------------+
 | `400`_       |           | SD          | SD           | SD          |
 +--------------+-----------+-------------+--------------+-------------+
-| `5 <Pi5>`_   |           |             | SDC [#RAM4]_ | SD [#RAM4]_ |
+| `5­`_        |           |             | SDC [#RAM4]_ | SD [#RAM4]_ |
 +--------------+-----------+-------------+--------------+-------------+
 | `Zero`_      |           |             |              |             |
 +--------------+-----------+-------------+--------------+-------------+
@@ -66,7 +66,7 @@ C
 .. _3A+: https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/
 .. _4B: https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
 .. _400: https://www.raspberrypi.com/products/raspberry-pi-400-unit/
-.. _Pi5: https://www.raspberrypi.com/products/raspberry-pi-5/
+.. _5­: https://www.raspberrypi.com/products/raspberry-pi-5/
 .. _Zero: https://www.raspberrypi.com/products/raspberry-pi-zero/
 .. _Zero W: https://www.raspberrypi.com/products/raspberry-pi-zero-w/
 .. _Zero 2W: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
