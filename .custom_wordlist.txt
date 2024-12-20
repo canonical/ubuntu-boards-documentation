@@ -117,6 +117,7 @@ SBCs
 SBI
 SDC
 SiFive
+Sipeed
 smp
 SoC
 SoftConsole
