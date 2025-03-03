@@ -32,6 +32,8 @@ of Ubuntu that support them.
 +--------------+-----------+-------------+--------------+-------------+
 | `5 <Pi5_>`_  |           |             | SDC [#RAM4]_ | SD [#RAM4]_ |
 +--------------+-----------+-------------+--------------+-------------+
+| `500`_       |           |             | SD           | SD          |
++--------------+-----------+-------------+--------------+-------------+
 | `Zero`_      |           |             |              |             |
 +--------------+-----------+-------------+--------------+-------------+
 | `Zero W`_    |           |             |              |             |
@@ -46,7 +48,7 @@ of Ubuntu that support them.
 +--------------+-----------+-------------+--------------+-------------+
 | `CM4`_       |           | SD [#RAM2]_ | SDC [#RAM4]_ | SD [#RAM4]_ |
 +--------------+-----------+-------------+--------------+-------------+
-| `CM5`_       |           |             | [#Noble.2]_  | SD [#RAM4]_ |
+| `CM5`_       |           |             | [#Noble.3]_  | SD [#RAM4]_ |
 +--------------+-----------+-------------+--------------+-------------+
 
 Key:
@@ -66,6 +68,7 @@ C
 .. _3A+: https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/
 .. _4B: https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
 .. _400: https://www.raspberrypi.com/products/raspberry-pi-400-unit/
+.. _500: https://www.raspberrypi.com/products/raspberry-pi-500/
 .. _Pi5: https://www.raspberrypi.com/products/raspberry-pi-5/
 .. _Zero: https://www.raspberrypi.com/products/raspberry-pi-zero/
 .. _Zero W: https://www.raspberrypi.com/products/raspberry-pi-zero-w/
@@ -90,7 +93,7 @@ C
 
 .. [#RAM4] Desktop requires 4GB of RAM or more
 
-.. [#Noble.2] CM5 support is planned for the 24.04.2 point release
+.. [#Noble.3] CM5 support is now planned for the 24.04.3 point release
 
 
 Using the pre-installed server image
