@@ -146,7 +146,8 @@ redirects = {}
 
 # Links to ignore when checking links
 linkcheck_ignore = [
-    'http://127.0.0.1:8000'
+    'http://127.0.0.1:8000',
+    'https://www.gnu.org/software/grub/'
     ]
 
 # Pages on which to ignore anchors

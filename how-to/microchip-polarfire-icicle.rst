@@ -15,7 +15,7 @@ Express`_ standalone is bundled with the `Programming and Debug Tools`_.
 
 .. _Hart Software Services: https://github.com/polarfire-soc/hart-software-services/releases
 .. _HSS sources: https://github.com/polarfire-soc/hart-software-services
-.. _FlashPro Express: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro-and-flashpro-express
+.. _FlashPro Express: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/flashpro-express
 .. _Programming and Debug Tools: https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug
 
 
