@@ -8,7 +8,7 @@ The `Pine64 Star64`_ is a RISC-V based :term:`SBC`.
 Using the pre-installed server image
 ====================================
 
-#. Download one of the supported images.
+#. Download one of the supported images:
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
@@ -61,11 +61,6 @@ Install U-Boot to the SPI flash
 -------------------------------
 
 #. Download one of the supported images:
-
-   .. ubuntu-images::
-       :releases: oracular-
-       :image-types: live-server
-       :archs: riscv64
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
