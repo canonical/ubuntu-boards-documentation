@@ -84,11 +84,17 @@ Examples of usage::
         :lts-only:
 """
 
+# pylint: disable=too-many-lines
+# It's long, but only just (and most of it is test-suite and doc-strings)
+
+# pylint: disable=invalid-name
+# This is the naming convention used in this repo (and it makes a certain sense
+# given we're defining reST directives)
+
 from __future__ import annotations
 
 import io
 import re
-import json
 import time
 import functools
 import itertools
@@ -102,12 +108,13 @@ from urllib.error import HTTPError
 
 from docutils import nodes
 from sphinx.application import Sphinx
-from sphinx.util.docutils import SphinxDirective, SphinxRole
-from sphinx.util.typing import ExtensionMetadata
+from sphinx.util.docutils import SphinxDirective
+from sphinx.util.typing import ExtensionMetadata  # pylint: disable=no-name-in-module # noqa: E501
 from sphinx.addnodes import download_reference
 
 
 def setup(app: Sphinx) -> ExtensionMetadata:
+    "Called by Sphinx to install the extension."
     app.add_directive('ubuntu-images', UbuntuImagesDirective)
 
     return {
@@ -117,7 +124,7 @@ def setup(app: Sphinx) -> ExtensionMetadata:
     }
 
 
-def parse_state(s: str, default=True) -> t.Optional[bool]:
+def parse_state(s: str) -> t.Optional[bool]:
     """
     Converts the :class:`str` *s* into a :class:`bool` or :data:`None` for the
     various supported states.
@@ -160,17 +167,17 @@ def parse_set(s: str) -> set[str]:
 
 class UbuntuImagesDirective(SphinxDirective):
     option_spec = {
-        'releases':          str,
-        'state':             parse_state,
-        'lts-only':          lambda s: True,
-        'image-types':       parse_set,
-        'archs':             parse_set,
-        'suffix':            lambda s: '' if s is None else str(s),
-        'matches':           re.compile,
+        'releases': str,
+        'state': parse_state,
+        'lts-only': lambda s: True,
+        'image-types': parse_set,
+        'archs': parse_set,
+        'suffix': lambda s: '' if s is None else str(s),
+        'matches': re.compile,
         # The following options are intended for testing / advanced purposes
         # only; they override the URLs used to fetch information
-        'meta-release':      str,
-        'cdimage-template':  str,
+        'meta-release': str,
+        'cdimage-template': str,
     }
 
     def run(self) -> list[nodes.Node]:
@@ -207,6 +214,7 @@ class UbuntuImagesDirective(SphinxDirective):
                 release_list.append(release_item)
         return [release_list]
 
+
 # Copy doc-string from the module for the class
 UbuntuImagesDirective.__doc__ = __doc__
 
@@ -238,6 +246,7 @@ class Release(t.NamedTuple):
         A :class:`bool` indicating whether the release is currently supported
         or not.
     """
+
     codename: str
     name: str
     version: str
@@ -261,6 +270,7 @@ image_re = re.compile(
     r'\.(?P<file_type>img|iso)'
     r'(?:\.(?P<compression>gz|bz2|xz|zst))?$')
 
+
 class Image(t.NamedTuple):
     """
     A named-tuple representing a single OS image on cdimage.ubuntu.com.
@@ -280,19 +290,12 @@ class Image(t.NamedTuple):
     .. attribute:: sha256
 
         A :class:`str` containing the SHA256 checksum of the file.
-
-    .. attribute:: size
-
-        An :class:`int` indicating the *approximate* file-size (this is scraped
-        from a human-formatted string and will *not* match the precise size
-        of the file).
     """
 
     url: str
     name: str
     date: dt.date
     sha256: str
-    size: int
 
     def _parse_field(self, field: str) -> str:
         matched = image_re.match(self.name)
@@ -301,32 +304,57 @@ class Image(t.NamedTuple):
 
     @property
     def version(self) -> str:
+        """
+        A :class:`str` of the version of Ubuntu within the image, for example
+        "24.04" or "23.10".
+        """
         return self._parse_field('version')
 
     @property
     def image_type(self) -> str:
+        """
+        A :class:`str` indicating the type of image, for example
+        "preinstalled-server" or "live-server".
+        """
         return self._parse_field('image_type')
 
     @property
     def arch(self) -> str:
+        """
+        The architecture of the image, for example "amd64", "armhf", "riscv64".
+        """
         return self._parse_field('arch')
 
     @property
     def suffix(self) -> str:
+        """
+        A :class:`str` containing the suffix of the image filename. This is
+        typically a blank string, or a plus-prefixed string. For example
+        "+raspi", "+visionfive".
+        """
         return self._parse_field('suffix')
 
     @property
     def file_type(self) -> str:
+        """
+        A :class:`str` containing the first part of the file's extension,
+        typically "img" or "iso".
+        """
         return self._parse_field('file_type')
 
     @property
     def compression(self) -> str:
+        """
+        A :class:`str` containing the last part of the file's extension, if
+        present, indicating the compression used on the image. A blank string
+        indicates no compression. For example "gz", "xz", or "zst".
+        """
         return self._parse_field('compression')
 
 
 @functools.lru_cache()
 def get_releases(
-    url: str='https://changelogs.ubuntu.com/meta-release'
+    url: str = 'https://changelogs.ubuntu.com/meta-release',
 ) -> list[Release]:
     """
     Given a meta-release *url*, return a :class:`list` of :class:`Release`
@@ -340,16 +368,18 @@ def get_releases(
         Release(codename='warty', name='Warty Warthog', version='04.10',
         date=datetime.datetime(2004, 10, 20, 7, 28, 17), supported=False)
     """
-    with io.TextIOWrapper(
-        urlopen(url), encoding='utf-8', errors='strict'
-    ) as text:
+    with (
+        urlopen(url) as data,
+        io.TextIOWrapper(data, encoding='utf-8', errors='strict') as text
+    ):
         return list(meta_parser(text))
 
 
 def filter_releases(
     releases: t.Sequence[Release],
-    spec: str='', lts: t.Optional[bool]=None,
-    supported: t.Optional[bool]=None
+    spec: str = "",
+    lts: t.Optional[bool] = None,
+    supported: t.Optional[bool] = None,
 ) -> t.Sequence[Release]:
     """
     Filters *releases*, a sequence of :class:`Release` tuples, according to
@@ -381,20 +411,16 @@ def filter_releases(
     if spec:
         rel_order = [release.codename for release in releases]
         rel_spec = {
-            tuple(elem.split('-', 1)) if '-' in elem else elem
+            tuple(elem.split('-', 1)) if '-' in elem else (elem, elem)
             for elem in {
-                elem.strip() for elem in spec.replace(',', ' ').split()
+                elem.strip() for elem in spec.replace(",", " ").split()
             }
         }
         rel_selected = []
         for elem in rel_spec:
-            if isinstance(elem, tuple):
-                i = 0 if elem[0] == '' else rel_order.index(elem[0])
-                j = len(rel_order) if elem[1] == '' else rel_order.index(elem[1]) + 1
-                rel_selected.extend(rel_order[i:j])
-            elif isinstance(elem, str):
-                rel_order.index(elem) # Raise ValueError if invalid codename
-                rel_selected.append(elem)
+            i = 0 if elem[0] == '' else rel_order.index(elem[0])
+            j = len(rel_order) if elem[1] == '' else rel_order.index(elem[1])
+            rel_selected.extend(rel_order[i:j + 1])
         rel_map = {release.codename: release for release in releases}
         result = [
             rel_map[rel] for rel in sorted(rel_selected, key=rel_order.index)
@@ -402,7 +428,8 @@ def filter_releases(
     else:
         result = list(releases)
     result = [
-        rel for rel in result
+        rel
+        for rel in result
         if (lts is None or rel.is_lts == lts)
         and (supported is None or rel.supported == supported)
     ]
@@ -428,49 +455,50 @@ def get_images(url: str) -> list[Image]:
         Image(url='http://.../ubuntu-21.10-bar-arm64+raspi.img.xz',
         name='ubuntu-21.10-bar-arm64+raspi.img.xz',
         date=datetime.date(2021, 10, 25),
-        sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...',
-        size=703488)
+        sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...')
     """
     # NOTE: This code relies on the current layout of pages on
     # cdimage.ubuntu.com; if extra tables or columns are introduced or
     # re-ordered this will need revisiting...
     parser = TableParser()
     try:
-        with io.TextIOWrapper(
-            urlopen(url), encoding='utf-8', errors='strict'
-        ) as page:
+        with (
+            urlopen(url) as data,
+            io.TextIOWrapper(data, encoding='utf-8', errors='strict') as page,
+        ):
             parser.feed(page.read())
     except HTTPError:
         raise ValueError(
-            f'unable to get {url}; are you sure the path is correct?') from None
+            f'unable to get {url}; are you sure the path '
+            f'is correct?') from None
     # Grab all the files in the directory
     files = {}
     for row in parser.table:
         try:
-            icon, name, date_str, size_str, description = row
+            _, name, date_str, _, _ = row
             name = name.strip()
             date = dt.datetime.strptime(
                 date_str.strip(), '%Y-%m-%d %H:%M').date()
-            size = parse_size(size_str)
         except ValueError:
             # Evidently not a file row
             continue
-        files[name] = (url + name, date, size)
-    if not 'SHA256SUMS' in files:
+        files[name] = (url + name, date)
+    if 'SHA256SUMS' not in files:
         raise ValueError(f'SHA256SUMS file is missing from {url}')
     # Add SHA256 checksums and filter out anything that isn't an image
     result = []
-    with io.TextIOWrapper(
-        urlopen(url + 'SHA256SUMS'), encoding='utf-8', errors='strict'
-    ) as hashes:
+    with (
+        urlopen(url + 'SHA256SUMS') as data,
+        io.TextIOWrapper(data, encoding='utf-8', errors='strict') as hashes
+    ):
         for line in hashes:
             cksum, name = line.strip().split(None, 1)
             cksum = cksum.strip().lower()
             if name.startswith('*'):
                 name = name[1:]
             try:
-                url, date, size = files[name]
-                image = Image(url, name, date, cksum, size)
+                url, date = files[name]
+                image = Image(url, name, date, cksum)
                 if image_re.match(image.name):
                     result.append(image)
             except (KeyError, ValueError):
@@ -480,10 +508,10 @@ def get_images(url: str) -> list[Image]:
 
 def filter_images(
     images: t.Sequence[Image],
-    archs: t.Optional[set[str]]=None,
-    image_types: t.Optional[set[str]]=None,
-    suffix: t.Optional[str]=None,
-    matches: t.Optional[re.Pattern]=None,
+    archs: t.Optional[set[str]] = None,
+    image_types: t.Optional[set[str]] = None,
+    suffix: t.Optional[str] = None,
+    matches: t.Optional[re.Pattern[str]] = None,
 ) -> t.Sequence[Image]:
     """
     Filters *images*, a sequence of :class:`Image` tuples, according to the
@@ -491,26 +519,28 @@ def filter_images(
     :class:`UbuntuImageDirective` for a detailed description of these options.
     For example::
 
-        >>> data = b'foo' * 123456
+        >>> foo = b'foo' * 123456
         >>> images = {
-        ...     'ubuntu-24.04.1-live-server-riscv64.img.gz': data,
-        ...     'ubuntu-24.04.1-preinstalled-server-armhf+raspi.img.xz': data,
-        ...     'ubuntu-24.04.1-preinstalled-server-arm64+raspi.img.xz': data,
-        ...     'ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz': data,
-        ...     'ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz': data,
+        ... 'ubuntu-24.04.1-live-server-riscv64.img.gz': foo,
+        ... 'ubuntu-24.04.1-preinstalled-server-armhf+raspi.img.xz': foo,
+        ... 'ubuntu-24.04.1-preinstalled-server-arm64+raspi.img.xz': foo,
+        ... 'ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz': foo,
+        ... 'ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz': foo,
         ... }
         >>> with _test_server(_make_index(_make_sums(images))) as url:
         ...     images = get_images(url)
         >>> [i.name for i in filter_images(images, archs={'armhf'})]
         ['ubuntu-24.04.1-preinstalled-server-armhf+raspi.img.xz']
-        >>> [i.name for i in filter_images(images, image_types={'preinstalled-desktop'})]
+        >>> [i.name for i in filter_images(images,
+        ... image_types={'preinstalled-desktop'})]
         ['ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz']
         >>> [i.name for i in filter_images(images, suffix='+unmatched')]
         ['ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz']
         >>> [i.name for i in filter_images(images, suffix='')]
         ['ubuntu-24.04.1-live-server-riscv64.img.gz']
         >>> regex = re.compile(r'(24\\.04.*\\.gz|server.*\\+unmatched)')
-        >>> [i.name for i in filter_images(images, matches=regex)] # doctest: +NORMALIZE_WHITESPACE
+        >>> [i.name # doctest: +NORMALIZE_WHITESPACE
+        ... for i in filter_images(images, matches=regex)]
         ['ubuntu-24.04.1-live-server-riscv64.img.gz',
         'ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz']
     """
@@ -522,30 +552,6 @@ def filter_images(
         and (suffix is None or image.suffix == suffix)
         and (matches is None or matches.search(image.name))
     ]
-
-
-def parse_size(s: str) -> int:
-    """
-    Convert the string *s* to an approximate file-size.
-
-    The string *s* may either be an absolute number of bytes, or an approximate
-    number with one of the typical suffixes (K, M, G, etc.). For example::
-
-        >>> parse_size('1234')
-        1234
-        >>> parse_size('1K')
-        1024
-        >>> parse_size('2.5M')
-        2621440
-    """
-    s = s.strip().upper()
-    for power, suffix in enumerate(['K', 'M', 'G', 'T'], start=1):
-        if s.endswith(suffix):
-            n = float(s[:-len(suffix)])
-            return int(n * 1024**power)
-    else:
-        # No recognized suffix; attempt straight conversion
-        return int(s)
 
 
 def meta_parser(file: t.TextIO) -> t.Iterable[Release]:
@@ -576,10 +582,15 @@ def meta_parser(file: t.TextIO) -> t.Iterable[Release]:
             elif field == 'date':
                 parsed = parsedate(value)
                 if parsed is not None:
-                    d = time.struct_time(parsed)
+                    time_tuple = time.struct_time(parsed)
                     date = dt.datetime(
-                        d.tm_year, d.tm_mon, d.tm_mday,
-                        d.tm_hour, d.tm_min, d.tm_sec)
+                        time_tuple.tm_year,
+                        time_tuple.tm_mon,
+                        time_tuple.tm_mday,
+                        time_tuple.tm_hour,
+                        time_tuple.tm_min,
+                        time_tuple.tm_sec,
+                    )
         else:
             yield Release(codename, name, version, date, supported)
             del codename, name, version, date, supported
@@ -593,7 +604,7 @@ class TableParser(HTMLParser):
     It stores the content of all ``<th>`` and ``<td>`` tags under each ``<tr>``
     tag in the :attr:`table` attribute as a list of lists (the outer list of
     rows, the inner lists of cells within those rows). All data is represented
-    as strings, or as ``None`` for entirely empty entries. For example::
+    as strings. For example::
 
         >>> html = '''
         ... <html><body><table>
@@ -607,7 +618,7 @@ class TableParser(HTMLParser):
         >>> parser = TableParser()
         >>> parser.feed(html)
         >>> parser.table
-        [['#', 'Name'], ['1', 'foo'], ['2', 'bar'], [None, 'quux']]
+        [['#', 'Name'], ['1', 'foo'], ['2', 'bar'], ['', 'quux']]
 
     .. note::
 
@@ -615,12 +626,15 @@ class TableParser(HTMLParser):
         there is no requirement that the input is strictly valid XML, hence the
         lack of a closing ``<p>`` tag above is acceptable.
     """
-    def __init__(self):
+
+    def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.state = 'html'
-        self.table = []
+        self.table: list[list[str]] = []
 
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, t.Optional[str]]]):
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, t.Optional[str]]]
+    ) -> None:
         if self.state == 'html' and tag == 'table':
             self.state = 'table'
         elif self.state == 'table' and tag == 'tr':
@@ -628,13 +642,13 @@ class TableParser(HTMLParser):
             self.table.append([])
         elif self.state == 'tr' and tag in ('th', 'td'):
             self.state = 'td'
-            self.table[-1].append(None)
+            self.table[-1].append('')
 
-    def handle_data(self, data: str):
+    def handle_data(self, data: str) -> None:
         if self.state == 'td':
-            self.table[-1][-1] = data
+            self.table[-1][-1] += data
 
-    def handle_endtag(self, tag: str):
+    def handle_endtag(self, tag: str) -> None:
         if self.state == 'table' and tag == 'table':
             self.state = 'html'
         elif self.state == 'tr' and tag == 'tr':
@@ -643,14 +657,17 @@ class TableParser(HTMLParser):
             self.state = 'tr'
 
 
-### TEST SUITE ################################################################
+# TEST SUITE ################################################################
 #
 # Everything from here on down is solely for the test-suite, which is
 # implemented as doctests. To test the module, just run the module directly.
 
 
 @contextlib.contextmanager
-def _test_server(files, *, host='127.0.0.1', port=0):
+def _test_server(
+    files: dict[str, bytes], *,
+    host: str = '127.0.0.1', port: int = 0
+) -> t.Iterator[str]:
     """
     This function provides a test HTTP server for the doctest suite.
 
@@ -664,14 +681,22 @@ def _test_server(files, *, host='127.0.0.1', port=0):
     temporary directory upon exit. The URL of the root of the server is yielded
     by the context manager.
     """
+    # pylint: disable=import-outside-toplevel, too-many-locals
+    # These imports are for the test-suite only
     import tempfile
     import http.server
     from pathlib import Path
     from threading import Thread
 
     class SilentHandler(http.server.SimpleHTTPRequestHandler):
-        def log_message(self, fmt, *args):
-            # Don't spam the console
+        """
+        Trivial derivative of SimpleHTTPRequestHandler that doesn't spam the
+        console with log messages.
+        """
+
+        # pylint: disable=redefined-builtin
+        # The super-class uses format here
+        def log_message(self, format: str, *args: t.Any) -> None:
             pass
 
     with tempfile.TemporaryDirectory() as temp:
@@ -681,7 +706,10 @@ def _test_server(files, *, host='127.0.0.1', port=0):
 
         handler = functools.partial(SilentHandler, directory=temp)
         with http.server.ThreadingHTTPServer((host, port), handler) as httpd:
-            host, port, *other = httpd.server_address
+            host_raw, port, *_ = httpd.server_address
+            host = (
+                host_raw if isinstance(host_raw, str) else
+                host_raw.decode('ascii'))
             httpd_thread = Thread(target=httpd.serve_forever)
             httpd_thread.start()
             try:
@@ -692,7 +720,7 @@ def _test_server(files, *, host='127.0.0.1', port=0):
                 assert not httpd_thread.is_alive()
 
 
-def _make_sums(files):
+def _make_sums(files: dict[str, bytes]) -> dict[str, bytes]:
     """
     This function exists to generate SHA256SUMS files for the doctest suite.
 
@@ -701,6 +729,8 @@ def _make_sums(files):
     *files* with one additional entry titled "SHA256SUMS" which contains the
     output of the "sha256sum" command for the given content.
     """
+    # pylint: disable=import-outside-toplevel
+    # These imports are for the test-suite only
     import hashlib
 
     files = files.copy()
@@ -711,8 +741,9 @@ def _make_sums(files):
     return files
 
 
-def _make_releases():
-    from textwrap import dedent
+def _make_releases() -> dict[str, bytes]:
+    # pylint: disable=import-outside-toplevel
+    # These imports are for the test-suite only
     from email.utils import formatdate
 
     releases = [
@@ -722,26 +753,32 @@ def _make_releases():
     ]
 
     paras = []
+    pre = 'http://archive.ubuntu.com/ubuntu/dists'
+    suf = 'main/dist-upgrader-all/current'
     for name, version, date_str, supported in releases:
         codename = name.lower().split()[0]
-        ts = dt.datetime.fromisoformat(date_str)
-        paras.append(f"""
+        atime = dt.datetime.fromisoformat(date_str)
+        paras.append(
+            f"""
 Dist: {codename}
 Name: {name}
 Version: {version}
-Date: {formatdate(ts.timestamp())}
+Date: {formatdate(atime.timestamp())}
 Supported: {int(supported)}
 Description: This is the {version} release
-Release-File: http://archive.ubuntu.com/ubuntu/dists/{codename}-updates/Release
-ReleaseNotes: http://archive.ubuntu.com/ubuntu/dists/{codename}-updates/main/dist-upgrader-all/current/ReleaseAnnouncement
-ReleaseNotesHtml: http://archive.ubuntu.com/ubuntu/dists/{codename}-updates/main/dist-upgrader-all/current/ReleaseAnnouncement.html
-UpgradeTool: http://archive.ubuntu.com/ubuntu/dists/{codename}-updates/main/dist-upgrader-all/current/{codename}.tar.gz
-UpgradeToolSignature: http://archive.ubuntu.com/ubuntu/dists/{codename}-updates/main/dist-upgrader-all/current/{codename}.tar.gz.gpg""")
+Release-File: {pre}/{codename}-updates/Release
+ReleaseNotes: {pre}/{codename}-updates/{suf}/ReleaseAnnouncement
+ReleaseNotesHtml: {pre}/{codename}-updates/{suf}/ReleaseAnnouncement.html
+UpgradeTool: {pre}/{codename}-updates/{suf}/{codename}.tar.gz
+UpgradeToolSignature: {pre}/{codename}-updates/{suf}/{codename}.tar.gz.gpg""")
     files = {'meta-release': '\n'.join(paras).strip().encode('utf-8')}
     return files
 
 
-def _make_index(files, timestamp=None):
+def _make_index(
+    files: dict[str, bytes],
+    timestamp: t.Optional[dt.datetime] = None
+) -> dict[str, bytes]:
     """
     This function generates index.html files for the doctest suite.
 
@@ -805,15 +842,13 @@ __test__ = {
         ... 'ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz',
         ... 'ubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz',
         ... dt.datetime(2024, 8, 27, 14, 46, 0),
-        ... '5bd01d2a51196587b3fb2899a8f078a2a080278a83b3c8faa91f8daba750d00c',
-        ... 2.6*(1024**3))
+        ... '5bd01d2a51196587b3fb2899a8f078a2a080278a83b3c8faa91f8daba750d00c')
         >>> arm_img = Image(
         ... 'http://cdimage.ubuntu.com/releases/noble/release/'
         ... 'ubuntu-24.04.1-live-server-arm64.iso',
         ... 'ubuntu-24.04.1-live-server-arm64.iso',
         ... dt.datetime(2024, 8, 27, 15, 43, 0),
-        ... '5ceecb7ef5f976e8ab3fffee7871518c8e9927ec221a3bb548ee1193989e1773',
-        ... 2.3*(1024**3))
+        ... '5ceecb7ef5f976e8ab3fffee7871518c8e9927ec221a3bb548ee1193989e1773')
         >>> pi_img.version
         '24.04.1'
         >>> pi_img.image_type
@@ -892,8 +927,7 @@ __test__ = {
         Image(url='http://.../ubuntu-21.10-bar-arm64+raspi.img.xz',
         name='ubuntu-21.10-bar-arm64+raspi.img.xz',
         date=datetime.date(2021, 10, 25),
-        sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...',
-        size=703488)
+        sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...')
     """,
 
     'ignore-extra-cksums': """
@@ -914,8 +948,7 @@ __test__ = {
         Image(url='http://.../ubuntu-21.10-bar-arm64+raspi.img.xz',
         name='ubuntu-21.10-bar-arm64+raspi.img.xz',
         date=datetime.date(2021, 10, 25),
-        sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...',
-        size=703488)
+        sha256='e9cd9718e97ac951c0ead5de8069d0ff5de188620b12b02...')
     """,
 
     'full-run': """
@@ -925,13 +958,13 @@ __test__ = {
         >>> import tempfile
         >>> from pathlib import Path
         >>> ts = dt.datetime(2021, 10, 25)
-        >>> data = b'foo' * 123456
+        >>> foo = b'foo' * 123456
         >>> images = {
-        ...     'ubuntu-22.04.5-live-server-riscv64.img.gz': data,
-        ...     'ubuntu-22.04.5-preinstalled-server-armhf+raspi.img.xz': data,
-        ...     'ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz': data,
-        ...     'ubuntu-22.04.5-preinstalled-server-riscv64+unmatched.img.xz': data,
-        ...     'ubuntu-22.04.5-preinstalled-desktop-arm64+raspi.img.xz': data,
+        ... 'ubuntu-22.04.5-live-server-riscv64.img.gz': foo,
+        ... 'ubuntu-22.04.5-preinstalled-server-armhf+raspi.img.xz': foo,
+        ... 'ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz': foo,
+        ... 'ubuntu-22.04.5-preinstalled-server-riscv64+unmatched.img.xz': foo,
+        ... 'ubuntu-22.04.5-preinstalled-desktop-arm64+raspi.img.xz': foo,
         ... }
         >>> files = _make_index(_make_sums(images), ts) | _make_releases()
         >>> tmp_dir = tempfile.TemporaryDirectory()
@@ -956,7 +989,9 @@ __test__ = {
         ...         buildername='html', status=None, warning=None)
         ...     _ = setup(app)
         ...     app.build()
-        ...     print((tmp / 'build' / 'index.html').read_text()) # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+        ...     print(
+        ...         (tmp / 'build' / 'index.html').read_text()
+        ...     ) # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
         <!DOCTYPE html>
         <BLANKLINE>
         <html...>
@@ -964,8 +999,10 @@ __test__ = {
         <ul>
         <li><p>Ubuntu 22.04.5 LTS (Jammy Jellyfish) images:</p>
         <ul>
-        <li><a class="reference download external" download="" href=".../ubuntu-22.04.5-preinstalled-server-armhf+raspi.img.xz">ubuntu-22.04.5-preinstalled-server-armhf+raspi.img.xz</a></li>
-        <li><a class="reference download external" download="" href=".../ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz">ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz</a></li>
+        <li><a class="reference download external" download=""
+        href="...">ubuntu-22.04.5-preinstalled-server-armhf+raspi...</a></li>
+        <li><a class="reference download external" download=""
+        href="...">ubuntu-22.04.5-preinstalled-server-arm64+raspi...</a></li>
         </ul>
         </li>
         </ul>
