@@ -10,7 +10,11 @@ Using the pre-installed server image
 
 #. Download one of the supported images:
 
-.. note:: Download information to be added after 25.04 release
+   .. ubuntu-images::
+       :releases: plucky-
+       :image-types: live-server
+       :archs: riscv64
+       :empty: Download information to be added after 25.04 release
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
