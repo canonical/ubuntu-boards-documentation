@@ -418,7 +418,7 @@ def filter_releases(
     options. For example::
 
         >>> with _test_server(_make_releases()) as url:
-        ...     releases = get_releases(url + 'meta-release')
+        ...     releases = get_releases([url + 'meta-release'])
         >>> [r.codename for r in releases]
         ['warty', 'disco', 'jammy']
         >>> [r.codename for r in filter_releases(releases, spec='disco-')]
@@ -626,7 +626,7 @@ def meta_parser(file: t.TextIO) -> t.Iterable[Release]:
                         time_tuple.tm_min,
                         time_tuple.tm_sec,
                     )
-        else:
+        elif set(Release._fields) <= locals().keys():
             yield Release(codename, name, version, date, supported)
             del codename, name, version, date, supported
 
@@ -806,7 +806,10 @@ ReleaseNotes: {pre}/{codename}-updates/{suf}/ReleaseAnnouncement
 ReleaseNotesHtml: {pre}/{codename}-updates/{suf}/ReleaseAnnouncement.html
 UpgradeTool: {pre}/{codename}-updates/{suf}/{codename}.tar.gz
 UpgradeToolSignature: {pre}/{codename}-updates/{suf}/{codename}.tar.gz.gpg""")
-    files = {'meta-release': '\n'.join(paras).strip().encode('utf-8')}
+    files = {
+        'meta-release': '\n'.join(paras).strip().encode('utf-8'),
+        'meta-release-development': b'',
+    }
     return files
 
 
@@ -1016,6 +1019,7 @@ __test__ = {
         ...         :archs: armhf,arm64
         ...         :image-types: preinstalled-server
         ...         :meta-release: {url}meta-release
+        ...         :meta-release-development: {url}meta-release-development
         ...         :cdimage-template: {url}
         ...     ''')
         ...     app = Sphinx(
