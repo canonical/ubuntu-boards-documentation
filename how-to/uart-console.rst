@@ -132,7 +132,7 @@ double-check you are looking at the correct set of pins for your board.
 The following sections deal with specific problems common to UART usage.
 
 
-Permission Denied
+Permission denied
 -----------------
 
 Typically, USB UART adapters will be accessible to any regular logged in user.
@@ -154,7 +154,7 @@ group, but you will need to logout and login again for this to take effect:
     sudo adduser $USER dialout
 
 
-Flow Control
+Flow control
 ------------
 
 Some UARTs have additional pins for `flow control`_ (sometimes labeled
@@ -182,7 +182,7 @@ picocom
 .. _flow control: https://en.wikipedia.org/wiki/Flow_control_(data)#Hardware_flow_control
 
 
-Full Screen Applications
+Full screen applications
 ------------------------
 
 Some console applications take up the full screen, e.g. :manpage:`top(1)` or

@@ -20,7 +20,7 @@ Using the pre-installed server image
 #. Insert the SD card into the board
 
 #. Optionally connect a USB UART adapter to the :term:`UART` on the
-   :term:`GPIO` header (see `UART Console`_ and :doc:`/how-to/uart-console`)
+   :term:`GPIO` header (see `UART console`_ and :doc:`/how-to/uart-console`)
 
 #. Power on the board
 
@@ -47,7 +47,7 @@ Sample files for a cloud-init seed are present on the FAT partition labeled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
-UART Console
+UART console
 ============
 
 The :term:`UART` is located on its own three-pin header labeled "DEBUG",
