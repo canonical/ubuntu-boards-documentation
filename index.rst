@@ -1,4 +1,4 @@
-Ubuntu Boards Documentation
+Ubuntu boards documentation
 ===========================
 
 Welcome to the Ubuntu Boards Documentation.

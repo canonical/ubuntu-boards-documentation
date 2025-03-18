@@ -127,7 +127,7 @@ blindly append further options to this file, this ensures they don't
 inadvertently wind up only applying to the last filter (for the Compute Module
 4, in this case).
 
-Conditional Sections
+Conditional sections
 --------------------
 
 There are several other conditional section types that can be used. Refer to
@@ -205,7 +205,7 @@ The format of the EEPROM configuration is the same as for :file:`config.txt`
 above, but the properties are different.
 
 
-Boot Order
+Boot order
 ----------
 
 By far the most important property for most people, will be `BOOT_ORDER`_. This

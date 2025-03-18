@@ -36,10 +36,10 @@ Using the pre-installed server image
    asked to choose a new password
 
 
-WiFi Configuration
+WiFi configuration
 ==================
 
-Install Drivers
+Install drivers
 ---------------
 
 This step is only required for kernel versions earlier than 6.7. It is *not*
