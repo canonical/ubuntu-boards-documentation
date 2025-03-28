@@ -227,7 +227,7 @@ Limitations
 
 * The on-board GPU is not supported
 
-* PCIe support is incomplete: an NVMe drive can be used, but WiFi cards and
+* PCIe support is incomplete: an NVMe drive can be used, but Wi-Fi cards and
   external GPUs don't work
 
 * While the 3 USB 3.0 ports are working, the USB 2.0 port is not supported by
