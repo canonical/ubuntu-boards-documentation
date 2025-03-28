@@ -1,4 +1,7 @@
 import datetime
+import ast
+import os
+import yaml
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -106,7 +109,7 @@ html_context = {
     # DONE: If there's no such website,
     #       remove the {{ product_page }} link from the page header template
     #       (usually .sphinx/_templates/header.html; also, see README.rst).
-    "product_page": "documentation.ubuntu.com",
+    "product_page": "ubuntu.com",
     # Product tag image; the orange part of your logo, shown in the page header
     #
     # DONE: To add a tag image, uncomment and update as needed.
@@ -174,8 +177,8 @@ html_theme_options = {
 
 # Template and asset locations
 
-html_static_path = [".sphinx/_static"]
-templates_path = [".sphinx/_templates"]
+html_static_path = []
+templates_path = []
 
 
 #############
