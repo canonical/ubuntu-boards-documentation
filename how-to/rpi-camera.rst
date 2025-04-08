@@ -36,7 +36,7 @@ You can follow the Raspberry Pi's official documentation to `connect a supported
 
 .. caution::
     We do not recommend connecting a camera module while the Raspberry Pi is running,
-    and you may experience erratic behaviour or unintended reboots if you try it.
+    and you may experience erratic behavior or unintended reboots if you try it.
     Please plug the camera module while the Raspberry Pi is powered off.
 
 libcamera-apps
@@ -97,7 +97,7 @@ it by just typing ``qcam`` in the terminal.
 
 - The red cross at the top left exits ``qcam``.
 - For Raspberry Pi models supporting more than one camera module, you can select another camera by clicking
-  on the textbox that shows the camera name.
+  on the text box that shows the camera name.
 
 .. figure:: /images/qcam-dropdown-demo.png
     :alt: qcam sensor selection
