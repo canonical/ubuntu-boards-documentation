@@ -127,6 +127,28 @@ You can install rpicam-apps on your Raspberry Pi with the following command:
 After this, you can use rpicam-apps on Ubuntu the exact same way as you would on Raspberry Pi OS.
 To do that, you can follow the `rpicam-apps documentation`_. 
 
+``picamera2``
+=============
+
+You can also use ``picamera2`` to control the camera modules using Python. While ``picamera2`` is not in the Ubuntu archive yet,
+you can install it from a `PPA`_.
+
+.. terminal::
+    :input: sudo add-apt-repository ppa:r41k0u/python3-simplejpeg && sudo apt update && sudo apt install python3-picamera2
+    :user: r41k0u
+    :host: ubuntu-pi5
+
+
+You can use ``picamera2`` on Ubuntu the same way as you would on Raspberry Pi OS. Raspberry Pi have created extensive `documentation for picamera2`_.
+You can follow it to learn how to use ``picamera2`` on Ubuntu.
+
+.. important::
+    Chapter 9.8 and 9.9 of the ``picamera2`` manual linked above make use of the Hailo and IMX500 AI accelerator. The Hailo
+    AI accelerator is not supported on Ubuntu, and the IMX500 AI accelerator requires the imx500-firmware package, which
+    can't be included in Ubuntu due to licensing issues. So anything in those chapters might not work out of the box.
+    We are working on fixing the licensing issues with the involved parties.
+
+
 .. LINKS
 .. _Raspberry Pi: https://www.raspberrypi.com/
 .. _Raspberry Pi camera hardware spec: https://www.raspberrypi.com/documentation/accessories/camera.html#hardware-specification
@@ -134,3 +156,5 @@ To do that, you can follow the `rpicam-apps documentation`_.
 .. _cam: https://libcamera.org/getting-started.html#basic-testing-with-cam-utility
 .. _AI camera documentation: https://www.raspberrypi.com/documentation/accessories/ai-camera.html
 .. _rpicam-apps documentation: https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-apps
+.. _PPA: https://help.ubuntu.com/stable/ubuntu-help/addremove-ppa.html.en
+.. _documentation for picamera2: https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
