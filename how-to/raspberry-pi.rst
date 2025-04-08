@@ -230,7 +230,7 @@ Connect with the following settings (see :doc:`/how-to/uart-console`):
 Limitations
 ===========
 
-* The libcamera stack is not currently operational on 24.04 (:lp-bug:`2038669`)
+* The libcamera stack is not currently operational on Ubuntu releases before 25.04 (:lp-bug:`2038669`)
 
 
 .. _Raspberry Pi: https://www.raspberrypi.com/
