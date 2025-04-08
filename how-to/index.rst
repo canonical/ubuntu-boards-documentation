@@ -32,3 +32,4 @@ and methods of debugging common boot problems.
     rpi-config-txt
     headless-usage
     uart-console
+    rpi-camera
