@@ -4,7 +4,7 @@ Using the camera on Raspberry Pi
 
 Since Ubuntu 25.04, all `Raspberry Pi`_ models with a CSI port can use the camera stack.
 
-Supported Camera modules
+Supported camera modules
 ========================
 
 We support all the official Raspberry Pi camera modules listed on the `Raspberry Pi camera hardware spec`_.
