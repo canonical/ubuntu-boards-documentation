@@ -35,6 +35,25 @@ Using the pre-installed server image
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
+Create a swap file
+==================
+
+The available RAM of the LicheeRV is quite small. It is advisable to create a
+swap file.
+
+.. code-block:: bash
+
+    sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 conv=fsync
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+
+Add the following line to /etc/fstab to make the swap memory become available at
+boot:
+
+.. code-block:: text
+
+    /swapfile swap swap defaults 0 0
 
 WiFi configuration
 ==================
