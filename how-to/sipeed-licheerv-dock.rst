@@ -41,15 +41,14 @@ Create a swap file
 The available RAM of the LicheeRV is quite small. It is advisable to create a
 swap file.
 
-.. code-block:: bash
+.. code-block:: text
 
     sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 conv=fsync
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
     sudo swapon /swapfile
 
-Add the following line to /etc/fstab to make the swap memory become available at
-boot:
+Add the following line to /etc/fstab to make the swap memory available at boot:
 
 .. code-block:: text
 
