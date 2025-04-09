@@ -1,4 +1,4 @@
-[![Documentation Status](https://app.readthedocs.com/projects/canonical-ubuntu-boards/badge/?version=latest)](https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.com/projects/canonical-ubuntu-boards/badge/?version=latest)](https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/?badge=latest)
 
 
 Ubuntu Boards Documentation
