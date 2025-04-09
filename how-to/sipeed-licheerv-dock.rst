@@ -55,8 +55,8 @@ boot:
 
     /swapfile swap swap defaults 0 0
 
-WiFi configuration
-==================
+Wi-Fi configuration
+===================
 
 Install drivers
 ---------------
@@ -64,7 +64,7 @@ Install drivers
 This step is only required for kernel versions earlier than 6.7. It is *not*
 required for Ubuntu 24.04.
 
-#. To enable WiFi, the DKMS package :lp-pkg:`licheerv-rtl8723ds-dkms` is needed
+#. To enable Wi-Fi, the DKMS package :lp-pkg:`licheerv-rtl8723ds-dkms` is needed
    on lower kernel releases. If your LicheeRV is connected to the network via a
    USB Ethernet adapter, that is easy:
 
