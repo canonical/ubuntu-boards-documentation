@@ -61,6 +61,12 @@ flash.
     The vendor U-Boot is not compatible with :term:`EBBR` and cannot boot
     Ubuntu without manual changes.
 
+.. warning::
+
+    The installer in Ubuntu 24.10 and 25.04 fails to invoke flash-kernel and
+    grub-update. The system is booted with the device-tree from U-Boot and
+    fails with an outdated U-Boot. Please, update U-Boot as described below.
+
 
 Install U-Boot to the SPI flash
 -------------------------------
