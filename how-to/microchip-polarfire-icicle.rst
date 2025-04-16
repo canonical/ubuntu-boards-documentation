@@ -62,6 +62,12 @@ Using the pre-installed server image
 
 #. Power on the board
 
+   .. note::
+
+       Pressing the reset button does not reset all devices into their initial
+       state. Booting Ubuntu has been failing when inserting the SD-card and
+       pressing the reset button while the vendor SDK was running
+
 #. Wait for an output line confirming that `cloud-init`_ has finished running;
    this service is responsible for generating SSH keys, and creating the
    default user:
