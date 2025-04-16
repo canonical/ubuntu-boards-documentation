@@ -127,6 +127,7 @@ SBC
 SBCs
 SBI
 SDC
+SDK
 SiFive
 Sipeed
 smp
