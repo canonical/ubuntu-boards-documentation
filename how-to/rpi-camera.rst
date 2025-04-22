@@ -112,9 +112,10 @@ rpicam-apps
 ===========
 
 .. important::
-    While the AI Camera module is supported in Ubuntu, the post-processing stages require the imx500-firmware
+    While the AI Camera module is supported in Ubuntu, the post-processing stages require the ``imx500-firmware``
     package, which can't be included in Ubuntu due to licensing issues. So anything in the `AI camera documentation`_ might
-    not work out of the box. We are working on fixing the licensing issues with the involved parties.
+    not work out of the box. We are working on fixing the licensing issues with the involved parties. Till then, you can
+    have a look at `Workaround for the IMX500 (AI Camera)`_.
 
 You can install rpicam-apps on your Raspberry Pi with the following command:
 
@@ -144,10 +145,37 @@ You can follow it to learn how to use ``picamera2`` on Ubuntu.
 
 .. important::
     Chapter 9.8 and 9.9 of the ``picamera2`` manual linked above make use of the Hailo and IMX500 AI accelerator. The Hailo
-    AI accelerator is not supported on Ubuntu, and the IMX500 AI accelerator requires the imx500-firmware package, which
+    AI accelerator is not supported on Ubuntu, and the IMX500 AI accelerator requires the ``imx500-firmware`` package, which
     can't be included in Ubuntu due to licensing issues. So anything in those chapters might not work out of the box.
     We are working on fixing the licensing issues with the involved parties.
 
+Workaround for the IMX500 (AI Camera)
+=====================================
+
+.. important::
+    While the steps given below will allow you to use the IMX500 camera module on Ubuntu,  the ``imx500-firmware``
+    package is not maintained in Ubuntu (yet).
+
+While ``imx500-firmware`` is not available in Ubuntu, you can still get it's deb from Raspberry Pi's `Debian pool`_.
+
+.. terminal::
+    :input: wget https://archive.raspberrypi.org/debian/pool/main/i/imx500-firmware/imx500-firmware_0.FF17.8_all.deb && sudo dpkg -i imx500-firmware_0.FF17.8_all.deb
+    :user: r41k0u
+    :host: ubuntu-pi5
+
+After this, you can install the ``imx500-all`` package from the `imx500-picam`_ PPA.
+
+.. terminal::
+    :input: sudo add-apt-repository ppa:r41k0u/imx500-picam && sudo apt update && sudo apt install imx500-all
+    :user: r41k0u
+    :host: ubuntu-pi5
+
+That's all! Now you can follow Raspberry Pi's `AI camera documentation`_ to use it on Ubuntu.
+
+.. figure:: /images/imx500-demo.png
+    :alt: rpicam-hello MobileNet object detection demo showing a keyboard
+    
+    Object detection demo using the IMX500 camera module on Ubuntu.
 
 .. LINKS
 .. _Raspberry Pi: https://www.raspberrypi.com/
@@ -158,3 +186,5 @@ You can follow it to learn how to use ``picamera2`` on Ubuntu.
 .. _rpicam-apps documentation: https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-apps
 .. _PPA: https://help.ubuntu.com/stable/ubuntu-help/addremove-ppa.html.en
 .. _documentation for picamera2: https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
+.. _Debian pool: https://archive.raspberrypi.org/debian/pool/main/i/imx500-firmware/
+.. _imx500-picam: https://launchpad.net/~r41k0u/+archive/ubuntu/imx500-picam
