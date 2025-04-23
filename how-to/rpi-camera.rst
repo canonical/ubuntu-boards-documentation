@@ -2,14 +2,18 @@
 Using the camera on Raspberry Pi
 ================================
 
-Since Ubuntu 25.04, all `Raspberry Pi`_ models with a CSI port can use the camera stack.
+Since Ubuntu 25.04, all `Raspberry Pi`_ models with a CSI port can use the
+camera stack.
+
 
 Supported camera modules
 ========================
 
-We support all the official Raspberry Pi camera modules listed on the `Raspberry Pi camera hardware spec`_.
+We support all the official Raspberry Pi camera modules listed on the
+`Raspberry Pi camera hardware spec`_.
 
-Also, the current ``libcamera`` in Ubuntu supports the following camera sensors:
+Also, the current ``libcamera`` in Ubuntu supports the following camera
+sensors:
 
 - IMX219
 - IMX283
@@ -29,22 +33,27 @@ Also, the current ``libcamera`` in Ubuntu supports the following camera sensors:
 - OV9281
 - SE327M12
 
+
 Connecting a camera module
 ==========================
 
-You can follow the Raspberry Pi's official documentation to `connect a supported camera module`_ to your Raspberry Pi.
+You can follow the Raspberry Pi's official documentation to `connect a
+supported camera module`_ to your Raspberry Pi.
 
 .. warning::
     We do not recommend connecting a camera module while the Raspberry Pi is running,
     and you may experience erratic behavior or unintended reboots if you try it.
     Please plug the camera module while the Raspberry Pi is powered off.
 
+
 libcamera-apps
 ==============
 
-Right after installing Ubuntu on your Raspberry Pi and connecting a camera module to it,
-you can use the various applications provided by the `libcamera-apps` package to test the camera. We will show the usage of
-2 of the applications here: ``cam`` and ``qcam``.
+Right after installing Ubuntu on your Raspberry Pi and connecting a camera
+module to it, you can use the various applications provided by the
+`libcamera-apps` package to test the camera. We will show the usage of 2 of the
+applications here: ``cam`` and ``qcam``.
+
 
 cam
 ---
@@ -79,8 +88,8 @@ You can also capture frames using ``cam`` in the PPM format.
 qcam
 ----
 
-qcam is a GUI application provided by libcamera that can be used to test the camera. You can use
-it by just typing ``qcam`` in the terminal.
+qcam is a GUI application provided by libcamera that can be used to test the
+camera. You can use it by just typing ``qcam`` in the terminal.
 
 .. image:: /images/qcam-dropdown-demo.png
     :alt: The qcam camera selection window, showing a drop-down list of
@@ -112,24 +121,31 @@ rpicam-apps
 ===========
 
 .. warning::
-    While the AI Camera module is supported in Ubuntu, the post-processing stages require the ``imx500-firmware``
-    package, which can't be included in Ubuntu due to licensing issues. So anything in the `AI camera documentation`_ might
-    not work out of the box. We are working on fixing the licensing issues with the involved parties. Until then, you can
-    have a look at `Workaround for the IMX500 (AI Camera)`_.
 
-You can install :lp-pkg:`rpicam-apps` on your Raspberry Pi with the following command::
+    While the AI Camera module is supported in Ubuntu, the post-processing
+    stages require the ``imx500-firmware`` package, which can't be included in
+    Ubuntu due to licensing issues. So anything in the `AI camera
+    documentation`_ might not work out of the box.
+
+    We are working on fixing the licensing issues with the involved parties.
+    Until then, see `Workaround for the IMX500 (AI Camera)`_ below.
+
+You can install :lp-pkg:`rpicam-apps` on your Raspberry Pi with the following
+command::
 
     sudo apt install rpicam-apps
 
+After this, you can use rpicam-apps on Ubuntu the exact same way as you would
+on Raspberry Pi OS. To do that, you can follow the `rpicam-apps
+documentation`_.
 
-After this, you can use rpicam-apps on Ubuntu the exact same way as you would on Raspberry Pi OS.
-To do that, you can follow the `rpicam-apps documentation`_.
 
 picamera2
 =========
 
-You can also use ``picamera2`` to control the camera modules using Python. While ``picamera2`` is not in the Ubuntu archive yet,
-you can install it from a `PPA`_.
+You can also use ``picamera2`` to control the camera modules using Python.
+While ``picamera2`` is not in the Ubuntu archive yet, you can install it from a
+`PPA`_.
 
 ::
 
@@ -137,36 +153,47 @@ you can install it from a `PPA`_.
     sudo apt install python3-picamera2
 
 
-You can use ``picamera2`` on Ubuntu the same way as you would on Raspberry Pi OS. Raspberry Pi have created extensive `documentation for picamera2`_.
-You can follow it to learn how to use ``picamera2`` on Ubuntu.
+You can use ``picamera2`` on Ubuntu the same way as you would on Raspberry Pi
+OS. Raspberry Pi have created extensive `documentation for picamera2`_. You can
+follow it to learn how to use ``picamera2`` on Ubuntu.
 
 .. warning::
-    Chapter 9.8 and 9.9 of the ``picamera2`` manual linked above make use of the Hailo and IMX500 AI accelerator. The Hailo
-    AI accelerator is not supported on Ubuntu, and the IMX500 AI accelerator requires the ``imx500-firmware`` package, which
-    can't be included in Ubuntu due to licensing issues. So anything in those chapters might not work out of the box.
-    We are working on fixing the licensing issues with the involved parties.
+
+    Chapter 9.8 and 9.9 of the ``picamera2`` manual linked above make use of
+    the Hailo and IMX500 AI accelerator. The Hailo AI accelerator is not
+    supported on Ubuntu, and the IMX500 AI accelerator requires the
+    ``imx500-firmware`` package, which can't be included in Ubuntu due to
+    licensing issues. So anything in those chapters might not work out of the
+    box. We are working on fixing the licensing issues with the involved
+    parties.
+
 
 Workaround for the IMX500 (AI Camera)
 =====================================
 
 .. warning::
-    While the steps given below will allow you to use the IMX500 camera module on Ubuntu,  the ``imx500-firmware``
-    package is not maintained in Ubuntu (yet).
 
-While ``imx500-firmware`` is not available in Ubuntu, you can still get it's deb from Raspberry Pi's `Debian pool`_.
+    While the steps given below will allow you to use the IMX500 camera module
+    on Ubuntu,  the ``imx500-firmware`` package is not maintained in Ubuntu
+    (yet).
+
+While ``imx500-firmware`` is not available in Ubuntu, you can still get its
+deb from Raspberry Pi's `Debian pool`_.
 
 ::
 
     wget https://archive.raspberrypi.org/debian/pool/main/i/imx500-firmware/imx500-firmware_0.FF17.8_all.deb && sudo dpkg -i imx500-firmware_0.FF17.8_all.deb
 
-After this, you can install the ``imx500-all`` package from the `imx500-picam`_ PPA.
+After this, you can install the ``imx500-all`` package from the `imx500-picam`_
+PPA.
 
 ::
 
     sudo add-apt-repository ppa:r41k0u/imx500-picam
     sudo apt install imx500-all
 
-That's all! Now you can follow Raspberry Pi's `AI camera documentation`_ to use it on Ubuntu.
+That's all! Now you can follow Raspberry Pi's `AI camera documentation`_ to use
+it on Ubuntu.
 
 .. figure:: /images/imx500-demo.png
     :alt: rpicam-hello MobileNet application window showing a preview of a

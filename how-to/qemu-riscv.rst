@@ -53,7 +53,8 @@ Using the pre-installed server image
        qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
 
 
-#. Next use u-boot-qemu to boot the virtual machine. A working example with all the options is:
+#. Next use u-boot-qemu to boot the virtual machine. A working example with all
+   the options is:
 
    .. code-block:: text
 
