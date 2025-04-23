@@ -46,8 +46,8 @@ Right after installing Ubuntu on your Raspberry Pi and connecting a camera modul
 you can use the various applications provided by the `libcamera-apps` package to test the camera. We will show the usage of
 2 of the applications here: ``cam`` and ``qcam``.
 
-`cam`_
-------
+cam
+---
 
 .. note::
     We recommend setting the ``LIBCAMERA_LOG_LEVELS`` to 4 using
@@ -128,8 +128,8 @@ You can install rpicam-apps on your Raspberry Pi with the following command:
 After this, you can use rpicam-apps on Ubuntu the exact same way as you would on Raspberry Pi OS.
 To do that, you can follow the `rpicam-apps documentation`_. 
 
-``picamera2``
-=============
+picamera2
+=========
 
 You can also use ``picamera2`` to control the camera modules using Python. While ``picamera2`` is not in the Ubuntu archive yet,
 you can install it from a `PPA`_.
