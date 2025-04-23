@@ -83,13 +83,6 @@ qcam
 qcam is a GUI application provided by libcamera that can be used to test the camera. You can use
 it by just typing ``qcam`` in the terminal.
 
-.. terminal::
-    :input: qcam
-    :user: r41k0u
-    :host: ubuntu-pi5
-
-    Zero-copy enabled
-
 .. figure:: /images/qcam-demo.png
     :alt: qcam viewfinder window
     
@@ -117,12 +110,9 @@ rpicam-apps
     not work out of the box. We are working on fixing the licensing issues with the involved parties. Till then, you can
     have a look at `Workaround for the IMX500 (AI Camera)`_.
 
-You can install rpicam-apps on your Raspberry Pi with the following command:
+You can install rpicam-apps on your Raspberry Pi with the following command::
 
-.. terminal::
-    :input: sudo apt install rpicam-apps
-    :user: r41k0u
-    :host: ubuntu-pi5
+    sudo apt install rpicam-apps
 
 
 After this, you can use rpicam-apps on Ubuntu the exact same way as you would on Raspberry Pi OS.
@@ -134,10 +124,10 @@ picamera2
 You can also use ``picamera2`` to control the camera modules using Python. While ``picamera2`` is not in the Ubuntu archive yet,
 you can install it from a `PPA`_.
 
-.. terminal::
-    :input: sudo add-apt-repository ppa:r41k0u/python3-simplejpeg && sudo apt update && sudo apt install python3-picamera2
-    :user: r41k0u
-    :host: ubuntu-pi5
+::
+
+    sudo add-apt-repository ppa:r41k0u/python3-simplejpeg
+    sudo apt install python3-picamera2
 
 
 You can use ``picamera2`` on Ubuntu the same way as you would on Raspberry Pi OS. Raspberry Pi have created extensive `documentation for picamera2`_.
@@ -158,17 +148,16 @@ Workaround for the IMX500 (AI Camera)
 
 While ``imx500-firmware`` is not available in Ubuntu, you can still get it's deb from Raspberry Pi's `Debian pool`_.
 
-.. terminal::
-    :input: wget https://archive.raspberrypi.org/debian/pool/main/i/imx500-firmware/imx500-firmware_0.FF17.8_all.deb && sudo dpkg -i imx500-firmware_0.FF17.8_all.deb
-    :user: r41k0u
-    :host: ubuntu-pi5
+::
+
+    wget https://archive.raspberrypi.org/debian/pool/main/i/imx500-firmware/imx500-firmware_0.FF17.8_all.deb && sudo dpkg -i imx500-firmware_0.FF17.8_all.deb
 
 After this, you can install the ``imx500-all`` package from the `imx500-picam`_ PPA.
 
-.. terminal::
-    :input: sudo add-apt-repository ppa:r41k0u/imx500-picam && sudo apt update && sudo apt install imx500-all
-    :user: r41k0u
-    :host: ubuntu-pi5
+::
+
+    sudo add-apt-repository ppa:r41k0u/imx500-picam
+    sudo apt install imx500-all
 
 That's all! Now you can follow Raspberry Pi's `AI camera documentation`_ to use it on Ubuntu.
 
