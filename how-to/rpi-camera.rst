@@ -59,8 +59,8 @@ You can list the connected cameras using ``cam -l``.
 
 .. terminal::
     :input: cam -l
-    :user: r41k0u
-    :host: ubuntu-pi5
+    :user: ubuntu
+    :host: ubuntu
 
     Available cameras:
     1: 'imx500' (/base/axi/pcie@120000/rp1/i2c@80000/imx500@1a)
@@ -69,8 +69,8 @@ You can also capture frames using ``cam`` in the PPM format.
 
 .. terminal::
     :input: cam -c 1 --capture --file=frame.ppm
-    :user: r41k0u
-    :host: ubuntu-pi5
+    :user: ubuntu
+    :host: ubuntu
 
     Using camera /base/axi/pcie@120000/rp1/i2c@80000/imx500@1a as cam0
     cam0: Capture 1 frames
