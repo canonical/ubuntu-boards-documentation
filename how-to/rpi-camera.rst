@@ -82,22 +82,30 @@ qcam
 qcam is a GUI application provided by libcamera that can be used to test the camera. You can use
 it by just typing ``qcam`` in the terminal.
 
-.. figure:: /images/qcam-demo.png
-    :alt: qcam viewfinder window
+.. image:: /images/qcam-dropdown-demo.png
+    :alt: The qcam camera selection window, showing a drop-down list of
+          available cameras, and brief information about the selected camera
 
-    Testing your camera using qcam.
+Once you have selected a camera and "OK", the application will show a preview
+from the camera.
+
+.. image:: /images/qcam-demo.png
+    :alt: The main qcam viewfinder window, showing a preview from the camera
+          at the bottom of the window, and a button toolbar at the top with
+          actions to stop the preview, save stills, and a label indicating the
+          selected camera
 
 - The red cross at the top left exits ``qcam``.
-- For Raspberry Pi models supporting more than one camera module, you can select another camera by clicking
-  on the text box that shows the camera name.
 
-.. figure:: /images/qcam-dropdown-demo.png
-    :alt: qcam sensor selection
+- For Raspberry Pi models supporting more than one camera module, you can
+  select another camera by clicking on the text box that shows the camera name.
 
-    Select your camera using the dropdown menu.
+- You can use the ``Stop Capture`` button to turn off the camera viewfinder,
+  and toggle it again to start it.
 
-- You can use the ``Stop Capture`` button to turn off the camera viewfinder, and toggle it again to start it.
-- The blue arrow can be used to take a snapshot of the current viewfinder image as a PNG.
+- The blue arrow can be used to take a snapshot of the current viewfinder image
+  as a PNG.
+
 - The ``Save Raw`` button can be used to capture a RAW image.
 
 rpicam-apps
@@ -161,7 +169,11 @@ After this, you can install the ``imx500-all`` package from the `imx500-picam`_ 
 That's all! Now you can follow Raspberry Pi's `AI camera documentation`_ to use it on Ubuntu.
 
 .. figure:: /images/imx500-demo.png
-    :alt: rpicam-hello MobileNet object detection demo showing a keyboard
+    :alt: rpicam-hello MobileNet application window showing a preview of a
+          keyboard with a person's hand over the cursor keys. Around the
+          keyboard, an outline is drawn with the label "keyboard 67%"
+          indicating the AI module has recognized this portion of the image as
+          containing a keyboard.
 
     Object detection demo using the IMX500 camera module on Ubuntu.
 
