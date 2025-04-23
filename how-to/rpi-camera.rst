@@ -53,9 +53,8 @@ cam
     We recommend setting the ``LIBCAMERA_LOG_LEVELS`` to 4 using
     ``export LIBCAMERA_LOG_LEVELS=*:4`` to avoid cluttering the terminal with logs.
 
-The ``cam`` utility can be used for basic testing.
-
-You can list the connected cameras using ``cam -l``.
+The cam_ utility can be used for basic testing. You can list the connected
+cameras using ``cam -l``.
 
 .. terminal::
     :input: cam -l
@@ -85,7 +84,7 @@ it by just typing ``qcam`` in the terminal.
 
 .. figure:: /images/qcam-demo.png
     :alt: qcam viewfinder window
-    
+
     Testing your camera using qcam.
 
 - The red cross at the top left exits ``qcam``.
@@ -94,7 +93,7 @@ it by just typing ``qcam`` in the terminal.
 
 .. figure:: /images/qcam-dropdown-demo.png
     :alt: qcam sensor selection
-    
+
     Select your camera using the dropdown menu.
 
 - You can use the ``Stop Capture`` button to turn off the camera viewfinder, and toggle it again to start it.
@@ -110,13 +109,13 @@ rpicam-apps
     not work out of the box. We are working on fixing the licensing issues with the involved parties. Until then, you can
     have a look at `Workaround for the IMX500 (AI Camera)`_.
 
-You can install rpicam-apps on your Raspberry Pi with the following command::
+You can install :lp-pkg:`rpicam-apps` on your Raspberry Pi with the following command::
 
     sudo apt install rpicam-apps
 
 
 After this, you can use rpicam-apps on Ubuntu the exact same way as you would on Raspberry Pi OS.
-To do that, you can follow the `rpicam-apps documentation`_. 
+To do that, you can follow the `rpicam-apps documentation`_.
 
 picamera2
 =========
@@ -163,7 +162,7 @@ That's all! Now you can follow Raspberry Pi's `AI camera documentation`_ to use 
 
 .. figure:: /images/imx500-demo.png
     :alt: rpicam-hello MobileNet object detection demo showing a keyboard
-    
+
     Object detection demo using the IMX500 camera module on Ubuntu.
 
 .. LINKS
