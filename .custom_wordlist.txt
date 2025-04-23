@@ -104,6 +104,7 @@ OV
 passwd
 picocom
 PCIe
+picam
 picamera
 picocom
 PNG
