@@ -107,7 +107,7 @@ rpicam-apps
 .. warning::
     While the AI Camera module is supported in Ubuntu, the post-processing stages require the ``imx500-firmware``
     package, which can't be included in Ubuntu due to licensing issues. So anything in the `AI camera documentation`_ might
-    not work out of the box. We are working on fixing the licensing issues with the involved parties. Till then, you can
+    not work out of the box. We are working on fixing the licensing issues with the involved parties. Until then, you can
     have a look at `Workaround for the IMX500 (AI Camera)`_.
 
 You can install rpicam-apps on your Raspberry Pi with the following command::
