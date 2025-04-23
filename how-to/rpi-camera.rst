@@ -34,7 +34,7 @@ Connecting a camera module
 
 You can follow the Raspberry Pi's official documentation to `connect a supported camera module`_ to your Raspberry Pi.
 
-.. caution::
+.. warning::
     We do not recommend connecting a camera module while the Raspberry Pi is running,
     and you may experience erratic behavior or unintended reboots if you try it.
     Please plug the camera module while the Raspberry Pi is powered off.
@@ -49,7 +49,7 @@ you can use the various applications provided by the `libcamera-apps` package to
 `cam`_
 ------
 
-.. tip::
+.. note::
     We recommend setting the ``LIBCAMERA_LOG_LEVELS`` to 4 using
     ``export LIBCAMERA_LOG_LEVELS=*:4`` to avoid cluttering the terminal with logs.
 
@@ -111,7 +111,7 @@ it by just typing ``qcam`` in the terminal.
 rpicam-apps
 ===========
 
-.. important::
+.. warning::
     While the AI Camera module is supported in Ubuntu, the post-processing stages require the ``imx500-firmware``
     package, which can't be included in Ubuntu due to licensing issues. So anything in the `AI camera documentation`_ might
     not work out of the box. We are working on fixing the licensing issues with the involved parties. Till then, you can
@@ -143,7 +143,7 @@ you can install it from a `PPA`_.
 You can use ``picamera2`` on Ubuntu the same way as you would on Raspberry Pi OS. Raspberry Pi have created extensive `documentation for picamera2`_.
 You can follow it to learn how to use ``picamera2`` on Ubuntu.
 
-.. important::
+.. warning::
     Chapter 9.8 and 9.9 of the ``picamera2`` manual linked above make use of the Hailo and IMX500 AI accelerator. The Hailo
     AI accelerator is not supported on Ubuntu, and the IMX500 AI accelerator requires the ``imx500-firmware`` package, which
     can't be included in Ubuntu due to licensing issues. So anything in those chapters might not work out of the box.
@@ -152,7 +152,7 @@ You can follow it to learn how to use ``picamera2`` on Ubuntu.
 Workaround for the IMX500 (AI Camera)
 =====================================
 
-.. important::
+.. warning::
     While the steps given below will allow you to use the IMX500 camera module on Ubuntu,  the ``imx500-firmware``
     package is not maintained in Ubuntu (yet).
 
