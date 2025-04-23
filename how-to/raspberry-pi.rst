@@ -11,6 +11,12 @@ Supported models
 The following matrix maps all models of the Raspberry Pi against the releases
 of Ubuntu that support them.
 
+.. note::
+
+    Please note that only releases in standard support are included below;
+    support for prior LTS releases may still be available via `Ubuntu Pro`_.
+    See the `Ubuntu release cycle`_ for more information.
+
 +--------------+-------------+--------------+-------------+-------------+
 | Raspberry Pi | 22.04 LTS   | 24.04 LTS    | 24.10       | 25.04       |
 +==============+=============+==============+=============+=============+
@@ -238,3 +244,5 @@ Limitations
 .. _Raspberry Pi: https://www.raspberrypi.com/
 .. _Certified: https://certification.canonical.com/
 .. _debug probe: https://www.raspberrypi.com/products/debug-probe/
+.. _Ubuntu release cycle: https://ubuntu.com/about/release-cycle
+.. _Ubuntu Pro: https://ubuntu.com/pro
