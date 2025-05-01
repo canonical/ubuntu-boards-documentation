@@ -11,6 +11,7 @@ hardware under Ubuntu.
     :maxdepth: 1
 
     allwinner-nezha-d1
+    deepcomputing-fml13v01
     microchip-pic64gx1000-discovery
     microchip-polarfire-icicle
     milk-v-mars
