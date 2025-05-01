@@ -25,6 +25,7 @@ Ctrl
 CTS
 de
 dev
+DeepComputing
 DHCP
 DKMS
 dkms
@@ -40,11 +41,13 @@ eMMC
 ethernet
 facto
 Fi
+FML
 flashrom
 FlashPro
 flintst
 flintstone
 FPGA
+FrameWork
 fred
 fstab
 GiB
@@ -71,6 +74,7 @@ initramfs
 inotify
 inotifywait
 IPv
+JH
 journaling
 JTAG
 libcamera
@@ -127,6 +131,7 @@ SATA
 SBC
 SBCs
 SBI
+SBU
 SDC
 SDK
 SiFive
@@ -153,6 +158,7 @@ UARTs
 UART's
 ubuntu
 UEFI
+userland
 usr
 VisionFive
 whois
