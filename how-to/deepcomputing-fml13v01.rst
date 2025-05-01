@@ -141,7 +141,7 @@ Boot the live server image
 
    .. code-block:: text
 
-       load mmc 1:1 $fdt_addr_r dtb/starfive/jh7110-milkv-mars.dtb
+       load mmc 1:1 $fdt_addr_r dtb/starfive/jh7110-deepcomputing-fml13v01.dtb
        load mmc 1:1 $kernel_addr_r EFI/boot/bootriscv64.efi
        bootefi $kernel_addr_r $fdt_addr_r
 
