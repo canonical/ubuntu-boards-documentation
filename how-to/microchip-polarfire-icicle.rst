@@ -44,7 +44,7 @@ Using the pre-installed server image
 
    .. ubuntu-images::
        :releases: jammy-
-       :suffix: +icicle
+       :suffixes: +icicle
 
 #. Flash the pre-installed server image to a microSD card or the Icicle Kit on
    board eMMC (see :doc:`/how-to/flash-images`). The board uses package

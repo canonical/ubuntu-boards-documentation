@@ -232,6 +232,12 @@ linkcheck_retries = 3
 
 # myst_enable_extensions = set()
 
+# Append the path for our custom extension; this is temporary and the commit
+# adding this should be reverted after the merge and release of
+# https://github.com/canonical/canonical-sphinx-extensions/pull/59
+import sys
+sys.path.append('./_ext')
+
 
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
@@ -257,7 +263,7 @@ extensions = [
     "sphinx_last_updated_by_git",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
-    "canonical.ubuntu-images",
+    "ubuntu_images",
 ]
 
 # Excludes files or directories from processing

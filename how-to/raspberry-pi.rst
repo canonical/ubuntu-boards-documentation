@@ -103,7 +103,7 @@ Using the pre-installed server image
 
    .. ubuntu-images::
        :releases: focal-
-       :suffix: +raspi
+       :suffixes: +raspi
        :image-types: preinstalled-server
 
 #. Flash the pre-installed image to your selection of boot media (microSD card,
@@ -139,7 +139,7 @@ Using the pre-installed desktop image
 
    .. ubuntu-images::
        :releases: focal-
-       :suffix: +raspi
+       :suffixes: +raspi
        :image-types: preinstalled-desktop
 
 #. Flash the pre-installed image to your selection of boot media (microSD card,
