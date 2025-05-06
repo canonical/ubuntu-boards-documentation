@@ -13,7 +13,7 @@ Using the pre-installed server image
 
    .. ubuntu-images::
        :releases: noble-
-       :suffix: +licheerv
+       :suffixes: +licheerv
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)

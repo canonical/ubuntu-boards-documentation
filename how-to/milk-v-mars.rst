@@ -12,7 +12,7 @@ Using the pre-installed server image
 
    .. ubuntu-images::
        :releases: noble-
-       :suffix: +milkvmars
+       :suffixes: +milkvmars,+jh7110
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)

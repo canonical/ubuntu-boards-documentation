@@ -12,7 +12,7 @@ Using the pre-installed server image
 
    .. ubuntu-images::
        :releases: jammy-
-       :suffix: +unmatched
+       :suffixes: +unmatched
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
