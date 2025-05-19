@@ -149,6 +149,7 @@ While ``picamera2`` is not in the Ubuntu archive yet, you can install it from a
 
 ::
 
+    sudo apt install ffmpeg
     sudo add-apt-repository ppa:r41k0u/python3-simplejpeg
     sudo apt install python3-picamera2
 
@@ -189,6 +190,7 @@ PPA.
 
 ::
 
+    sudo apt install ffmpeg
     sudo add-apt-repository ppa:r41k0u/imx500-picam
     sudo apt install imx500-all
 
