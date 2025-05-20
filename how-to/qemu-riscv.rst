@@ -1,9 +1,8 @@
-===============================
 Install Ubuntu on QEMU (RISC-V)
 ===============================
 
 Prerequisites
-=============
+-------------
 
 To boot a RISC-V virtual machine you will need the following packages
 installed:
@@ -25,15 +24,15 @@ The packages can be installed with the following commands:
 
 
 Using the pre-installed server image
-====================================
+------------------------------------
 
 #. Download one of the supported images:
 
    .. ubuntu-images::
-       :releases: jammy-
+       :releases: noble-
        :image-types: preinstalled-server
        :archs: riscv64
-       :matches: (22\.04.*\+unmatched\.img|riscv64\.img)
+       :matches: (riscv64\.img)
 
    .. on jammy, use the +unmatched image for QEMU; later releases should use
       the unsuffixed images, hence the horrid regex above
@@ -42,7 +41,7 @@ Using the pre-installed server image
 
    .. code-block:: text
 
-       xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
+       xz -dk ubuntu-24.04.2-preinstalled-server-riscv64.img.xz
 
 
 #. Optionally, if you want a larger disk, you can expand the disk (the
@@ -63,7 +62,7 @@ Using the pre-installed server image
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
            -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
            -device virtio-rng-pci \
-           -drive file=ubuntu-24.04-preinstalled-server-riscv64.img,format=raw,if=virtio
+           -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio
 
    The important options to use are:
 
@@ -89,8 +88,28 @@ Using the pre-installed server image
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
+Running via EDK II
+------------------
+
+EDK II may be used instead of U-Boot to run RISC-V virtual machines.
+
+.. code-block:: text
+
+    sudo apt-get update
+    sudo apt-get install qemu-efi-riscv64
+    cp /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd .
+    /usr/bin/qemu-system-riscv64 \
+      -machine virt,acpi=off -m 4096 -smp 4 -cpu max \
+      -nographic \
+      -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
+      -drive if=pflash,format=raw,unit=0,file=RISCV_VIRT_VARS.fd,readonly=off \
+      -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio \
+      -netdev user,id=net0 \
+      -device virtio-net-device,netdev=net0 \
+      -device virtio-rng-pci
+
 cloud-init integration
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 The image provides a CIDATA partition as fallback data-source for `cloud-init`_.
 It configures sudo user ubuntu with password ubuntu and uses DHCP to set up
@@ -103,15 +122,15 @@ to ensure that only data provided via the network is used.
 
 
 Using the live server image
-===========================
+---------------------------
 
 Installing live server image
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Download one of the supported images:
 
    .. ubuntu-images::
-       :releases: jammy-
+       :releases: noble-
        :image-types: live-server
        :archs: riscv64
 
@@ -119,9 +138,9 @@ Installing live server image
 
    .. code-block:: text
 
-       gzip -d ubuntu-22.04.5-live-server-riscv64.img.gz
+       gzip -d ubuntu-24.04.2-live-server-riscv64.img.gz
 
-#. Create the disk image on which you will install Ubuntu; 16 GiB should be
+#. Create the disk image onto which you will install Ubuntu; 16 GiB should be
    enough
 
    .. code-block:: text
@@ -136,8 +155,8 @@ Installing live server image
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
            -netdev user,id=net0 \
            -device virtio-net-device,netdev=net0 \
-           -drive file=ubuntu-22.04.5-live-server-riscv64.img,format=raw,if=virtio \
            -drive file=disk,format=raw,if=virtio \
+           -drive file=ubuntu-24.04.2-live-server-riscv64.img,format=raw,if=virtio \
            -device virtio-rng-pci
 
 #. Follow the installation steps in
@@ -154,7 +173,7 @@ QEMU. Another option to exit QEMU is pressing keys ``CTRL-a`` followed by key
 
 
 Running Ubuntu
---------------
+~~~~~~~~~~~~~~
 
 To run your installed Ubuntu image use:
 
@@ -169,14 +188,15 @@ To run your installed Ubuntu image use:
 
 
 Cloud-init seed
-===============
+~~~~~~~~~~~~~~~
 
 Sample files for a cloud-init seed are present on the FAT partition labeled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
 Limitations
-===========
+-----------
 
 * The number of virtual CPUs was limited to 8 before QEMU 7.0. The limit was
-  raised in QEMU 7.0 to 512.
+  raised in QEMU 7.0 to 512. OpenSBI is limited to 128 CPUs. U-Boot supports
+  32 CPUs.

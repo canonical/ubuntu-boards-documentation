@@ -35,6 +35,7 @@ ds
 DSI
 EBBR
 EDID
+EDK
 eeprom
 EEPROM
 eMMC
