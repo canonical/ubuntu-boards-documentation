@@ -178,4 +178,5 @@ Limitations
 -----------
 
 * The number of virtual CPUs was limited to 8 before QEMU 7.0. The limit was
-  raised in QEMU 7.0 to 512.
+  raised in QEMU 7.0 to 512. OpenSBI is limited to 128 CPUs. U-Boot supports
+  32 CPUs.
