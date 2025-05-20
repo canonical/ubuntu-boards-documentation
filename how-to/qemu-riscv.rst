@@ -30,10 +30,10 @@ Using the pre-installed server image
 #. Download one of the supported images:
 
    .. ubuntu-images::
-       :releases: jammy-
+       :releases: noble-
        :image-types: preinstalled-server
        :archs: riscv64
-       :matches: (22\.04.*\+unmatched\.img|riscv64\.img)
+       :matches: (riscv64\.img)
 
    .. on jammy, use the +unmatched image for QEMU; later releases should use
       the unsuffixed images, hence the horrid regex above
@@ -42,7 +42,7 @@ Using the pre-installed server image
 
    .. code-block:: text
 
-       xz -dk ubuntu-24.04.1-preinstalled-server-riscv64.img.xz
+       xz -dk ubuntu-24.04.2-preinstalled-server-riscv64.img.xz
 
 
 #. Optionally, if you want a larger disk, you can expand the disk (the
@@ -63,7 +63,7 @@ Using the pre-installed server image
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
            -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
            -device virtio-rng-pci \
-           -drive file=ubuntu-24.04-preinstalled-server-riscv64.img,format=raw,if=virtio
+           -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio
 
    The important options to use are:
 
@@ -111,7 +111,7 @@ Installing live server image
 #. Download one of the supported images:
 
    .. ubuntu-images::
-       :releases: jammy-
+       :releases: noble-
        :image-types: live-server
        :archs: riscv64
 
@@ -119,9 +119,9 @@ Installing live server image
 
    .. code-block:: text
 
-       gzip -d ubuntu-22.04.5-live-server-riscv64.img.gz
+       gzip -d ubuntu-24.04.2-live-server-riscv64.img.gz
 
-#. Create the disk image on which you will install Ubuntu; 16 GiB should be
+#. Create the disk image onto which you will install Ubuntu; 16 GiB should be
    enough
 
    .. code-block:: text
@@ -136,8 +136,8 @@ Installing live server image
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
            -netdev user,id=net0 \
            -device virtio-net-device,netdev=net0 \
-           -drive file=ubuntu-22.04.5-live-server-riscv64.img,format=raw,if=virtio \
            -drive file=disk,format=raw,if=virtio \
+           -drive file=ubuntu-24.04.2-live-server-riscv64.img,format=raw,if=virtio \
            -device virtio-rng-pci
 
 #. Follow the installation steps in
