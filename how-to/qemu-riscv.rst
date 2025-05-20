@@ -88,6 +88,26 @@ Using the pre-installed server image
 #. Login with the user *ubuntu* and the default password *ubuntu*; you will be
    asked to choose a new password
 
+Running via EDK II
+------------------
+
+EDK II may be used instead of U-Boot to run RISC-V virtual machines.
+
+.. code-block:: text
+
+    sudo apt-get update
+    sudo apt-get install qemu-efi-riscv64
+    cp /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd .
+    /usr/bin/qemu-system-riscv64 \
+      -machine virt,acpi=off -m 4096 -smp 4 -cpu max \
+      -nographic \
+      -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
+      -drive if=pflash,format=raw,unit=0,file=RISCV_VIRT_VARS.fd,readonly=off \
+      -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio \
+      -netdev user,id=net0 \
+      -device virtio-net-device,netdev=net0 \
+      -device virtio-rng-pci
+
 cloud-init integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
