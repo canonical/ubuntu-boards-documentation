@@ -11,8 +11,9 @@ Using the pre-installed server image
 #. Download one of the supported images:
 
    .. ubuntu-images::
-       :releases: noble-
-       :suffixes: +visionfive2
+       :releases: noble-plucky
+       :archs: riscv64
+       :matches: (visionfive2\.img.xz|jh7110\.img.xz)
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
@@ -71,13 +72,6 @@ flash.
 Install U-Boot to the SPI flash
 -------------------------------
 
-#. Download one of the supported images:
-
-   .. ubuntu-images::
-       :releases: noble-
-       :image-types: live-server
-       :archs: riscv64
-
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
 
@@ -122,6 +116,13 @@ Install U-Boot to the SPI flash
 
 Boot the live server image
 --------------------------
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: noble-plucky
+       :image-types: live-server
+       :archs: riscv64
 
 #. Flash the live server image to a microSD card (see
    :doc:`/how-to/flash-images`)
