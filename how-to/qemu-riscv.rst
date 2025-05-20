@@ -1,9 +1,8 @@
-===============================
 Install Ubuntu on QEMU (RISC-V)
 ===============================
 
 Prerequisites
-=============
+-------------
 
 To boot a RISC-V virtual machine you will need the following packages
 installed:
@@ -25,7 +24,7 @@ The packages can be installed with the following commands:
 
 
 Using the pre-installed server image
-====================================
+------------------------------------
 
 #. Download one of the supported images:
 
@@ -90,7 +89,7 @@ Using the pre-installed server image
    asked to choose a new password
 
 cloud-init integration
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 The image provides a CIDATA partition as fallback data-source for `cloud-init`_.
 It configures sudo user ubuntu with password ubuntu and uses DHCP to set up
@@ -103,10 +102,10 @@ to ensure that only data provided via the network is used.
 
 
 Using the live server image
-===========================
+---------------------------
 
 Installing live server image
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Download one of the supported images:
 
@@ -154,7 +153,7 @@ QEMU. Another option to exit QEMU is pressing keys ``CTRL-a`` followed by key
 
 
 Running Ubuntu
---------------
+~~~~~~~~~~~~~~
 
 To run your installed Ubuntu image use:
 
@@ -169,14 +168,14 @@ To run your installed Ubuntu image use:
 
 
 Cloud-init seed
-===============
+~~~~~~~~~~~~~~~
 
 Sample files for a cloud-init seed are present on the FAT partition labeled
 "CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
 Limitations
-===========
+-----------
 
 * The number of virtual CPUs was limited to 8 before QEMU 7.0. The limit was
   raised in QEMU 7.0 to 512.
