@@ -18,7 +18,10 @@ Using the pre-installed server image
 
 #. Download one of the supported images:
 
-   * `Ubuntu 25.04 (Plucky Puffin) Server preinstalled <https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz>`_
+   .. ubuntu-images::
+       :releases: noble-plucky
+       :archs: riscv64
+       :matches: (jh7110\.img.xz)
 
 #. Flash the pre-installed server image to a microSD card (see
    :doc:`/how-to/flash-images`)
@@ -119,6 +122,13 @@ Install U-Boot to the SPI flash
 
 Boot the live server image
 --------------------------
+
+#. Download one of the supported images:
+
+   .. ubuntu-images::
+       :releases: plucky
+       :image-types: live-server
+       :archs: riscv64
 
 #. Flash the live server image to a microSD card (see
    :doc:`/how-to/flash-images`)
