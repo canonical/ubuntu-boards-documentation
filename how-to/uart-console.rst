@@ -54,6 +54,18 @@ simply connected together.
 If your adapter includes a red 5V output line, it should remain disconnected
 from the board.
 
+.. warning::
+
+    Many boards use 3.3 V on their GPIO pins and do not tolerate higher
+    voltages. Some boards use 1.8 V. It is crucial to check the documentation
+    for your specific board to determine the correct GPIO voltage, as exceeding
+    the recommended voltage can damage the board.
+
+On some UART adapters the voltage needs to be set via a jumper:
+
+.. image:: /images/uart-ttl-adapter-ch340g.jpg
+    :alt: A CH340G base UART adapter with 3.3 V selected.
+
 Once connected to your computer, your USB UART adapter will appear as a tty
 device, commonly named :file:`/dev/ttyUSB0`. However, depending on the hardware
 used, other device names are possible including :file:`/dev/ttyACM0` and
