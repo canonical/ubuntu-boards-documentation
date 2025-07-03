@@ -150,11 +150,13 @@ sunxi
 TFTP
 TTL
 tty
+ttyACM
 ttyUSB
 tx
 txt
 uaccess
 UART
+Uart
 UARTs
 UART's
 ubuntu
