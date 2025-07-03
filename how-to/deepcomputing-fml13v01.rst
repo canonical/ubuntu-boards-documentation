@@ -192,7 +192,7 @@ follows:
     :width: 15em
     :alt: Boot from microSD card
 
-Alternatively, to boot from SPI flash, set the DIP switches like so:
+Alternatively, to boot from SPI flash, set the DIP switches like this:
 
 .. image:: /images/deepcomputing-fml13v01-boot-source-spi.jpg
     :width: 15em
@@ -209,11 +209,15 @@ Sample files for a cloud-init seed are present on the FAT partition labeled
 UART console
 ============
 
-The :term:`UART` is available via the right lower USB-C connector and a
-breakout board.
+The :term:`UART` is available via the right lower USB-C connector. You can
+either use a DeepComputing Debug Expansion Card or a breakout board.
 
-Assuming the typical coloring of USB to :term:`TTL` serial adapters the
-following connections have to be made:
+The DeepComputing Debug Expansion Card has a switch that needs to be set
+to 'Uart'. On the remote computer the UART will typically show up as
+/dev/ttyACM0.
+
+When using a breakout board the following connections have to be made assuming
+the typical coloring of USB to :term:`TTL` serial adapters:
 
 ============== ==========
 Breakout board Adapter
