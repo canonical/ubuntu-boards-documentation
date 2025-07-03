@@ -229,6 +229,10 @@ SBU2           TX,  green
 
 Do not connect the red 3.3 V wire.
 
+.. image:: /images/deepcomputing-fml13v01-usb-breakout-board.jpg
+    :width: 15em
+    :alt: USB breakout board
+
 SBU1 and SBU2 are swapped when turning the USB-C connector by 180°.
 
 Connect with the following settings (see :doc:`/how-to/uart-console`):
