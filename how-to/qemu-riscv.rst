@@ -9,8 +9,8 @@ installed:
 
 * ``opensbi`` -- OpenSBI implements the RISC-V SBI
 
-* ``qemu-system-misc`` (from :lp-pkg:`qemu`) -- :term:`QEMU` is used to emulate
-  a RISC-V machine
+* ``qemu-system-riscv64`` (from :lp-pkg:`qemu`) -- :term:`QEMU` is used to
+  emulate a RISC-V machine.
 
 * ``u-boot-qemu`` (from :lp-pkg:`u-boot`) -- U-Boot is the firmware
   implementing the :term:`UEFI` :term:`API` and loads :term:`GRUB`
@@ -20,7 +20,7 @@ The packages can be installed with the following commands:
 .. code-block:: text
 
     sudo apt update
-    sudo apt install opensbi qemu-system-misc u-boot-qemu
+    sudo apt install opensbi qemu-system-riscv64 u-boot-qemu
 
 
 Using the pre-installed server image
