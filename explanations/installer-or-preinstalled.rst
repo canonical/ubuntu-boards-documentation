@@ -50,18 +50,16 @@ and the selection of file-systems is essentially fixed.
     file-system, it is usually possible to convert a pre-installed image to
     btrfs before booting it for the first time.
 
-Installer images, via the `subiquity`_ installer, have the option to
-:external:doc:`configure their storage <howto/configure-storage>` including
-partition size, type, and file-system format selection.
+Installer images, via the `subiquity`_ installer, have the option to configure
+their storage including partition size, type, and file-system format selection.
 
 
 Automated installation
 ======================
 
-The installer images provide an :external:doc:`auto-install facility
-<tutorial/creating-autoinstall-configuration>` that can be used to automate the
-configuration of the new server, including user creation, package installation,
-and storage layout.
+The installer images provide an auto-install facility that can be used to
+automate the configuration of the new server, including user creation, package
+installation, and storage layout.
 
 The pre-installed images also provide an automated setup facility via the
 `cloud-init`_ service. Barring storage layout, which is essentially fixed in
