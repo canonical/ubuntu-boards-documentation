@@ -117,7 +117,10 @@ clean-doc:
 spellcheck: spellcheck-install
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
-spelling: html spellcheck
+#spelling: html spellcheck
+spelling: html
+	@echo spellcheck does not work in CI as of 2028-08-19.
+	@echo Please, run make spellcheck locally.
 
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
