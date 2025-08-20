@@ -134,18 +134,12 @@ Installing live server image
        :image-types: live-server
        :archs: riscv64
 
-#. Unpack the disk image:
-
-   .. code-block:: text
-
-       gzip -d ubuntu-24.04.2-live-server-riscv64.img.gz
-
 #. Create the disk image onto which you will install Ubuntu; 16 GiB should be
    enough
 
    .. code-block:: text
 
-       fallocate -l 16G disk
+       truncate -s 16G disk
 
 #. Start the installer with:
 
@@ -156,7 +150,7 @@ Installing live server image
            -netdev user,id=net0 \
            -device virtio-net-device,netdev=net0 \
            -drive file=disk,format=raw,if=virtio \
-           -drive file=ubuntu-24.04.2-live-server-riscv64.img,format=raw,if=virtio \
+           -drive file=ubuntu-24.04.3-live-server-riscv64.iso,format=raw,if=virtio \
            -device virtio-rng-pci
 
 #. Follow the installation steps in
