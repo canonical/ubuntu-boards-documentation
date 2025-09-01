@@ -58,13 +58,21 @@ Using the pre-installed server image
    .. code-block:: text
 
        qemu-system-riscv64 \
+           -cpu rva23s64 \
            -machine virt -nographic -m 2048 -smp 4 \
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
            -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
            -device virtio-rng-pci \
            -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio
 
-   The important options to use are:
+.. note::
+   Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only available
+   on qemu 10.1+.
+   If your qemu version is <10.1 (e.g. on Ubuntu 25.04 and below), you can only run
+   Ubuntu 25.04 and below. In that case, remove ``-cpu rva23s64``.
+
+
+The important options to use are:
 
    * QEMU's generic virtual platform is selected by ``-machine virt``
 
