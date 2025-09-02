@@ -58,13 +58,21 @@ Using the pre-installed server image
    .. code-block:: text
 
        qemu-system-riscv64 \
+           -cpu rva23s64 \
            -machine virt -nographic -m 2048 -smp 4 \
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
            -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
            -device virtio-rng-pci \
            -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio
 
-   The important options to use are:
+The important options to use are:
+   * ``-cpu`` controls the emulated CPU
+
+   .. note::
+      Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only available
+      on QEMU 10.1+.
+      If your QEMU version is <10.1 (e.g. on Ubuntu 25.04 and below), you can only run
+      Ubuntu 25.04 and below. In that case, remove ``-cpu rva23s64``.
 
    * QEMU's generic virtual platform is selected by ``-machine virt``
 
@@ -99,7 +107,7 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
     sudo apt-get install qemu-efi-riscv64
     cp /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd .
     /usr/bin/qemu-system-riscv64 \
-      -machine virt,acpi=off -m 4096 -smp 4 -cpu max \
+      -machine virt,acpi=off -m 4096 -smp 4 -cpu rva23s64 \
       -nographic \
       -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
       -drive if=pflash,format=raw,unit=0,file=RISCV_VIRT_VARS.fd,readonly=off \
@@ -145,7 +153,7 @@ Installing live server image
 
    .. code-block:: text
 
-       qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
+       qemu-system-riscv64 -cpu rva23s64 -machine virt -m 4G -smp cpus=2 -nographic \
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
            -netdev user,id=net0 \
            -device virtio-net-device,netdev=net0 \
@@ -173,7 +181,7 @@ To run your installed Ubuntu image use:
 
 .. code-block:: text
 
-    qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
+    qemu-system-riscv64 -cpu rva23s64 -machine virt -m 4G -smp cpus=2 -nographic \
         -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
         -netdev user,id=net0 \
         -device virtio-net-device,netdev=net0 \
