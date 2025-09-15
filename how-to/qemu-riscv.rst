@@ -110,8 +110,8 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
       -machine virt,acpi=off -m 4096 -smp 4 -cpu rva23s64 \
       -nographic \
       -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
-      -drive if=pflash,format=raw,unit=0,file=RISCV_VIRT_VARS.fd,readonly=off \
-      -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio \
+      -drive if=pflash,format=raw,unit=1,file=RISCV_VIRT_VARS.fd,readonly=off \
+      -drive file=ubuntu-24.04.3-preinstalled-server-riscv64.img,format=raw,if=virtio \
       -netdev user,id=net0 \
       -device virtio-net-device,netdev=net0 \
       -device virtio-rng-pci
