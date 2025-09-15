@@ -48,7 +48,7 @@ Using the pre-installed server image
 
    .. code-block:: text
 
-       xz -dk ubuntu-24.04.2-preinstalled-server-riscv64.img.xz
+       xz -dk ubuntu-*-preinstalled-server-riscv64.img.xz
 
 
 #. Optionally, if you want a larger disk, you can expand the disk (the
@@ -56,7 +56,7 @@ Using the pre-installed server image
 
    .. code-block:: text
 
-       qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
+       qemu-img resize -f raw ubuntu-*-preinstalled-server-riscv64.img +5G
 
 
 #. Next use u-boot-qemu to boot the virtual machine. A working example with all
@@ -70,7 +70,7 @@ Using the pre-installed server image
            -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
            -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
            -device virtio-rng-pci \
-           -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio
+           -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio
 
 The important options to use are:
    * ``-cpu`` controls the emulated CPU
@@ -118,7 +118,7 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
       -nographic \
       -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
       -drive if=pflash,format=raw,unit=1,file=RISCV_VIRT_VARS.fd,readonly=off \
-      -drive file=ubuntu-24.04.3-preinstalled-server-riscv64.img,format=raw,if=virtio \
+      -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio \
       -netdev user,id=net0 \
       -device virtio-net-device,netdev=net0 \
       -device virtio-rng-pci
@@ -165,7 +165,7 @@ Installing live server image
            -netdev user,id=net0 \
            -device virtio-net-device,netdev=net0 \
            -drive file=disk,format=raw,if=virtio \
-           -drive file=ubuntu-24.04.3-live-server-riscv64.iso,format=raw,if=virtio \
+           -drive file=ubuntu-*-live-server-riscv64.iso,format=raw,if=virtio \
            -device virtio-rng-pci
 
 #. Follow the installation steps in
