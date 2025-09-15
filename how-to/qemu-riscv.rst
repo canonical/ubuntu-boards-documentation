@@ -33,68 +33,79 @@ The packages can be installed with the following commands:
 Using the pre-installed server image
 ------------------------------------
 
-#. Download one of the supported images:
+* Download one of the supported images:
 
-   .. ubuntu-images::
-       :releases: noble-
-       :image-types: preinstalled-server
-       :archs: riscv64
-       :matches: (riscv64\.img)
+  .. ubuntu-images::
+      :releases: noble-
+      :image-types: preinstalled-server
+      :archs: riscv64
+      :matches: (riscv64\.img)
 
-   .. on jammy, use the +unmatched image for QEMU; later releases should use
-      the unsuffixed images, hence the horrid regex above
+  .. on jammy, use the +unmatched image for QEMU; later releases should use
+     the unsuffixed images, hence the horrid regex above
 
-#. Unpack the image:
+* Unpack the image:
 
-   .. code-block:: text
+  .. code-block:: text
 
-       xz -dk ubuntu-*-preinstalled-server-riscv64.img.xz
+      xz -dk ubuntu-*-preinstalled-server-riscv64.img.xz
+
+Running via U-Boot
+~~~~~~~~~~~~~~~~~~
+
+* Optionally, if you want a larger disk, you can expand the disk (the
+  file-system will be automatically resized too):
+
+  .. code-block:: text
+
+      qemu-img resize -f raw ubuntu-*-preinstalled-server-riscv64.img +5G
 
 
-#. Optionally, if you want a larger disk, you can expand the disk (the
-   file-system will be automatically resized too):
+* Next use u-boot-qemu to boot the virtual machine. A working example with all
+  the options is:
 
-   .. code-block:: text
+  .. code-block:: text
 
-       qemu-img resize -f raw ubuntu-*-preinstalled-server-riscv64.img +5G
+      qemu-system-riscv64 \
+          -cpu rva23s64 \
+          -machine virt -nographic -m 2048 -smp 4 \
+          -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
+          -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
+          -device virtio-rng-pci \
+          -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio
 
+  The important options to use are:
 
-#. Next use u-boot-qemu to boot the virtual machine. A working example with all
-   the options is:
+  -cpu
+      controls the emulated CPU
 
-   .. code-block:: text
+      .. note::
+          Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only
+          available on QEMU 10.1 or later.
+          If your QEMU version is preceding 10.1 (e.g. on Ubuntu 25.04 and
+          below), you can only run Ubuntu 25.04 and below. In that case, remove
+          ``-cpu rva23s64``.
 
-       qemu-system-riscv64 \
-           -cpu rva23s64 \
-           -machine virt -nographic -m 2048 -smp 4 \
-           -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
-           -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
-           -device virtio-rng-pci \
-           -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio
+  -machine
+      selects the platform emulated by QEMU.
 
-The important options to use are:
-   * ``-cpu`` controls the emulated CPU
+  -m
+      specifies the memory size
 
-   .. note::
-      Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only available
-      on QEMU 10.1+.
-      If your QEMU version is <10.1 (e.g. on Ubuntu 25.04 and below), you can only run
-      Ubuntu 25.04 and below. In that case, remove ``-cpu rva23s64``.
+  -smp
+      specifices the number of CPUs
 
-   * QEMU's generic virtual platform is selected by ``-machine virt``
+  -bios
+      This option can be used to select the first stage firmware by QEMU. Since
+      QEMU 7.0 this defaults to OpenSBI. On earlier version of QEMU to have to
+      explicitly specifify
+      ``-bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_dynamic.bin``.
 
-   * The first stage firmware booted by QEMU is OpenSBI. Before QEMU 7.0 this
-     had to be specified by the ``-bios`` option. This option is not needed
-     with QEMU 7.0 or higher. It cannot be used with KVM.
+  -kernel
+      Here the option is used load U-Boot as second stage boot-loader.
 
-   * The second stage firmware U-Boot is loaded into memory via ``-kernel
-     /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf``
-
-   One can use pass through networking, adjust memory (``-m``) and CPU counts
-   (``-smp``) as needed.
-
-#. Watch the serial console output and wait for cloud-init to complete. It will
-   show a line with the text 'Cloud-init finished':
+* Watch the serial console output and wait for cloud-init to complete. It will
+  show a line with the text 'Cloud-init finished' like:
 
    .. code-block:: text
 
@@ -104,7 +115,7 @@ The important options to use are:
    asked to choose a new password
 
 Running via EDK II
-------------------
+~~~~~~~~~~~~~~~~~~
 
 EDK II may be used instead of U-Boot to run RISC-V virtual machines.
 
@@ -123,7 +134,7 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
       -device virtio-net-device,netdev=net0 \
       -device virtio-rng-pci
 
-cloud-init integration
+Cloud-init integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The image provides a CIDATA partition as fallback data-source for `cloud-init`_.
