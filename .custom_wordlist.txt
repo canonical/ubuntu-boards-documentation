@@ -70,6 +70,7 @@ imager
 imx
 IMX
 INI
+ISA
 init
 initramfs
 inotify
@@ -128,6 +129,7 @@ RPI
 rpicam
 rtl
 RTS
+RVA
 SATA
 SBC
 SBCs
