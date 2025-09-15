@@ -5,89 +5,109 @@ Prerequisites
 -------------
 
 To boot a RISC-V virtual machine you will need the following packages
-installed:
 
-* ``opensbi`` -- OpenSBI implements the RISC-V SBI
+* :lp-pkg:`opensbi` -- OpenSBI implements the RISC-V
+  Supervisor Binary Interface (:term:`SBI`).
 
-* ``qemu-system-riscv64`` (from :lp-pkg:`qemu`) -- :term:`QEMU` is used to
+* :lp-pkg:`qemu-system-riscv64 <qemu>` -- :term:`QEMU` is used to
   emulate a RISC-V machine.
 
-* ``u-boot-qemu`` (from :lp-pkg:`u-boot`) -- U-Boot is the firmware
-  implementing the :term:`UEFI` :term:`API` and loads :term:`GRUB`
+and one of
+
+* :lp-pkg:`qemu-efi-riscv64 <edk2>` -- EDK II is the reference implementation
+  of the :term:`UEFI` :term:`API`.
+
+* :lp-pkg:`u-boot-qemu <u-boot>` -- U-Boot is another firmware. It implements a
+  subset of the UEFI API.
+
+installed.
 
 The packages can be installed with the following commands:
 
 .. code-block:: text
 
     sudo apt update
-    sudo apt install opensbi qemu-system-riscv64 u-boot-qemu
+    sudo apt install opensbi qemu-system-riscv64 qemu-efi-riscv64 u-boot-qemu
 
 
 Using the pre-installed server image
 ------------------------------------
 
-#. Download one of the supported images:
+* Download one of the supported images:
 
-   .. ubuntu-images::
-       :releases: noble-
-       :image-types: preinstalled-server
-       :archs: riscv64
-       :matches: (riscv64\.img)
+  .. ubuntu-images::
+      :releases: noble-
+      :image-types: preinstalled-server
+      :archs: riscv64
+      :matches: (riscv64\.img)
 
-   .. on jammy, use the +unmatched image for QEMU; later releases should use
-      the unsuffixed images, hence the horrid regex above
+  .. on jammy, use the +unmatched image for QEMU; later releases should use
+     the unsuffixed images, hence the horrid regex above
 
-#. Unpack the image:
+* Unpack the image:
 
-   .. code-block:: text
+  .. code-block:: text
 
-       xz -dk ubuntu-24.04.2-preinstalled-server-riscv64.img.xz
+      xz -dk ubuntu-*-preinstalled-server-riscv64.img.xz
+
+Running via U-Boot
+~~~~~~~~~~~~~~~~~~
+
+* Optionally, if you want a larger disk, you can expand the disk (the
+  file-system will be automatically resized too):
+
+  .. code-block:: text
+
+      qemu-img resize -f raw ubuntu-*-preinstalled-server-riscv64.img +5G
 
 
-#. Optionally, if you want a larger disk, you can expand the disk (the
-   file-system will be automatically resized too):
+* Next use u-boot-qemu to boot the virtual machine. A working example with all
+  the options is:
 
-   .. code-block:: text
+  .. code-block:: text
 
-       qemu-img resize -f raw ubuntu-24.04-preinstalled-server-riscv64.img +5G
+      qemu-system-riscv64 \
+        -machine virt -m 4G \
+        -cpu rva23s64 -smp cpus=2 \
+        -nographic \
+        -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
+        -netdev user,id=eth0 \
+        -device virtio-net-device,netdev=eth0 \
+        -device virtio-rng-pci \
+        -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio
 
+  The important options to use are:
 
-#. Next use u-boot-qemu to boot the virtual machine. A working example with all
-   the options is:
+  -cpu
+      controls the emulated CPU
 
-   .. code-block:: text
+      .. note::
+          Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only
+          available on QEMU 10.1 or later.
+          If your QEMU version is preceding 10.1 (e.g. on Ubuntu 25.04 and
+          below), you can only run Ubuntu 25.04 and below. In that case, remove
+          ``-cpu rva23s64``.
 
-       qemu-system-riscv64 \
-           -cpu rva23s64 \
-           -machine virt -nographic -m 2048 -smp 4 \
-           -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
-           -device virtio-net-device,netdev=eth0 -netdev user,id=eth0 \
-           -device virtio-rng-pci \
-           -drive file=ubuntu-24.04.2-preinstalled-server-riscv64.img,format=raw,if=virtio
+  -machine
+      selects the platform emulated by QEMU.
 
-The important options to use are:
-   * ``-cpu`` controls the emulated CPU
+  -m
+      specifies the memory size
 
-   .. note::
-      Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only available
-      on QEMU 10.1+.
-      If your QEMU version is <10.1 (e.g. on Ubuntu 25.04 and below), you can only run
-      Ubuntu 25.04 and below. In that case, remove ``-cpu rva23s64``.
+  -smp
+      specifices the number of CPUs
 
-   * QEMU's generic virtual platform is selected by ``-machine virt``
+  -bios
+      This option can be used to select the first stage firmware by QEMU. Since
+      QEMU 7.0 this defaults to OpenSBI. On earlier version of QEMU to have to
+      explicitly specifify
+      ``-bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_dynamic.bin``.
 
-   * The first stage firmware booted by QEMU is OpenSBI. Before QEMU 7.0 this
-     had to be specified by the ``-bios`` option. This option is not needed
-     with QEMU 7.0 or higher. It cannot be used with KVM.
+  -kernel
+      Here the option is used load U-Boot as second stage boot-loader.
 
-   * The second stage firmware U-Boot is loaded into memory via ``-kernel
-     /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf``
-
-   One can use pass through networking, adjust memory (``-m``) and CPU counts
-   (``-smp``) as needed.
-
-#. Watch the serial console output and wait for cloud-init to complete. It will
-   show a line with the text 'Cloud-init finished':
+* Watch the serial console output and wait for cloud-init to complete. It will
+  show a line with the text 'Cloud-init finished' like:
 
    .. code-block:: text
 
@@ -97,7 +117,7 @@ The important options to use are:
    asked to choose a new password
 
 Running via EDK II
-------------------
+~~~~~~~~~~~~~~~~~~
 
 EDK II may be used instead of U-Boot to run RISC-V virtual machines.
 
@@ -107,16 +127,22 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
     sudo apt-get install qemu-efi-riscv64
     cp /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd .
     /usr/bin/qemu-system-riscv64 \
-      -machine virt,acpi=off -m 4096 -smp 4 -cpu rva23s64 \
+      -machine virt,acpi=off -m 4G \
+      -cpu rva23s64 -smp cpus=2 \
       -nographic \
       -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
       -drive if=pflash,format=raw,unit=1,file=RISCV_VIRT_VARS.fd,readonly=off \
-      -drive file=ubuntu-24.04.3-preinstalled-server-riscv64.img,format=raw,if=virtio \
       -netdev user,id=net0 \
       -device virtio-net-device,netdev=net0 \
-      -device virtio-rng-pci
+      -device virtio-rng-pci \
+      -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio
 
-cloud-init integration
+.. note::
+
+    RISC-V virtual machines can be boot via device-tree (``acpi=off``) or via
+    ACPI (``acpi=on``). If ACPI is supported, depends on the kernel version.
+
+Cloud-init integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The image provides a CIDATA partition as fallback data-source for `cloud-init`_.
@@ -153,13 +179,16 @@ Installing live server image
 
    .. code-block:: text
 
-       qemu-system-riscv64 -cpu rva23s64 -machine virt -m 4G -smp cpus=2 -nographic \
-           -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
-           -netdev user,id=net0 \
-           -device virtio-net-device,netdev=net0 \
-           -drive file=disk,format=raw,if=virtio \
-           -drive file=ubuntu-24.04.3-live-server-riscv64.iso,format=raw,if=virtio \
-           -device virtio-rng-pci
+       qemu-system-riscv64
+         -machine virt -m 4G \
+         -machine virt -m 4096 -smp cpus=2 \
+         -nographic \
+         -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
+         -netdev user,id=net0 \
+         -device virtio-net-device,netdev=net0 \
+         -device virtio-rng-pci \
+         -drive file=disk,format=raw,if=virtio \
+         -drive file=ubuntu-*-live-server-riscv64.iso,format=raw,if=virtio
 
 #. Follow the installation steps in
    `Ubuntu Server installation tutorial
@@ -181,12 +210,15 @@ To run your installed Ubuntu image use:
 
 .. code-block:: text
 
-    qemu-system-riscv64 -cpu rva23s64 -machine virt -m 4G -smp cpus=2 -nographic \
-        -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
-        -netdev user,id=net0 \
-        -device virtio-net-device,netdev=net0 \
-        -drive file=disk,format=raw,if=virtio \
-        -device virtio-rng-pci
+    qemu-system-riscv64
+      -cpu rva23s64
+      -machine virt,acpi=off -m 4G -smp cpus=2 \
+      -nographic \
+      -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
+      -netdev user,id=net0 \
+      -device virtio-net-device,netdev=net0 \
+      -device virtio-rng-pci \
+      -drive file=disk,format=raw,if=virtio
 
 
 Cloud-init seed
