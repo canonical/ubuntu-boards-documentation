@@ -10,10 +10,10 @@ installed:
 * :lp-pkg:`opensbi` -- OpenSBI implements the RISC-V
   Supervisor Binary Interface (:term:`SBI`).
 
-* ``qemu-system-riscv64`` (from :lp-pkg:`qemu`) -- :term:`QEMU` is used to
+* :lp-pkg:`qemu-system-riscv64 <qemu>` -- :term:`QEMU` is used to
   emulate a RISC-V machine.
 
-* ``u-boot-qemu`` (from :lp-pkg:`u-boot`) -- U-Boot is the firmware
+* :lp-pkg:`u-boot-qemu <u-boot>` -- U-Boot is the firmware
   implementing the :term:`UEFI` :term:`API` and loads :term:`GRUB`
 
 The packages can be installed with the following commands:
