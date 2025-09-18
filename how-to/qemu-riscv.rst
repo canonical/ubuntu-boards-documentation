@@ -6,7 +6,7 @@ Prerequisites
 
 To boot a RISC-V virtual machine you will need the following packages
 
-* :lp-pkg:`opensbi` -- OpenSBI implements the RISC-V
+* :lp-pkg:`opensbi` -- :term:`OpenSBI` implements the RISC-V
   Supervisor Binary Interface (:term:`SBI`).
 
 * :lp-pkg:`qemu-system-riscv64 <qemu>` -- :term:`QEMU` is used to
@@ -42,16 +42,13 @@ Using the pre-installed server image
       :matches: (riscv64\.img)
 
   .. on jammy, use the +unmatched image for QEMU; later releases should use
-     the unsuffixed images, hence the horrid regex above
+     the unsuffixed images, hence the horrid regex above.
 
 * Unpack the image:
 
   .. code-block:: text
 
       xz -dk ubuntu-*-preinstalled-server-riscv64.img.xz
-
-Running via U-Boot
-~~~~~~~~~~~~~~~~~~
 
 * Optionally, if you want a larger disk, you can expand the disk (the
   file-system will be automatically resized too):
@@ -61,18 +58,21 @@ Running via U-Boot
       qemu-img resize -f raw ubuntu-*-preinstalled-server-riscv64.img +5G
 
 
-* Next use u-boot-qemu to boot the virtual machine. A working example with all
+Running via U-Boot
+~~~~~~~~~~~~~~~~~~
+
+* Next use U-Boot to boot the virtual machine. A working example with all
   the options is:
 
   .. code-block:: text
 
       qemu-system-riscv64 \
-        -machine virt -m 4G \
-        -cpu rva23s64 -smp cpus=2 \
+        -cpu rva23s64 \
+        -machine virt -m 4G -smp cpus=2 \
         -nographic \
         -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
-        -netdev user,id=eth0 \
-        -device virtio-net-device,netdev=eth0 \
+        -netdev user,id=net0 \
+        -device virtio-net-device,netdev=net0 \
         -device virtio-rng-pci \
         -drive file=ubuntu-*-preinstalled-server-riscv64.img,format=raw,if=virtio
 
@@ -82,6 +82,7 @@ Running via U-Boot
       controls the emulated CPU
 
       .. note::
+
           Ubuntu release 25.10 requires the RVA23S64 ISA profile, which is only
           available on QEMU 10.1 or later.
           If your QEMU version is preceding 10.1 (e.g. on Ubuntu 25.04 and
@@ -111,10 +112,11 @@ Running via U-Boot
 
   .. code-block:: text
 
-      [   68.346028] cloud-init[703]: Cloud-init v. 22.2-0ubuntu1~20.04.3 finished at Thu, 22 Sep 2022 11:35:28 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 68.26 seconds
+      [......] cloud-init[...]: Cloud-init v. ... finished at ...  Up ... seconds
 
 * Login with the user *ubuntu* and the default password *ubuntu*; you will be
-  asked to choose a new password
+  asked to choose a new password.
+
 
 Running via EDK II
 ~~~~~~~~~~~~~~~~~~
@@ -123,12 +125,12 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
 
 .. code-block:: text
 
-    sudo apt-get update
-    sudo apt-get install qemu-efi-riscv64
+    sudo apt update
+    sudo apt install qemu-efi-riscv64
     cp /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd .
-    /usr/bin/qemu-system-riscv64 \
-      -machine virt,acpi=off -m 4G \
-      -cpu rva23s64 -smp cpus=2 \
+    qemu-system-riscv64 \
+      -cpu rva23s64 \
+      -machine virt,acpi=off -m 4G -smp cpus=2 \
       -nographic \
       -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on \
       -drive if=pflash,format=raw,unit=1,file=RISCV_VIRT_VARS.fd,readonly=off \
@@ -142,17 +144,12 @@ EDK II may be used instead of U-Boot to run RISC-V virtual machines.
     RISC-V virtual machines can be boot via device-tree (``acpi=off``) or via
     ACPI (``acpi=on``). If ACPI is supported, depends on the kernel version.
 
-Cloud-init integration
-~~~~~~~~~~~~~~~~~~~~~~
 
-The image provides a CIDATA partition as fallback data-source for `cloud-init`_.
-It configures sudo user ubuntu with password ubuntu and uses DHCP to set up
-networking. You will be asked to change the password on first login.
+Cloud-init seed
+~~~~~~~~~~~~~~~
 
-If you wish to customize the user password, networking information, or add SSH
-keys, etc., please, mount the CIDATA partition, and adjust the meta-data and
-user-data files as needed. In a cloud setup you can rename or delete the files
-to ensure that only data provided via the network is used.
+Sample files for a cloud-init seed are present on the FAT partition labeled
+"CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
 Using the live server image
@@ -169,19 +166,19 @@ Installing live server image
        :archs: riscv64
 
 #. Create the disk image onto which you will install Ubuntu; 16 GiB should be
-   enough
+   enough:
 
    .. code-block:: text
 
        truncate -s 16G disk
 
-#. Start the installer with:
+#. Start the installer with (using U-Boot as example):
 
    .. code-block:: text
 
        qemu-system-riscv64 \
-         -machine virt -m 4G \
-         -cpu rva23s64 -smp cpus=2 \
+         -cpu rva23s64 \
+         -machine virt -m 4G -smp cpus=2 \
          -nographic \
          -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
          -netdev user,id=net0 \
@@ -192,15 +189,17 @@ Installing live server image
 
 #. Follow the installation steps in
    `Ubuntu Server installation tutorial
-   <https://ubuntu.com/tutorials/install-ubuntu-server>`_
+   <https://ubuntu.com/tutorials/install-ubuntu-server>`_.
 
 When rebooting we have to remove the installer image. Otherwise the installer
-will restart.
+may restart.
 
-U-Boot gives you a 2 second time window to press the Enter key to reach the
-U-Boot console. In U-Boot’s console you can use the poweroff command to stop
+.. restarting or not depends on the order of drives.
+
+U-Boot gives you a 2-second time window to press the Enter key to reach the
+U-Boot console. In U-Boot's console you can use the ``poweroff`` command to stop
 QEMU. Another option to exit QEMU is pressing keys ``CTRL-a`` followed by key
-``x``.
+``x``. You can get quick help by pressing keys ``CTRL-a`` followed by key ``h``.
 
 
 Running Ubuntu
@@ -210,22 +209,15 @@ To run your installed Ubuntu image use:
 
 .. code-block:: text
 
-    qemu-system-riscv64
-      -cpu rva23s64
-      -machine virt,acpi=off -m 4G -smp cpus=2 \
+    qemu-system-riscv64 \
+      -cpu rva23s64 \
+      -machine virt -m 4G -smp cpus=2 \
       -nographic \
       -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
       -netdev user,id=net0 \
       -device virtio-net-device,netdev=net0 \
       -device virtio-rng-pci \
       -drive file=disk,format=raw,if=virtio
-
-
-Cloud-init seed
-~~~~~~~~~~~~~~~
-
-Sample files for a cloud-init seed are present on the FAT partition labeled
-"CIDATA". See :doc:`/how-to/headless-usage` for more information.
 
 
 Limitations
