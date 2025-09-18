@@ -181,7 +181,7 @@ Installing live server image
 
        qemu-system-riscv64
          -machine virt -m 4G \
-         -machine virt -m 4096 -smp cpus=2 \
+         -cpu rva23s64 -smp cpus=2 \
          -nographic \
          -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
          -netdev user,id=net0 \
