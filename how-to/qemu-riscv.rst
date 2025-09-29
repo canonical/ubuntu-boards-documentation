@@ -179,7 +179,7 @@ Installing live server image
 
    .. code-block:: text
 
-       qemu-system-riscv64
+       qemu-system-riscv64 \
          -machine virt -m 4G \
          -cpu rva23s64 -smp cpus=2 \
          -nographic \
