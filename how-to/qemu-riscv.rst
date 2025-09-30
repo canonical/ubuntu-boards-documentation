@@ -112,7 +112,7 @@ Running via U-Boot
 
   .. code-block:: text
 
-      [......] cloud-init[...]: Cloud-init v. ... finished at ...  Up ... seconds
+      [   68.346028] cloud-init[703]: Cloud-init v. 22.2-0ubuntu1~20.04.3 finished at Thu, 22 Sep 2022 11:35:28 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 68.26 seconds
 
 * Login with the user *ubuntu* and the default password *ubuntu*; you will be
   asked to choose a new password.
