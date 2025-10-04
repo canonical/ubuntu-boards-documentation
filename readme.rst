@@ -11,6 +11,8 @@ Ubuntu on a variety of single board computers (SBCs).
 
 Contributions in the form of pull requests are welcome. The documentation is
 written in reStructuredText under the popular Sphinx documentation system.
+Please note that all commits need to be signed with your GPG key and have a
+``Signed-off-by:`` line.
 
 The generated documentation is available at
 https://canonical-ubuntu-boards.readthedocs-hosted.com/.
