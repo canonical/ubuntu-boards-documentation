@@ -9,3 +9,4 @@ for single board computers.
     :maxdepth: 1
 
     installer-or-preinstalled
+    piboot-ab
