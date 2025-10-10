@@ -4,7 +4,7 @@ A/B boot on Ubuntu for Raspberry Pi
 
 From Ubuntu questing (25.10) onwards, the boot sequence for Ubuntu on the
 Raspberry Pi includes a fallback mechanism (commonly known as an A/B boot
-mechanism). This is implemented by a new command, :manpage:`piboot-try(8)` and
+mechanism). This is implemented by a new command, ``piboot-try`` and
 two "one-shot" systemd services, ``piboot-try-reboot.service`` and
 ``piboot-try-validate.service``. This mechanism is enabled on *all* Pi models
 supported by Ubuntu.
@@ -97,7 +97,7 @@ good
 
 unknown
     The boot assets have not yet been booted. The :file:`new/state` file will
-    contain this immediately after a run of :manpage:`flash-kernel(8)`.
+    contain this immediately after a run of ``flash-kernel``.
 
 trying
     The boot assets are currently being tested. The :file:`new/state` file will
@@ -118,7 +118,7 @@ Testing new boot assets
 =======================
 
 Installation of new boot assets is handled, as ever, by the
-:manpage:`flash-kernel(8)` command. This is automatically called in response to
+``flash-kernel`` command. This is automatically called in response to
 several changes, including installation of a new kernel version, re-building of
 the initramfs, or upgrades of flash-kernel itself. It may also be called
 manually to write new copies of the boot assets to the boot partition.
@@ -194,7 +194,7 @@ Kernel failure
 
         Note that on the Pi 5 there is a failure mode in which a corrupted
         kernel is not recognized as "Pi 5 compatible". In this case,
-        unfortunately, the bootloader simply hangs. Still, a power-cycle will
+        unfortunately, the bootloader simply freezes. Still, a power-cycle will
         reliably fallback in this scenario.
 
 Initramfs failure
@@ -277,7 +277,7 @@ Advanced operation
 ==================
 
 If required, the double-boot can be avoided by using the
-:manpage:`piboot-try(8)` command. This has a number of options that can be used
+``piboot-try`` command. This has a number of options that can be used
 to check the status of boot assets, to force a reboot into the "tryboot"
 mode immediately, to restore prior state, and reset failed assets.
 
