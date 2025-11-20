@@ -38,9 +38,9 @@ boot from UART.
 UART console
 ============
 
-The :term:`UART` is available via the :term:`GPIO` connector. Assuming the
-typical coloring of USB to :term:`TTL` serial adapters the following
-connections have to be made:
+The :term:`UART` is available on the Waveshare CM4-IO-BASE-A board via the
+:term:`GPIO` connector. Assuming the typical coloring of USB to :term:`TTL`
+serial adapters the following connections have to be made:
 
 =========== ==========
 Board       Adapter
