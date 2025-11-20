@@ -198,7 +198,7 @@ Kernel failure
         reliably fallback in this scenario.
 
 Initramfs failure
-    In the event that the initramfs fails, the default behaviour in prior
+    In the event that the initramfs fails, the default behavior in prior
     releases is to drop to a busybox shell for remediation. In questing (25.10)
     onwards, the aforementioned ``panic=10`` setting prevents this and causes a
     reset instead, falling back to the "known good" assets [#enable-busybox]_.
