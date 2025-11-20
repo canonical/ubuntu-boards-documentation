@@ -15,6 +15,7 @@ hardware under Ubuntu.
     microchip-pic64gx1000-discovery
     microchip-polarfire-icicle
     milk-v-mars
+    milk-v-mars-cm
     pine64-star64
     qemu-riscv
     raspberry-pi

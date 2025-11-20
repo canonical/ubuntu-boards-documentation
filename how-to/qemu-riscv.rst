@@ -78,7 +78,7 @@ Running via U-Boot
 
   The important options to use are:
 
-  -cpu
+  \-cpu
       controls the emulated CPU
 
       .. note::
@@ -89,22 +89,22 @@ Running via U-Boot
           below), you can only run Ubuntu 25.04 and below. In that case, remove
           ``-cpu rva23s64``.
 
-  -machine
+  \-machine
       selects the platform emulated by QEMU.
 
-  -m
+  \-m
       specifies the memory size
 
-  -smp
-      specifices the number of CPUs
+  \-smp
+      specifies the number of CPUs
 
-  -bios
+  \-bios
       This option can be used to select the first stage firmware by QEMU. Since
       QEMU 7.0 this defaults to OpenSBI. On earlier version of QEMU to have to
-      explicitly specifify
+      explicitly specify
       ``-bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_dynamic.bin``.
 
-  -kernel
+  \-kernel
       Here the option is used load U-Boot as second stage boot-loader.
 
 * Watch the serial console output and wait for cloud-init to complete. It will

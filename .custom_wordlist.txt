@@ -1,6 +1,7 @@
 # This is the list of project specific vocabulary for the spellchecker
 
 acat
+ACPI
 adapter
 adapters
 Allwinner
@@ -13,14 +14,16 @@ baudrate
 bootloader
 Bootloader
 btrfs
+busybox
 cacher
 CIDATA
 CPU
 CPUs
 CSI
 chmod
-config
 cmdline
+config
+cpu
 Ctrl
 CTS
 de
@@ -38,7 +41,9 @@ EDID
 EDK
 eeprom
 EEPROM
+efi
 eMMC
+eth
 ethernet
 facto
 Fi
@@ -103,8 +108,11 @@ netplan
 Netplan
 Nezha
 ng
+nRPIBOOT
 NVMe
+opensbi
 OpenSBI
+onwards
 OTG
 OV
 passwd
@@ -119,11 +127,15 @@ poweroff
 PPA
 PolarFire
 pwauth
+PWR
 qcam
 qemu
 QEMU
 QEMU's
 QSPI
+Quokka
+riscv
+rootfs
 rpi
 RPI
 rpicam
@@ -149,7 +161,10 @@ StarFive
 subiquity
 sudo
 sunxi
+systemd
+Systemd
 TFTP
+tryboot
 TTL
 tty
 ttyACM
@@ -163,9 +178,11 @@ UARTs
 UART's
 ubuntu
 UEFI
+unpatched
 userland
 usr
 VisionFive
+Waveshare
 whois
 Wi
 wifi
