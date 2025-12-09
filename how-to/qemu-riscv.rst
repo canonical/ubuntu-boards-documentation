@@ -68,7 +68,7 @@ Running via U-Boot
 
       qemu-system-riscv64 \
         -cpu rva23s64 \
-        -machine virt -m 4G -smp cpus=2 \
+        -machine virt,acpi=off -m 4G -smp cpus=2 \
         -nographic \
         -kernel /usr/lib/u-boot/qemu-riscv64_smode/uboot.elf \
         -netdev user,id=net0 \
@@ -178,7 +178,7 @@ Installing live server image
 
        qemu-system-riscv64 \
          -cpu rva23s64 \
-         -machine virt -m 4G -smp cpus=2 \
+         -machine virt,acpi=off -m 4G -smp cpus=2 \
          -nographic \
          -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
          -netdev user,id=net0 \
@@ -211,7 +211,7 @@ To run your installed Ubuntu image use:
 
     qemu-system-riscv64 \
       -cpu rva23s64 \
-      -machine virt -m 4G -smp cpus=2 \
+      -machine virt,acpi=off -m 4G -smp cpus=2 \
       -nographic \
       -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
       -netdev user,id=net0 \
