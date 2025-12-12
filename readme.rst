@@ -1,9 +1,12 @@
-.. image:: https://app.readthedocs.com/projects/canonical-ubuntu-boards/badge/?version=latest
-   :target: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/?badge=latest
-   :alt: Documentation Status
-
 Ubuntu Boards documentation
 ===========================
+
+    ⚠️ **This repo is archived** ⚠️
+
+    * New repo: https://github.com/canonical/ubuntu-hw-support
+    * Docs at: https://canonical-ubuntu-hardware-support.readthedocs-hosted.com/
+
+---
 
 This repository holds the source to the Ubuntu Boards documentation. Formerly
 hosted on the Ubuntu wiki, this is the guide to installation and usage of
